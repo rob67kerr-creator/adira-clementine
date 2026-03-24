@@ -291,24 +291,8 @@ footer a:hover{color:var(--orange)}
 <script>
 function openCheckout(e){
   e.preventDefault();
-  const modal=document.getElementById('coModal');
-  const frame=document.getElementById('coFrame');
-  if(!frame.src||frame.src===window.location.href){
-    frame.src='https://bookshelfbliss.com/products/comics-subscription';
-  }
-  modal.classList.add('open');
-  document.body.style.overflow='hidden';
+  window.open('https://bookshelfbliss.com/products/comics-subscription','_blank');
 }
-function closeCheckout(){
-  document.getElementById('coModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.getElementById('coModal').addEventListener('click',function(e){
-  if(e.target===this)closeCheckout();
-});
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape')closeCheckout();
-});
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
 },{threshold:.1});
@@ -316,4 +300,3 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
-
