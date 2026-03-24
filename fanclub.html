@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Fan Club — Adira Clementine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--yellow:#FFE600;--orange:#FF6B00;--red:#E8220A;--ink:#0A0806;--white:#FFFEF5;--b:4px solid #0A0806}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:'Barlow',sans-serif;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,#0A080610 1px,transparent 1px);background-size:6px 6px;pointer-events:none;z-index:999}
+
+.hero{position:relative;background:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem 6rem;overflow:hidden}
+.hero-lines{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%,#1a1208 0deg,#251c0e 1.6deg,#1a1208 3.2deg);opacity:.65}
+.hero-vig{position:absolute;inset:0;background:radial-gradient(ellipse 90% 80% at 50% 50%,transparent 20%,rgba(10,8,6,.82) 75%)}
+.hero-logo{position:relative;z-index:2;width:clamp(70px,14vw,105px);margin-bottom:1.2rem;filter:invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1)}
+.hero-presents{position:relative;z-index:2;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.55em;text-transform:uppercase;color:#7a6a50;margin-bottom:.4rem}
+.hero-title{position:relative;z-index:2;font-family:'Bangers',cursive;font-size:clamp(4rem,20vw,14rem);line-height:.85;letter-spacing:.04em;color:var(--white);text-shadow:5px 5px 0 var(--orange),10px 10px 0 var(--red);animation:pop .5s cubic-bezier(.22,1.6,.36,1) both}
+.hero-title span{display:block;color:var(--yellow);-webkit-text-stroke:2px var(--red);text-shadow:4px 4px 0 var(--ink)}
+.hero-tagline{position:relative;z-index:2;font-family:'Bangers',cursive;font-size:clamp(1.1rem,3.5vw,2rem);color:var(--orange);margin:1.2rem 0 .5rem;letter-spacing:.06em;text-shadow:2px 2px 0 var(--ink)}
+.hero-sub{position:relative;z-index:2;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:clamp(.92rem,2.4vw,1.25rem);color:#c8b890;line-height:1.55;max-width:500px;margin:0 auto 2rem}
+.hero-price{position:relative;z-index:2;background:var(--yellow);border:var(--b);padding:.5em 1.8em;margin-bottom:2rem;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);display:inline-flex;align-items:baseline;gap:.4rem}
+.hero-price .amt{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;line-height:1;color:var(--ink)}
+.hero-price .mo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;color:var(--red);align-self:center}
+.hero-price .lock{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;color:#5a3a15;letter-spacing:.06em;text-transform:uppercase;margin-left:.4rem;align-self:center}
+
+.big-btn{display:inline-block;background:var(--red);color:var(--white);font-family:'Bangers',cursive;font-size:clamp(1.6rem,5vw,3rem);letter-spacing:.08em;padding:.55em 1.4em;text-decoration:none;border:var(--b);box-shadow:8px 8px 0 var(--ink);transition:transform .1s,box-shadow .1s,background .1s;cursor:pointer;line-height:1.1;position:relative;z-index:2}
+.big-btn:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--ink);background:var(--orange)}
+.big-btn:active{transform:translate(2px,2px);box-shadow:5px 5px 0 var(--ink)}
+
+.hero-fine{position:relative;z-index:2;margin-top:1rem;font-size:.74rem;color:#5a4f38;letter-spacing:.15em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+.spots-warn{position:relative;z-index:2;margin-top:1.4rem;border:2px solid var(--orange);padding:.55rem 1.3rem;display:inline-block}
+.spots-warn p{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.1em;color:var(--orange)}
+.spots-warn strong{color:var(--yellow)}
+.scroll-hint{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;color:#5a4f38;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;animation:pulse 2s infinite}
+.scroll-hint .sl{width:1px;height:40px;background:linear-gradient(var(--orange),transparent)}
+
+/* TICKER */
+.ticker{position:relative;z-index:2;background:var(--yellow);border-top:var(--b);border-bottom:var(--b);overflow:hidden;padding:.85rem 0}
+.ticker-track{display:flex;width:max-content;animation:ticker 16s linear infinite;gap:2.5rem}
+.ticker-track span{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.12em;color:var(--ink);flex-shrink:0}
+.ticker-track .s{color:var(--red)}
+
+/* SECTIONS */
+.section{position:relative;z-index:1}
+.wrap{max-width:960px;margin:0 auto;padding:5rem 1.5rem}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:.72rem;letter-spacing:.5em;text-transform:uppercase;color:var(--red);margin-bottom:.5rem}
+.big-h{font-family:'Bangers',cursive;font-size:clamp(2.8rem,9vw,6rem);line-height:.95;letter-spacing:.04em;color:var(--ink)}
+.big-h em{color:var(--red);font-style:normal}
+
+/* PERKS */
+.perks-section{background:var(--white);border-bottom:var(--b)}
+.perk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:var(--b);margin-top:2.5rem}
+.perk{padding:2rem 1.6rem 2.2rem;border-right:var(--b);border-bottom:var(--b);background:var(--white);position:relative;transition:background .12s}
+.perk:hover{background:var(--yellow)}
+@media(max-width:700px){.perk{border-right:none}}
+.perk-n{position:absolute;top:.3rem;right:.7rem;font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;color:var(--red);opacity:.12}
+.perk-icon{font-size:2rem;display:block;margin-bottom:.7rem}
+.perk-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.04em;color:var(--ink);margin-bottom:.35rem}
+.perk-copy{font-size:.88rem;line-height:1.6;color:#4a3f2a}
+
+/* EPISODES */
+.ep-section{background:var(--ink);border-bottom:var(--b)}
+.ep-section .big-h{color:var(--white)}
+.ep-section .big-h em{color:var(--yellow)}
+.ep-section .eyebrow{color:var(--orange)}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0;border:var(--b);margin-top:2.5rem}
+.ep-card{position:relative;overflow:hidden;aspect-ratio:2/3;border-right:3px solid #2a2015;border-bottom:3px solid #2a2015}
+.ep-card img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.3) sepia(.5)}
+.ep-lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;padding:.5rem}
+.ep-lock-icon{font-size:2rem;line-height:1}
+.ep-label{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.1em;color:var(--yellow);text-align:center;line-height:1.2}
+.ep-status{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);text-align:center}
+.ep-cta{margin-top:3rem;text-align:center}
+.ep-sub{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:1.15rem;color:#9a8a6a;line-height:1.5;margin:1rem auto 2.5rem;max-width:520px}
+
+/* URGENCY */
+.urgency{background:var(--red);border-bottom:var(--b)}
+.urgency-inner{max-width:960px;margin:0 auto;padding:5rem 1.5rem;text-align:center}
+.urgency-inner .big-h{color:var(--white);text-shadow:3px 3px 0 var(--ink)}
+.urgency-inner .big-h em{color:var(--yellow)}
+.urgency-copy{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:clamp(1.1rem,3vw,1.55rem);color:rgba(255,254,245,.88);line-height:1.5;max-width:600px;margin:1.2rem auto 2.5rem}
+.counter-box{display:inline-flex;flex-direction:column;align-items:center;background:var(--ink);border:4px solid var(--yellow);padding:1.5rem 3rem;margin-bottom:2.5rem}
+.counter-num{font-family:'Bebas Neue',sans-serif;font-size:5.5rem;line-height:1;color:var(--yellow);letter-spacing:-.02em}
+.counter-label{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;color:var(--orange)}
+.urgency-fine{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;color:rgba(255,254,245,.55);letter-spacing:.1em;text-transform:uppercase;margin-top:1rem}
+
+/* FINAL */
+.final{background:var(--ink);border-bottom:var(--b);position:relative;overflow:hidden}
+.final-lines{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%,#1a1208 0deg,#251c0e 1.6deg,#1a1208 3.2deg);opacity:.5}
+.final-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:7rem 1.5rem;text-align:center}
+.final-inner .big-h{color:var(--white)}
+.final-inner .big-h em{color:var(--yellow)}
+.final-sub{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:1.25rem;color:#c8b890;line-height:1.5;max-width:480px;margin:1rem auto 2.5rem}
+.final-fine{margin-top:1.4rem;font-size:.74rem;color:#5a4f38;letter-spacing:.12em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+
+footer{background:var(--ink);padding:2rem 1.5rem;text-align:center;border-top:var(--b)}
+footer p{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.18em;color:#5a4f38;text-transform:uppercase}
+footer a{color:#7a6a50;text-decoration:none}
+footer a:hover{color:var(--orange)}
+
+/* CHECKOUT MODAL */
+.co-wrap{display:none;position:fixed;inset:0;z-index:10000;background:rgba(10,8,6,.92);align-items:flex-start;justify-content:center;padding:40px 16px 24px;overflow-y:auto}
+.co-wrap.open{display:flex}
+.co-modal{background:var(--white);border:var(--b);box-shadow:10px 10px 0 var(--ink);width:100%;max-width:700px;position:relative;flex-shrink:0}
+.co-bar{background:var(--ink);padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:var(--b)}
+.co-bar-title{font-family:'Bangers',cursive;font-size:1.4rem;letter-spacing:.08em;color:var(--yellow)}
+.co-close{background:var(--red);border:2px solid var(--white);color:var(--white);font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.1em;padding:.25em .9em;cursor:pointer;transition:background .1s}
+.co-close:hover{background:var(--orange)}
+.co-frame{width:100%;min-height:650px;border:none;display:block}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.reveal.on{opacity:1;transform:none}
+
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-lines"></div>
+  <div class="hero-vig"></div>
+  <img class="hero-logo" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Cookie_logo_black.jpg?v=1773676495" alt="Vista Comics">
+  <p class="hero-presents">Vista Comics Company Presents</p>
+  <h1 class="hero-title">Adira<span>Clementine</span></h1>
+  <p class="hero-tagline">💥 The Wildest. Most Unhinged. Most Unpredictable Comic on the Internet. 💥</p>
+  <p class="hero-sub">A brand new episode of pure glorious chaos — every single month — and you can lock in your spot at the founding price. Forever.</p>
+  <div class="hero-price">
+    <span class="amt">$5</span>
+    <span class="mo">/month</span>
+    <span class="lock">🔒 Founder's Price — Locked Forever</span>
+  </div>
+  <a href="#" class="big-btn" onclick="openCheckout(event)">⚡ CLAIM MY FOUNDER'S SPOT ⚡</a>
+  <p class="hero-fine">Cancel anytime &nbsp;·&nbsp; Instant access &nbsp;·&nbsp; Secure checkout</p>
+  <div class="spots-warn">
+    <p>🔥 Only <strong>200</strong> Founder spots exist at this price — ever.</p>
+  </div>
+  <div class="scroll-hint">
+    <span>What you get</span>
+    <div class="sl"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>WACKY</span><span class="s">💥</span><span>HILARIOUS</span><span class="s">⚡</span><span>UNPREDICTABLE</span><span class="s">🎨</span><span>UPROARIOUS</span><span class="s">💥</span><span>MANIC HUMOR</span><span class="s">⚡</span><span>OFF-BEAT</span><span class="s">🎨</span><span>BERSERK</span><span class="s">💥</span><span>UNHINGED</span><span class="s">⚡</span><span>EXPLOSIVE</span><span class="s">🎨</span><span>ORIGINAL</span><span class="s">💥</span><span>FOURTH-WALL SHATTERING</span><span class="s">⚡</span><span>WACKY</span><span class="s">💥</span><span>HILARIOUS</span><span class="s">⚡</span><span>UNPREDICTABLE</span><span class="s">🎨</span><span>UPROARIOUS</span><span class="s">💥</span><span>MANIC HUMOR</span><span class="s">⚡</span><span>OFF-BEAT</span><span class="s">🎨</span><span>BERSERK</span><span class="s">💥</span><span>UNHINGED</span><span class="s">⚡</span><span>EXPLOSIVE</span><span class="s">🎨</span><span>ORIGINAL</span><span class="s">💥</span><span>FOURTH-WALL SHATTERING</span><span class="s">⚡</span>
+  </div>
+</div>
+
+<!-- PERKS -->
+<section class="section perks-section" id="perks">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Fan Club Members Only</p>
+      <h2 class="big-h">Here's Exactly What<br>You <em>Get</em></h2>
+    </div>
+    <div class="perk-grid reveal">
+      <div class="perk">
+        <span class="perk-n">01</span>
+        <span class="perk-icon">📖</span>
+        <p class="perk-title">Director's Cut Episodes</p>
+        <p class="perk-copy">Exclusive panels + 3 bonus pages every single month that exist nowhere else. The full uncut version. Yours alone.</p>
+      </div>
+      <div class="perk">
+        <span class="perk-n">02</span>
+        <span class="perk-icon">🎥</span>
+        <p class="perk-title">Unprecedented Creator Access</p>
+        <p class="perk-copy">Private creator video conferences. You're in the room where it all happens — a fly on the wall as the chaos gets made.</p>
+      </div>
+      <div class="perk">
+        <span class="perk-n">03</span>
+        <span class="perk-icon">🌟</span>
+        <p class="perk-title">Your Name in the Credits</p>
+        <p class="perk-copy">Every Fan Club member gets their name in the credits of an actual Adira Clementine episode. Published. Online. Permanent. Your name. In the comic.</p>
+      </div>
+      <div class="perk">
+        <span class="perk-n">04</span>
+        <span class="perk-icon">📰</span>
+        <p class="perk-title">Quarterly Insider Newsletter</p>
+        <p class="perk-copy">Future storylines, exclusive interviews, first looks at upcoming Vista Comics projects. You'll know things others don't.</p>
+      </div>
+      <div class="perk">
+        <span class="perk-n">05</span>
+        <span class="perk-icon">🛍️</span>
+        <p class="perk-title">Exclusive Merch Discounts</p>
+        <p class="perk-copy">Founders get priority discounts on all Adira Clementine merch. It's cool stuff. You'll want it. You'll be glad you're in.</p>
+      </div>
+      <div class="perk" style="background:var(--yellow)">
+        <span class="perk-n" style="opacity:.15">🔒</span>
+        <span class="perk-icon">⚡</span>
+        <p class="perk-title">Locked Price. Forever.</p>
+        <p class="perk-copy">$5/month for life — as long as you stay. Once 200 Founder spots are gone, new members pay $12. No exceptions. No second chances.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem" class="reveal">
+      <a href="#" class="big-btn" onclick="openCheckout(event)">⚡ I Want All of This — $5/Month ⚡</a>
+      <p style="margin-top:1rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;color:#7a6a50;letter-spacing:.15em;text-transform:uppercase">Cancel anytime · Instant access · Secure checkout</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOCKED EPISODES -->
+<section class="section ep-section">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">🔒 Members Only</p>
+      <h2 class="big-h">Five Episodes<br><em>Waiting for You.</em><br>Four More Coming.</h2>
+    </div>
+    <p class="ep-sub reveal">You read Episodes 1–4 for free. Now there are five locked episodes you can't touch — including Episode 5, which is out RIGHT NOW — plus four more in production. Every single one drops the moment you join.</p>
+    <div class="ep-grid reveal">
+      <div class="ep-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/cover5_fc.jpg?v=1773329788" alt="Episode 5">
+        <div class="ep-lock"><span class="ep-lock-icon">🔒</span><span class="ep-label">Episode 5</span><span class="ep-status">Out Now!</span></div>
+      </div>
+      <div class="ep-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/Screenshot_20260311_090055_Samsung_Notes_3824f0aa-105c-4614-8d63-908305a7f7f7.jpg?v=1773329966" alt="Episode 6">
+        <div class="ep-lock"><span class="ep-lock-icon">🔒</span><span class="ep-label">Episode 6</span><span class="ep-status">This Month</span></div>
+      </div>
+      <div class="ep-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/Vertical_sketch_with_d0baf075-d717-432c-8795-d6828ea6b44f.png?v=1773330064" alt="Episode 7">
+        <div class="ep-lock"><span class="ep-lock-icon">🔒</span><span class="ep-label">Episode 7</span><span class="ep-status">April</span></div>
+      </div>
+      <div class="ep-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/Vertical_sketch_with_d0baf075-d717-432c-8795-d6828ea6b44f.png?v=1773330064" alt="Episode 8">
+        <div class="ep-lock"><span class="ep-lock-icon">🔒</span><span class="ep-label">Episode 8</span><span class="ep-status">May</span></div>
+      </div>
+      <div class="ep-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/Gemini_Generated_Image_nfur4znfur4znfur.png?v=1773330091" alt="Episode 9">
+        <div class="ep-lock"><span class="ep-lock-icon">🔒</span><span class="ep-label">Episode 9</span><span class="ep-status">June</span></div>
+      </div>
+    </div>
+    <div class="ep-cta reveal">
+      <a href="#" class="big-btn" onclick="openCheckout(event)">🔓 Unlock Everything Now — $5/Month ⚡</a>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<section class="section urgency">
+  <div class="urgency-inner">
+    <div class="reveal">
+      <h2 class="big-h">💣 The Founder's Deal<br><em>Has a Fuse.</em></h2>
+      <p class="urgency-copy">Only 200 people EVER lock in $5/month for life. Once they're gone, every new member pays $12/month — no exceptions, no grandfathering, no second chances. Every day you wait is another episode you miss and another Founder spot gone forever. The people who join today will say "I was there from the beginning."<br><br>Don't be the one on the outside wishing you had.</p>
+    </div>
+    <div class="counter-box reveal">
+      <span class="counter-num">200</span>
+      <span class="counter-label">Founder Spots — Total. Ever. Full Stop.</span>
+    </div>
+    <div class="reveal">
+      <a href="#" class="big-btn" onclick="openCheckout(event)">⚡ Lock In $5/Month — Forever ⚡</a>
+      <p class="urgency-fine">Once all 200 spots are claimed, this price is gone. No exceptions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final">
+  <div class="final-lines"></div>
+  <div class="final-inner">
+    <div class="reveal">
+      <h2 class="big-h">Don't Be The One<br>Who <em>Waited Too Long.</em></h2>
+      <p class="final-sub">Five episodes unlocked instantly. Four more incoming. Director's Cut bonus pages. Your name in the credits. Private creator access. Merch discounts. All of it — $5 a month for life.</p>
+      <a href="#" class="big-btn" style="font-size:clamp(1.4rem,4.5vw,2.5rem)" onclick="openCheckout(event)">⚡ CLAIM MY FOUNDER'S SPOT — $5/MONTH ⚡</a>
+      <p class="final-fine">Cancel anytime &nbsp;·&nbsp; Secure checkout &nbsp;·&nbsp; 200 spots total — ever</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Vista Comics Company · All Rights Reserved &nbsp;·&nbsp; <a href="https://bookshelfbliss.com/pages/faq">FAQ</a> &nbsp;·&nbsp; <a href="https://bookshelfbliss.com/pages/contact">Contact</a> &nbsp;·&nbsp; <a href="https://bookshelfbliss.com/policies/privacy-policy">Privacy</a></p>
+</footer>
+
+<!-- CHECKOUT MODAL — masks Bookshelf Bliss branding -->
+<div class="co-wrap" id="coModal">
+  <div class="co-modal">
+    <div class="co-bar">
+      <span class="co-bar-title">⚡ Adira Clementine Fan Club — Secure Checkout</span>
+      <button class="co-close" onclick="closeCheckout()">✕ Close</button>
+    </div>
+    <iframe id="coFrame" class="co-frame" src="" title="Fan Club Checkout" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+function openCheckout(e){
+  e.preventDefault();
+  const modal=document.getElementById('coModal');
+  const frame=document.getElementById('coFrame');
+  if(!frame.src||frame.src===window.location.href){
+    frame.src='https://bookshelfbliss.com/products/comics-subscription';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCheckout(){
+  document.getElementById('coModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('coModal').addEventListener('click',function(e){
+  if(e.target===this)closeCheckout();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeCheckout();
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
 
