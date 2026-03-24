@@ -9,7 +9,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Nunito', sans-serif; color: #1a1a1a; overflow-x: hidden; }
 
-    /* ===== HERO ===== */
     .lp-hero {
       background: #ffe0f0;
       border-bottom: 5px solid #1a1a1a;
@@ -63,7 +62,6 @@
       animation: logo-wiggle 4s ease-in-out infinite;
     }
     @keyframes logo-wiggle { 0%,100%{transform:rotate(-1deg) scale(1);} 50%{transform:rotate(1deg) scale(1.02);} }
-    /* subtitle styles defined below */
     .hero-ctas { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; margin-top: 20px; }
     .btn-kaboom {
       font-family: 'Bangers', cursive; font-size: 24px; letter-spacing: 2px;
@@ -148,7 +146,6 @@
     }
     @keyframes cover-wiggle { 0%,100%{transform:rotate(-1.5deg) scale(1);} 50%{transform:rotate(1.5deg) scale(1.02);} }
 
-    /* ===== CHAOS MOSAIC ===== */
     .chaos-mosaic {
       background: #1a1a1a;
       border-top: 5px solid #ff2d55;
@@ -319,7 +316,6 @@
       animation: pulse-btn 1.5s ease-in-out infinite;
     }
 
-    /* ===== TICKER ===== */
     .strip-banner {
       background: #1a1a1a; overflow: hidden; white-space: nowrap; padding: 11px 0;
       border-top: 3px solid #ff2d55; border-bottom: 3px solid #ff2d55;
@@ -332,7 +328,6 @@
     }
     @keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
 
-    /* ===== FREE EPISODES ===== */
     .episodes-section {
       background-color: #00c2ff;
       border-bottom: 5px solid #1a1a1a; padding: 56px 0;
@@ -382,7 +377,6 @@
     .preview-cta { text-align: center; margin-top: 28px; }
     .preview-cta p { font-family: 'Fredoka One', cursive; font-size: 18px; color: #1a1a1a; margin-bottom: 16px; }
 
-    /* ===== FOUNDER ===== */
     .founder-section { background: #7b2fff; border-bottom: 5px solid #1a1a1a; }
     .founder-inner {
       max-width: 980px; margin: 0 auto; padding: 56px 24px;
@@ -438,7 +432,6 @@
     .btn-boom:hover { transform: translate(-3px,-3px); box-shadow: 10px 10px 0 #1a1a1a; }
     .cancel-note { font-family: 'Fredoka One', cursive; color: #ddd; font-size: 13px; margin-top: 10px; }
 
-    /* ===== PANELS ===== */
     .panels-section { background: #ff9f00; padding: 56px 0; border-top: 5px solid #1a1a1a; border-bottom: 5px solid #1a1a1a; }
     .panels-title { font-family: 'Bangers', cursive; font-size: 48px; letter-spacing: 2px; color: #1a1a1a; text-align: center; margin-bottom: 6px; text-shadow: 3px 3px 0 #fff; }
     .panels-sub { font-family: 'Fredoka One', cursive; text-align: center; font-size: 18px; color: #1a1a1a; margin-bottom: 32px; padding: 0 24px; }
@@ -450,7 +443,6 @@
     .panel-img:hover { transform: scale(1.04) translateY(-6px); z-index: 5; border-radius: 8px; }
     .panel-img img { width: 100%; height: auto; display: block; }
 
-    /* ===== FOMO SECTION ===== */
     .fomo-section {
       background: #1a1a1a;
       border-top: 5px solid #ffec00;
@@ -532,7 +524,6 @@
     .fomo-message-text span { color: #ffec00; font-size: 22px; font-family: 'Bangers', cursive; letter-spacing: 1px; }
     .fomo-cta { text-align: center; }
 
-    /* ===== FINALE ===== */
     .finale-section {
       background: #ff2d55; border-top: 5px solid #1a1a1a;
       text-align: center; padding: 64px 24px;
@@ -578,14 +569,6 @@
     .btn-finale:hover { transform: translate(-4px,-4px); box-shadow: 12px 12px 0 #1a1a1a; animation: none; }
     .finale-small { font-family: 'Fredoka One', cursive; color: rgba(255,255,255,0.75); font-size: 14px; margin-top: 14px; position: relative; z-index: 2; }
 
-    /* ===== FOMO SECTION ===== */
-    .fomo-section {
-      background: #1a1a1a;
-      border-top: 5px solid #ffec00;
-      border-bottom: 5px solid #ffec00;
-      padding: 64px 24px;
-      position: relative; overflow: hidden;
-    }
     .fomo-section.cover-gallery {
       background: #0d1520;
       background-image: url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Convert_to_1MB_JPEG.png?v=1773761992');
@@ -686,7 +669,6 @@
     }
     .fomo-bar-desc span { color: #ff9f00; }
 
-    /* BURNING FUSE */
     .fuse-wrap { flex: 1; min-width: 240px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .fuse-label {
       font-family: 'Bangers', cursive; font-size: 22px; letter-spacing: 2px;
@@ -757,7 +739,6 @@
       animation: pulse-btn 2s ease-in-out infinite;
     }
 
-    /* ===== STICKER SECTION ===== */
     .sticker-section {
       background: #7b2fff;
       border-top: 5px solid #ffec00;
@@ -846,7 +827,6 @@
       .sticker-title { font-size: 42px; }
     }
 
-    /* ===== FOOTER ===== */
     .lp-footer {
       background: #1a1a1a; border-top: 5px solid #ffec00;
       padding: 28px 24px; display: flex; align-items: center;
@@ -886,22 +866,6 @@
       .fomo-message { padding: 20px 16px; }
       .fomo-message-text { font-size: 17px; line-height: 1.6; }
       .fomo-message-text span { font-size: 19px; }
-      .mosaic-arrow {
-      display: none;
-      position: absolute; right: 8px; top: 50%;
-      transform: translateY(-50%);
-      z-index: 999;
-      background: #ff2d55; color: #ffec00;
-      font-size: 36px; width: 56px; height: 56px;
-      border-radius: 50%; border: 4px solid #ffec00;
-      align-items: center; justify-content: center;
-      font-family: sans-serif; font-weight: bold;
-      box-shadow: 2px 2px 0 #1a1a1a;
-      animation: pulse-btn 1.5s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .mosaic-cell:last-child .mosaic-arrow { display: none !important; }
-    .swipe-hint { display: none; }
       .mosaic-arrow { display: flex; }
     }
   </style>
@@ -923,7 +887,7 @@
         <img class="hero-logo-img" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260316_104320_Google.jpg?v=1773698229" alt="The Wonderful Breakthrough of Adira Clementine" />
         <div class="hero-subtitle">
           <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" target="_blank" style="text-decoration:none;"><span class="hero-subtitle-line2"><span class="w1">⚡Read</span> <span class="w2">episodes</span> <span class="w3">1–4</span> <span class="w4">absolutely</span> <span class="w5">FREE!</span> </span></a>
-          <a href="https://bookshelfbliss.com/products/comics-subscription" target="_blank" style="text-decoration:none;"><span class="hero-subtitle-line3"><span class="w1">Then</span> <span class="w2">join</span> <span class="w3">the</span> <span class="w4">Fan</span> <span class="w5">Club</span> <span class="w6">for</span> <span class="w7">everything!</span></span></a>
+          <a href="fanclub.html" style="text-decoration:none;"><span class="hero-subtitle-line3"><span class="w1">Then</span> <span class="w2">join</span> <span class="w3">the</span> <span class="w4">Fan</span> <span class="w5">Club</span> <span class="w6">for</span> <span class="w7">everything!</span></span></a>
         </div>
       </div>
       <div class="hero-cover-col">
@@ -943,74 +907,64 @@
     </span>
   </div>
 
-  <!-- CHAOS MOSAIC — FULL WIDTH PANEL SHOWCASE -->
+  <!-- CHAOS MOSAIC -->
   <div class="chaos-mosaic">
     <div class="chaos-mosaic-label">🔥 THIS IS WHAT ADIRA CLEMENTINE LOOKS LIKE INSIDE — HOVER TO SEE MORE 🔥</div>
     <div class="mosaic-grid">
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260318_163112_Chrome.jpg?v=1773870176" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">BERSERK!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">THIS IS WHAT YOU GET FOR JUST $5 A MONTH!!!! 💥💥💥</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260318_162736_Chrome.jpg?v=1773870176" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">UPROARIOUS!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">HILARIOUS!!!! WILD!!!! TOTALLY UNPREDICTABLE!!!! ⚡⚡⚡</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260318_162729_Chrome.jpg?v=1773870176" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">TOTALLY ORIGINAL!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">A BRAND NEW EPISODE!!!! EVERY SINGLE MONTH!!!! 🗓️🗓️🗓️</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260318_162853_Chrome.jpg?v=1773870176" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">MANIC HUMOR!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">UNLIKE ANYTHING!!!! YOU'VE EVER READ BEFORE!!!! 🤯🤯🤯</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260318_162759_Chrome.jpg?v=1773870176" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">INDEPENDENT!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">JOIN FOR $5/MONTH — LOCK IN YOUR FOUNDER'S PRICE!!!! 🔒🔒🔒</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260319_092350_Chrome.jpg?v=1773930384" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">OFF THE WALL!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">SO FAR OFF THE WALL!!!! IT BROKE THROUGH THE CEILING!!!! 🤯🤯🤯</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260319_092423_Chrome.jpg?v=1773930383" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">EXPLOSIVE!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">BOOM!!!! EVERY PAGE IS A DETONATION OF FUN!!!! 💥💥💥</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260319_090718_Chrome.jpg?v=1773929445" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">OUTRAGEOUS!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">READ IT AND LOSE YOUR MIND!!!! 🤪🤪🤪</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260319_090810_Chrome.jpg?v=1773929445" alt="Adira panel" style="object-position: center bottom;" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag" style="display:inline-block; width:auto; font-size:13px; line-height:1.3; max-width:120px; text-align:center;">FOURTH WALL-<br>SHATTERING!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important; padding:10px 14px !important;">ADIRA BREAKS ALL THE RULES!!!! 💥💥💥</div>
       </div>
       <div class="mosaic-cell">
         <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260319_093128_Chrome.jpg?v=1773930771" alt="Adira panel" />
-        <div class="mosaic-arrow">›</div>
         <div class="mosaic-cell-tag">UNHINGED!!</div>
         <div class="mosaic-cell-label" style="color:#fff !important; font-size:22px !important; text-shadow:3px 3px 0 #000 !important;">COMPLETELY!!!! TOTALLY!!!! GLORIOUSLY UNHINGED!!!! 🎪🎪🎪</div>
       </div>
     </div>
   </div>
 
-  <!-- STEP 1: FREE EPISODES -->
+  <!-- FREE EPISODES -->
   <div class="episodes-section">
     <div class="section-inner">
       <h2 class="section-title">START READING — <span>FOR FREE!</span></h2>
@@ -1047,16 +1001,12 @@
     </div>
   </div>
 
-
-  <!-- STEP 3: COVER GALLERY — WHAT'S LOCKED -->
+  <!-- LOCKED EPISODES -->
   <div class="fomo-section cover-gallery">
     <div class="fomo-inner">
-
       <div class="fomo-eyebrow">🔒 FAN CLUB MEMBERS ONLY 🔒</div>
       <h2 class="fomo-title">THE STORY IS JUST<br>GETTING STARTED!!!</h2>
       <p class="fomo-subtitle">Five episodes already out. Four more in production. A new one dropping <span>every single month.</span> Fan Club members get all of it — locked and loaded.</p>
-
-      <!-- LOCKED EPISODES GRID -->
       <div class="fomo-grid">
         <div class="fomo-card">
           <div class="fomo-card-img-wrap">
@@ -1114,11 +1064,10 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- STEP 4: FOUNDER'S DEAL -->
+  <!-- FOUNDER'S DEAL -->
   <div class="founder-section">
     <div class="founder-inner">
       <div class="founder-badge-wrap">
@@ -1143,7 +1092,7 @@
           </li>
           <li class="perk-item">
             <span class="perk-icon">🌟</span>
-            <div><span class="perk-title">YOUR NAME IN THE CREDITS</span><span class="perk-desc">Every member gets their name printed inside an actual Adira Clementine comic book.</span></div>
+            <div><span class="perk-title">YOUR NAME IN THE CREDITS</span><span class="perk-desc">Every member gets their name in the credits of an actual Adira Clementine episode. Published. Online. Permanent.</span></div>
           </li>
           <li class="perk-item">
             <span class="perk-icon">📰</span>
@@ -1154,24 +1103,20 @@
             <div><span class="perk-title">EXCLUSIVE MERCH DISCOUNTS</span><span class="perk-desc">Founders get priority discounts on all Adira Clementine merchandise. It's cool stuff.</span></div>
           </li>
         </ul>
-        <a href="https://bookshelfbliss.com/products/comics-subscription" target="_blank" class="btn-boom">⚡ CLAIM MY FOUNDER'S SPOT</a>
+        <a href="fanclub.html" class="btn-boom">⚡ CLAIM MY FOUNDER'S SPOT</a>
         <p class="cancel-note">Cancel anytime · Secure checkout · Instant access to all episodes</p>
       </div>
     </div>
   </div>
 
-  <!-- STEP 5: FOMO EMOTIONAL + URGENCY -->
+  <!-- FOMO + URGENCY -->
   <div class="fomo-section emotional-bg">
     <div class="fomo-inner">
-
-      <!-- EMOTIONAL HOOK -->
       <div class="fomo-message">
         <p class="fomo-message-text">
           <span>STOP!!!</span> You just read 4 free episodes of the most hilarious, most unpredictable comic on the internet — and you loved it. We know you did. Now look at those locked covers. <span>FIVE episodes you can't read. Four more in production. A new one every single month.</span> Director's Cut panels. Bonus pages. Behind-the-scenes access. Your name in the credits. Private creator video conferences. Merch discounts. <span>ALL OF IT for $5 a month.</span> That's less than one coffee — except this keeps delivering month after month after month. <span>The people who join today will say "I was there from the beginning."</span> Don't be the one on the outside wishing you had. <span>This is your moment. Don't blow it.</span>
         </p>
       </div>
-
-      <!-- FOUNDER URGENCY BAR -->
       <div class="fomo-bar">
         <div class="fomo-bar-left">
           <div class="fomo-bar-title">💣 THE FOUNDER'S DEAL IS A LIMITED FUSE</div>
@@ -1194,13 +1139,10 @@
           <div class="fuse-sublabel">Once all 200 spots are claimed, <span>this price is gone forever.</span><br>Be one of the first — before the fuse runs out.</div>
         </div>
       </div>
-
-      <!-- FINAL FOMO CTA -->
       <div class="fomo-cta">
         <div class="fomo-urgency">🔥 Every day you wait is another episode you miss. Every week is another Founder's spot gone forever.</div>
-        <a href="https://bookshelfbliss.com/products/comics-subscription" target="_blank" class="btn-finale" style="font-size:30px;padding:18px 44px;background:#ffec00;border-color:#1a1a1a;color:#1a1a1a;box-shadow:8px 8px 0 #ff2d55;">⚡ I'M IN — CLAIM MY FOUNDER'S SPOT</a>
+        <a href="fanclub.html" class="btn-finale" style="font-size:30px;padding:18px 44px;background:#ffec00;border-color:#1a1a1a;color:#1a1a1a;box-shadow:8px 8px 0 #ff2d55;">⚡ I'M IN — CLAIM MY FOUNDER'S SPOT</a>
       </div>
-
     </div>
   </div>
 
