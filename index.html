@@ -134,7 +134,7 @@
     @keyframes badge-float { 0%,100%{transform:translateY(0) rotate(-2deg);} 50%{transform:translateY(-12px) rotate(2deg);} }
     .price-pill { background: #ffec00; color: #1a1a1a; font-family: 'Bangers', cursive; font-size: 50px; letter-spacing: 2px; padding: 12px 28px; border: 5px solid #1a1a1a; border-radius: 12px; text-align: center; box-shadow: 7px 7px 0 #1a1a1a; line-height: 1.1; animation: price-shake 5s ease-in-out infinite; }
     @keyframes price-shake { 0%,90%,100%{transform:rotate(0);} 92%{transform:rotate(-2deg);} 94%{transform:rotate(2deg);} 96%{transform:rotate(-1deg);} 98%{transform:rotate(1deg);} }
-    .spots-counter { background: #ff9f00; border: 4px solid #1a1a1a; border-radius: 10px; padding: 14px 20px; display: flex; align-items: center; gap: 14px; width: 100%; max-width: 340px; box-shadow: 5px 5px 0 #1a1a1a; }
+    .spots-counter { background: #ff9f00; border: 4px solid #1a1a1a; border-radius: 10px; padding: 14px 20px; display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; max-width: 340px; box-shadow: 5px 5px 0 #1a1a1a; text-align: center; }
     .spots-num { font-family: 'Bangers', cursive; font-size: 52px; color: #1a1a1a; line-height: 1; }
     .spots-label { font-family: 'Fredoka One', cursive; font-size: 14px; color: #1a1a1a; line-height: 1.5; }
     .founder-title { font-family: 'Bangers', cursive; font-size: 50px; letter-spacing: 2px; color: #ffec00; margin-bottom: 6px; text-shadow: 3px 3px 0 #1a1a1a; }
@@ -403,13 +403,12 @@
         <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" alt="Adira Clementine Fan Club" />
         <div class="price-pill">$5 / MONTH<br><span style="font-size:22px;">FOR LIFE 🔒</span></div>
         <div class="spots-counter">
-          <div class="spots-num">200</div>
-          <div class="spots-label">FOUNDER SPOTS AVAILABLE<br><span style="font-size:15px;color:#5a3a00;font-family:'Bangers',cursive;letter-spacing:1px;">BE ONE OF THE FIRST — THIS PRICE IS FOREVER!</span></div>
+          <div class="spots-label" style="font-size:16px;"><span style="font-size:15px;color:#5a3a00;font-family:'Bangers',cursive;letter-spacing:1px;">FOUNDER'S PRICE — LOCK IT IN FOREVER!</span></div>
         </div>
       </div>
       <div>
         <h2 class="founder-title">THE <span>FOUNDER'S</span> DEAL</h2>
-        <p class="founder-intro">Lock in $5/month forever — the price jumps to $12 once all 200 Founder spots are gone. These perks are exclusive to Fan Club members only.</p>
+        <p class="founder-intro">Lock in $5/month forever — the price will go up for new members in the future. These perks are exclusive to Fan Club members only.</p>
         <ul class="perks-list">
           <li class="perk-item"><span class="perk-icon">📖</span><div><span class="perk-title">DIRECTOR'S CUT EPISODES</span><span class="perk-desc">Exclusive panels + 3 bonus pages every month not available anywhere else.</span></div></li>
           <li class="perk-item"><span class="perk-icon">🎥</span><div><span class="perk-title">UNPRECEDENTED CREATOR ACCESS</span><span class="perk-desc">Unprecedented access to our private creator video conferences. You're a fly on the wall — in the room where it all happens!</span></div></li>
@@ -433,21 +432,21 @@
       </div>
       <div class="fomo-bar">
         <div class="fomo-bar-left">
-          <div class="fomo-bar-title">💣 THE FOUNDER'S DEAL IS A LIMITED FUSE</div>
-          <div class="fomo-bar-desc">Only <span>200 people EVER</span> get $5/month for life. Once they're gone, new members pay <span>$12/month — no exceptions, no grandfathering, no second chances.</span> The people who join today are locking in the best deal this comic will ever offer.</div>
+          <div class="fomo-bar-title">💣 THE FOUNDER'S DEAL WON'T LAST FOREVER</div>
+          <div class="fomo-bar-desc">Lock in <span>$5/month for life.</span> Once we raise the price for new members, <span>there's no going back — no exceptions, no grandfathering, no second chances.</span> The people who join today are locking in the best deal this comic will ever offer.</div>
         </div>
         <div class="fuse-wrap">
-          <div class="fuse-label"><span>200</span>FOUNDER SPOTS AVAILABLE</div>
+          <div class="fuse-label">FOUNDER'S PRICE</div>
           <div class="fuse-container">
             <div class="fuse-explosion">💥</div>
             <div class="fuse-line"><div class="fuse-burned"></div><div class="fuse-spark"></div><div class="fuse-smoke"></div></div>
             <div class="fuse-bomb">💣</div>
           </div>
-          <div class="fuse-sublabel">Once all 200 spots are claimed, <span>this price is gone forever.</span><br>Be one of the first — before the fuse runs out.</div>
+          <div class="fuse-sublabel">When the price goes up, <span>this rate is gone forever.</span><br>Get in now — before the fuse runs out.</div>
         </div>
       </div>
       <div class="fomo-cta">
-        <div class="fomo-urgency">🔥 Every day you wait is another episode you miss. Every week is another Founder's spot gone forever.</div>
+        <div class="fomo-urgency">🔥 Every day you wait is another episode you miss. The Founder's price won't last forever.</div>
         <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-finale" style="font-size:30px;padding:18px 44px;background:#ffec00;border-color:#1a1a1a;color:#1a1a1a;box-shadow:8px 8px 0 #ff2d55;">⚡ SUBSCRIBE &amp; CLAIM YOUR FOUNDER'S DEAL NOW!</a>
       </div>
     </div>
