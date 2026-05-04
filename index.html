@@ -10,19 +10,20 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Nunito', sans-serif; color: #1a1a1a; overflow-x: hidden; }
 
-    /* ===================== TOP NAV (UPDATED FOR READABILITY) ===================== */
+    /* ===================== TOP NAV — WHITE BACKGROUND ===================== */
     .top-nav {
       position: sticky; top: 0; z-index: 1000;
-      background: #1a1a1a; border-bottom: 4px solid #ffec00;
+      background: #ffffff;
+      border-bottom: 4px solid #ffec00;
       display: flex; align-items: stretch; justify-content: center;
       flex-wrap: wrap; padding: 6px 0;
     }
     .top-nav a {
       font-family: 'Nunito', sans-serif;
       font-size: 18px; font-weight: 800;
-      color: #ffec00; text-decoration: none;
-      padding: 14px 22px;
-      border-right: 2px solid #333;
+      color: #1a1a1a; text-decoration: none;
+      padding: 16px 26px;
+      border-right: 2px solid #e5e5e5;
       transition: background 0.15s, color 0.15s;
       white-space: nowrap;
       display: flex; align-items: center;
@@ -30,20 +31,12 @@
     .top-nav a:last-child { border-right: none; }
     .top-nav a:hover { background: #ffec00; color: #1a1a1a; }
 
-    /* Special nav colors */
-    .nav-sticker { color: #ff9f00; }
-    .nav-sticker:hover { background: #ff9f00; color: #1a1a1a; }
+    .nav-sticker { color: #d17a00; }
+    .nav-fanclub { color: #c4003a; }
+    .nav-whois { color: #0077aa; }
+    .nav-hot { color: #00aa55; }
 
-    .nav-fanclub { color: #ff2d55; }
-    .nav-fanclub:hover { background: #ff2d55; color: #fff; }
-
-    .nav-whois { color: #00c2ff; }
-    .nav-whois:hover { background: #00c2ff; color: #1a1a1a; }
-
-    .nav-hot { color: #00ff88; }
-    .nav-hot:hover { background: #00ff88; color: #1a1a1a; }
-
-    /* ===================== FLOATING STICKER BUTTON ===================== */
+    /* FLOATING BUTTON */
     #float-sticker-btn {
       position: fixed; bottom: 28px; right: 24px; z-index: 9999;
       background: #ffec00; color: #1a1a1a;
@@ -62,7 +55,7 @@
       50%{ box-shadow:7px 7px 0 #1a1a1a; transform:translateY(-5px); }
     }
 
-    /* ===================== FREE EPISODES HERO ===================== */
+    /* HERO SECTION */
     .episodes-hero {
       background-color: #00c2ff;
       border-bottom: 5px solid #1a1a1a;
@@ -82,7 +75,7 @@
       filter: sepia(1) brightness(0.6) opacity(0.35);
       mix-blend-mode: multiply; z-index: 0;
     }
-    .episodes-hero .section-inner { position: relative; z-index: 1; }
+
     .section-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; }
 
     .section-title {
@@ -97,7 +90,7 @@
       font-size: 19px; color: #1a1a1a; margin-bottom: 28px;
     }
 
-    /* Sticker nudge */
+    /* STICKER NUDGE */
     .sticker-nudge {
       background: #7b2fff; border: 4px solid #1a1a1a; border-radius: 12px;
       padding: 16px 24px; display: flex; align-items: center;
@@ -116,7 +109,7 @@
     }
     .btn-nudge-sticker:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 #1a1a1a; animation: none; }
 
-    /* Preview grid */
+    /* PREVIEW GRID */
     .preview-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
       border: 5px solid #1a1a1a; border-radius: 12px;
@@ -137,9 +130,7 @@
     .preview-cell:nth-child(3) .preview-label { background: #ff9f00; color: #1a1a1a; }
     .preview-cell:nth-child(4) .preview-label { background: #1a1a1a; color: #ffec00; }
 
-    .preview-cta { text-align: center; padding: 24px 0 0; position: relative; z-index: 1; }
-    .preview-cta p { font-family: 'Fredoka One', cursive; font-size: 18px; color: #1a1a1a; }
-
+    /* CTA BAR */
     .sticker-cta-bar {
       background: #7b2fff; border-top: 5px solid #1a1a1a;
       padding: 24px; text-align: center; margin-top: 32px;
@@ -155,16 +146,236 @@
     }
     .btn-sticker-bar:hover { transform: translate(-3px,-3px); box-shadow: 10px 10px 0 #1a1a1a; animation: none; }
 
-    /* ===================== TICKER ===================== */
-    .strip-banner {
-      background: #1a1a1a; overflow: hidden; white-space: nowrap;
-      padding: 11px 0; border-top: 3px solid #ff2d55; border-bottom: 3px solid #ff2d55;
+    @keyframes pulse-btn { 
+      0%,100{box-shadow:5px 5px 0 #1a1a1a;} 
+      50%{box-shadow:7px 7px 0 #1a1a1a;} 
     }
-    .strip-text {
-      display: inline-block; font-family: 'Bangers', cursive;
-      font-size: 20px; letter-spacing: 3px; color: #ffec00;
-      animation: ticker 22s linear infinite;
-    }
-    @keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
 
-    /* ===================== STORY / PIPELINE =================
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .top-nav a { font-size: 14px; padding: 12px 14px; }
+      .preview-grid { grid-template-columns: repeat(2,1fr); }
+      .story-layout { grid-template-columns: 1fr; }
+      #float-sticker-btn { font-size: 15px; padding: 11px 16px; bottom: 16px; right: 14px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING STICKER BUTTON -->
+  <a href="#stickers" id="float-sticker-btn">GET MY FREE STICKERS ↓</a>
+
+  <!-- TOP NAV (WHITE, CLEAN, NO EMOJIS) -->
+  <nav class="top-nav">
+    <a href="#free-comics">READ FOUR FREE COMICS</a>
+    <a href="#stickers" class="nav-sticker">FREE STICKER PACK</a>
+    <a href="#fanclub" class="nav-fanclub">HUGE FAN CLUB DISCOUNT</a>
+    <a href="#whois" class="nav-whois">WHO IS ADIRA?</a>
+    <a href="#pipeline" class="nav-hot">NEW AND HOT NOW!</a>
+  </nav>
+
+  <!-- ===== SECTION 1: START READING FOR FREE ===== -->
+  <div class="episodes-hero" id="free-comics">
+    <div class="section-inner">
+      <h2 class="section-title">START READING — <span>FOR FREE!</span></h2>
+      <p class="section-sub">Four complete episodes. Zero dollars. No credit card. No catch. Click on a cover and enjoy!</p>
+
+      <div class="sticker-nudge">
+        <span class="sticker-nudge-text">Visiting for the first time? We have a <span>FREE digital sticker pack</span> waiting for you!</span>
+        <a href="#stickers" class="btn-nudge-sticker">GET MY FREE STICKERS ↓</a>
+      </div>
+
+      <div class="preview-grid">
+        <div class="preview-cell">
+          <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" target="_blank">
+            <img src="https://bookshelfbliss.com/cdn/shop/articles/cover1_normal_4f90dabb-b42b-43fc-a3dd-d17a42aaaa83.jpg?v=1767713501" alt="Episode 1" />
+            <div class="preview-label">EPISODE 1 — FREE</div>
+          </a>
+        </div>
+
+        <div class="preview-cell">
+          <a href="https://bookshelfbliss.com/blogs/comics/episode-2-fan-club-edition" target="_blank">
+            <img src="https://bookshelfbliss.com/cdn/shop/articles/cover2normal_c04500d1-2c68-4943-bf25-d76627f67e48.jpg?v=1767753599" alt="Episode 2" />
+            <div class="preview-label">EPISODE 2 — FREE</div>
+          </a>
+        </div>
+
+        <div class="preview-cell">
+          <a href="https://bookshelfbliss.com/blogs/comics/episode-3-fan-club-edition-includes-bonus-content-and-additional-scenes" target="_blank">
+            <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/cover3_fc.jpg?v=1766878389" alt="Episode 3" />
+            <div class="preview-label">EPISODE 3 — FREE</div>
+          </a>
+        </div>
+
+        <div class="preview-cell">
+          <a href="https://bookshelfbliss.com/blogs/comics/episode-4" target="_blank">
+            <img src="https://bookshelfbliss.com/cdn/shop/articles/cover4_normal.jpg?v=1773329490" alt="Episode 4" />
+            <div class="preview-label">EPISODE 4 — FREE</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="preview-cta">
+        <p>Read all 4 and want more? Good. Keep scrolling.</p>
+      </div>
+    </div>
+
+    <div class="sticker-cta-bar">
+      <a href="#stickers" class="btn-sticker-bar">CLAIM YOUR FREE STICKER PACK RIGHT HERE ↓</a>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="strip-banner">
+    <span class="strip-text">
+      WACKY · HILARIOUS · UNPREDICTABLE · ORIGINAL · MONTHLY · INDEPENDENT · UPROARIOUS · MANIC HUMOR · TOTALLY OFF-BEAT · BERSERK · ONE-OF-A-KIND · UNHINGED · 
+      WACKY · HILARIOUS · UNPREDICTABLE · ORIGINAL · MONTHLY · INDEPENDENT · UPROARIOUS · MANIC HUMOR · TOTALLY OFF-BEAT · BERSERK · ONE-OF-A-KIND · UNHINGED
+    </span>
+  </div>
+
+  <!-- ===== SECTION 2: FAN CLUB + PIPELINE ===== -->
+  <div class="story-section" id="fanclub">
+    <div class="section-inner">
+      <div class="story-layout">
+
+        <div class="story-left">
+          <div class="story-eyebrow">FAN CLUB MEMBERS ONLY</div>
+          <h2 class="story-title">THE STORY IS JUST<br>GETTING STARTED!!!</h2>
+          <p class="story-sub">A new online episode drops <span>every single month.</span> Fan Club members get all of it — unlocked and loaded.</p>
+
+          <div class="fomo-grid">
+            <div class="fomo-card">
+              <div class="fomo-card-img-wrap">
+                <img src="https://bookshelfbliss.com/cdn/shop/articles/cover5_fc.jpg?v=1773329788" alt="Episode 5" />
+              </div>
+              <div class="fomo-card-info">
+                <div class="fomo-lock">🔒</div>
+                <div class="fomo-ep-label">EPISODE 5</div>
+                <div class="fomo-coming" style="background:#00c2ff;color:#1a1a1a;">OUT NOW!</div>
+                <div class="fomo-members-only">MEMBERS ONLY</div>
+              </div>
+            </div>
+
+            <div class="fomo-card">
+              <div class="fomo-card-img-wrap">
+                <img src="https://bookshelfbliss.com/cdn/shop/articles/Screenshot_20260311_090055_Samsung_Notes_3824f0aa-105c-4614-8d63-908305a7f7f7.jpg?v=1773329966" alt="Episode 6" />
+              </div>
+              <div class="fomo-card-info">
+                <div class="fomo-lock">🔒</div>
+                <div class="fomo-ep-label">EPISODE 6</div>
+                <div class="fomo-coming" style="background:#00c2ff;color:#1a1a1a;">OUT NOW!</div>
+                <div class="fomo-members-only">MEMBERS ONLY</div>
+              </div>
+            </div>
+
+            <div class="fomo-card">
+              <div class="fomo-card-img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/7_cover_2.jpg?v=1777389336" alt="Episode 7" />
+              </div>
+              <div class="fomo-card-info">
+                <div class="fomo-lock">🔒</div>
+                <div class="fomo-ep-label">EPISODE 7</div>
+                <div class="fomo-coming" style="background:#00c2ff;color:#1a1a1a;">OUT NOW!</div>
+                <div class="fomo-members-only">MEMBERS ONLY</div>
+              </div>
+            </div>
+          </div>
+          <!-- PIPELINE -->
+          <div id="pipeline"></div>
+          <div class="pipeline-label">IN THE PIPELINE — COMING SOON</div>
+
+          <div class="fomo-grid">
+            <div class="fomo-card">
+              <div class="fomo-card-img-wrap">
+                <img src="https://bookshelfbliss.com/cdn/shop/articles/Vertical_sketch_with_d0baf075-d717-432c-8795-d6828ea6b44f.png?v=1773330064" alt="Episode 8" />
+              </div>
+              <div class="fomo-card-info">
+                <div class="fomo-lock">🔒</div>
+                <div class="fomo-ep-label">EPISODE 8</div>
+                <div class="fomo-coming">IN PRODUCTION — MAY</div>
+                <div class="fomo-members-only">MEMBERS ONLY</div>
+              </div>
+            </div>
+
+            <div class="fomo-card">
+              <div class="fomo-card-img-wrap">
+                <img src="https://bookshelfbliss.com/cdn/shop/articles/Gemini_Generated_Image_nfur4znfur4znfur.png?v=1773330091" alt="Episode 9" />
+              </div>
+              <div class="fomo-card-info">
+                <div class="fomo-lock">🔒</div>
+                <div class="fomo-ep-label">EPISODE 9</div>
+                <div class="fomo-coming">IN PRODUCTION — JUNE</div>
+                <div class="fomo-members-only">MEMBERS ONLY</div>
+              </div>
+            </div>
+
+            <div class="fomo-card">
+              <div class="fomo-card-img-wrap">
+                <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/rough_cover_10.jpg?v=1777498466" alt="Episode 10" />
+              </div>
+              <div class="fomo-card-info">
+                <div class="fomo-lock">🔒</div>
+                <div class="fomo-ep-label">EPISODE 10</div>
+                <div class="fomo-coming">IN PRODUCTION — JULY</div>
+                <div class="fomo-members-only">MEMBERS ONLY</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BADGE -->
+        <div class="story-badge-col">
+          <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="subscribe-badge">
+            <div class="subscribe-badge-text">SEE YOUR NAME<br>IN OUR COMIC<br>BOOK!</div>
+            <span class="subscribe-badge-btn">SUBSCRIBE NOW!</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: FOUNDER'S DEAL ===== -->
+  <div class="founder-section">
+    <div class="founder-inner">
+
+      <div class="founder-badge-wrap">
+        <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" alt="Adira Clementine Fan Club" />
+        <div class="price-pill">$3.50 / MONTH<br><span style="font-size:22px;">FOUNDER'S PRICE 🔒</span></div>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="lock-in-btn">FOUNDER'S PRICE — LOCK IT IN NOW!</a>
+      </div>
+
+      <div>
+        <h2 class="founder-title">THE <span>FOUNDER'S</span> DEAL</h2>
+        <p class="founder-intro">Lock in $3.50/month at this price — it will go up for new members in the future. These perks are exclusive to Fan Club members only.</p>
+
+        <ul class="perks-list">
+          <li class="perk-item"><span class="perk-icon">📖</span><div><span class="perk-title">DIRECTOR'S CUT EPISODES</span><span class="perk-desc">Exclusive panels + 3 bonus pages every month not available anywhere else.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🎥</span><div><span class="perk-title">UNPRECEDENTED CREATOR ACCESS</span><span class="perk-desc">Unprecedented access to our private creator video conferences. You're a fly on the wall — in the room where it all happens!</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🌟</span><div><span class="perk-title">YOUR NAME IN THE CREDITS</span><span class="perk-desc">Every member gets their name in the credits of an actual Adira Clementine episode. Published. Online. Permanent.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">📰</span><div><span class="perk-title">QUARTERLY INSIDER NEWSLETTER</span><span class="perk-desc">Future storylines, interviews, first looks at Vista Comics projects coming up.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🛍️</span><div><span class="perk-title">EXCLUSIVE MERCH DISCOUNTS</span><span class="perk-desc">Founders get priority discounts on all Adira Clementine merchandise. It's cool stuff.</span></div></li>
+        </ul>
+
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-boom">SUBSCRIBE & CLAIM YOUR FOUNDER'S DEAL NOW!</a>
+        <p class="cancel-note">Cancel anytime · Secure checkout · Instant access to all episodes</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: WHO IS ADIRA ===== -->
+  <div class="whois-section" id="whois">
+    <div class="whois-inner">
+
+      <div class="whois-img-col">
+        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" alt="Adira Clementine" class="whois-img" />
+      </div>
+
+      <div class="whois-text-col">
+        <div class="whois-eyebrow">Meet the star of the show</div>
+        <h2 class="whois-title">WHO IS<br><span>ADIRA</span><br>CLEMENTINE?</h2>
+
+        <div class="whois-facts">
+          <div class="whois-fact"><span class="wf-icon">💥</span><p>She's chaotic. She's hilarious. She breaks the
