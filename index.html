@@ -9,7 +9,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Nunito', sans-serif; color: #1a1a1a; overflow-x: hidden; }
 
-    /* ===================== NAV (UPDATED) ===================== */
+    /* ===================== NAV (UPDATED FOR READABILITY) ===================== */
     .top-nav {
       position: sticky; top: 0; z-index: 1000;
       background: #1a1a1a; border-bottom: 4px solid #ffec00;
@@ -17,7 +17,6 @@
       flex-wrap: wrap;
     }
     .top-nav a {
-      /* Changed to Nunito for maximum readability */
       font-family: 'Nunito', sans-serif; 
       font-weight: 900;
       font-size: 18px; 
@@ -47,49 +46,125 @@
       animation: float-pulse 2.5s ease-in-out infinite;
     }
     #float-sticker-btn.hidden { opacity: 0; pointer-events: none; }
+    @keyframes float-pulse {
+      0%,100%{ box-shadow:5px 5px 0 #1a1a1a; transform:translateY(0); }
+      50%{ box-shadow:7px 7px 0 #1a1a1a; transform:translateY(-5px); }
+    }
 
-    /* ===================== HERO / SECTIONS ===================== */
-    .episodes-hero { background-color: #00c2ff; border-bottom: 5px solid #1a1a1a; padding: 48px 0 0; position: relative; overflow: hidden; }
+    /* ===================== HERO / FREE EPISODES ===================== */
+    .episodes-hero {
+      background-color: #00c2ff;
+      border-bottom: 5px solid #1a1a1a;
+      padding: 48px 0 60px;
+      position: relative; overflow: hidden;
+    }
     .section-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-    .section-title { font-family: 'Bangers', cursive; font-size: 58px; color: #1a1a1a; text-align: center; text-shadow: 3px 3px 0 #fff; }
+
+    .section-title {
+      font-family: 'Bangers', cursive; font-size: 58px; letter-spacing: 2px;
+      color: #1a1a1a; text-align: center; margin-bottom: 6px;
+      text-shadow: 3px 3px 0 #fff;
+    }
     .section-title span { color: #ff2d55; text-shadow: 3px 3px 0 #1a1a1a; }
 
-    .preview-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 5px solid #1a1a1a; border-radius: 12px; overflow: hidden; box-shadow: 8px 8px 0 #1a1a1a; }
+    .preview-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 5px solid #1a1a1a; border-radius: 12px;
+      overflow: hidden; box-shadow: 8px 8px 0 #1a1a1a;
+      margin-top: 30px;
+    }
+    .preview-cell { border-right: 4px solid #1a1a1a; position: relative; overflow: hidden; }
+    .preview-cell:last-child { border-right: none; }
     .preview-cell img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; transition: transform 0.3s; }
-    .preview-label { position: absolute; bottom: 0; left: 0; right: 0; font-family: 'Bangers', cursive; font-size: 15px; padding: 8px 10px; text-align: center; background: #ff2d55; color: #fff; }
+    .preview-cell:hover img { transform: scale(1.06); }
+    .preview-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      font-family: 'Bangers', cursive; font-size: 15px; letter-spacing: 1px;
+      padding: 8px 10px; text-align: center;
+      background: #ff2d55; color: #fff;
+    }
 
-    /* ===================== STORY / PIPELINE ===================== */
-    .story-section { background: #0d1520; background-image: url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Convert_to_1MB_JPEG.png?v=1773761992'); background-size: cover; padding: 72px 0; position: relative; border-bottom: 5px solid #1a1a1a; }
-    .story-title { font-family: 'Bangers', cursive; font-size: 58px; color: #ffec00; text-shadow: 4px 4px 0 #ff2d55; }
-    .fomo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-bottom: 24px; }
-    .fomo-card { background: #1a1a1a; border: 4px solid #333; border-radius: 10px; overflow: hidden; }
+    /* ===================== NEW AND HOT (PIPELINE) ===================== */
+    .story-section {
+      background: #0d1520;
+      background-image: url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Convert_to_1MB_JPEG.png?v=1773761992');
+      background-size: cover; background-position: center;
+      padding: 72px 0; position: relative; overflow: hidden;
+      border-bottom: 5px solid #1a1a1a;
+    }
+    .story-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(10,15,30,0.72); z-index: 0;
+    }
+    .story-title {
+      font-family: 'Bangers', cursive; font-size: 58px; letter-spacing: 2px;
+      color: #ffec00; line-height: 1; text-shadow: 4px 4px 0 #ff2d55; margin-bottom: 30px;
+      text-align: center;
+    }
+    .fomo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .fomo-card {
+      display: flex; flex-direction: column; border-radius: 10px; overflow: hidden;
+      border: 4px solid #333; background: #1a1a1a;
+    }
+    .fomo-card img { width: 100%; height: auto; display: block; }
 
-    /* ===================== FOUNDER (PRICE CHANGE) ===================== */
-    .founder-section { background: #7b2fff; border-bottom: 5px solid #1a1a1a; padding: 56px 0; }
-    .founder-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-    .price-pill { background: #ffec00; color: #1a1a1a; font-family: 'Bangers', cursive; font-size: 50px; padding: 12px 28px; border: 5px solid #1a1a1a; border-radius: 12px; text-align: center; box-shadow: 7px 7px 0 #1a1a1a; }
+    /* ===================== FAN CLUB (UPDATED PRICE) ===================== */
+    .founder-section { background: #7b2fff; border-bottom: 5px solid #1a1a1a; padding: 60px 0; }
+    .founder-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .price-pill { 
+      background: #ffec00; color: #1a1a1a; 
+      font-family: 'Bangers', cursive; font-size: 50px; 
+      padding: 12px 28px; border: 5px solid #1a1a1a; 
+      border-radius: 12px; text-align: center; 
+      box-shadow: 7px 7px 0 #1a1a1a; line-height: 1.1;
+    }
+    .btn-join { 
+      font-family: 'Bangers', cursive; font-size: 28px; 
+      background: #ff9f00; color: #1a1a1a; border: 5px solid #1a1a1a; 
+      padding: 16px 36px; border-radius: 10px; text-decoration: none; 
+      display: inline-block; box-shadow: 7px 7px 0 #1a1a1a; margin-top: 20px;
+    }
 
     /* ===================== STICKER SECTION (CLEANED) ===================== */
-    .sticker-section { background: #7b2fff; border-top: 5px solid #ffec00; border-bottom: 5px solid #ffec00; padding: 72px 24px; }
+    .sticker-section { background: #7b2fff; border-top: 5px solid #ffec00; border-bottom: 5px solid #ffec00; padding: 80px 24px; }
     .sticker-inner { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr 0.8fr; align-items: center; gap: 48px; }
-    .sticker-title { font-family: 'Bangers', cursive; font-size: 56px; color: #fff; text-shadow: 3px 3px 0 #1a1a1a; margin-bottom: 30px; }
-    .btn-sticker { font-family: 'Bangers', cursive; font-size: 28px; background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; padding: 16px 36px; border-radius: 10px; text-decoration: none; display: inline-block; box-shadow: 7px 7px 0 #1a1a1a; }
+    .sticker-title { font-family: 'Bangers', cursive; font-size: 64px; color: #fff; text-shadow: 3px 3px 0 #1a1a1a; line-height: 1; }
+    .sticker-title span { color: #ffec00; }
+    .btn-sticker { 
+      font-family: 'Bangers', cursive; font-size: 32px; 
+      background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; 
+      padding: 20px 40px; border-radius: 10px; text-decoration: none; 
+      display: inline-block; box-shadow: 7px 7px 0 #1a1a1a; margin-top: 30px;
+    }
 
-    /* ===================== RESPONSIVE ===================== */
+    /* ===================== WHO IS ADIRA ===================== */
+    .whois-section { background: #1a1a1a; border-bottom: 5px solid #ffec00; padding: 60px 0; }
+    .whois-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: center; }
+    .whois-img { width: 100%; border: 5px solid #ffec00; border-radius: 8px; box-shadow: 10px 10px 0 #ff2d55; transform: rotate(-2deg); }
+    .whois-title { font-family: 'Bangers', cursive; font-size: 60px; color: #fff; text-shadow: 4px 4px 0 #ff2d55; }
+
+    /* ===================== FOOTER ===================== */
+    .lp-footer { background: #1a1a1a; border-top: 5px solid #ffec00; padding: 28px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-text { font-family: 'Bangers', cursive; font-size: 14px; letter-spacing: 2px; color: #ffec00; }
+
+    /* ===================== RESPONSIVE (MOBILE MENU) ===================== */
     @media (max-width: 700px) {
       .top-nav { flex-direction: column; }
       .top-nav a { border-right: none; border-bottom: 1px solid #333; width: 100%; justify-content: center; font-size: 16px; padding: 12px; }
       .preview-grid { grid-template-columns: repeat(2,1fr); }
-      .founder-inner, .sticker-inner { grid-template-columns: 1fr; }
+      .fomo-grid { grid-template-columns: 1fr; }
+      .founder-inner, .sticker-inner, .whois-inner { grid-template-columns: 1fr; text-align: center; }
       .sticker-img-col { order: -1; }
+      .section-title, .sticker-title, .whois-title { font-size: 40px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- FLOATING STICKER BUTTON -->
   <a href="#stickers" id="float-sticker-btn">🎁 GET MY FREE STICKERS ↓</a>
 
-  <!-- TOP NAV UPDATED -->
+  <!-- TOP NAV -->
   <nav class="top-nav">
     <a href="#pipeline" class="nav-hot">🔥 NEW AND HOT!</a>
     <a href="#free-comics">📖 READ FREE COMICS</a>
@@ -98,47 +173,67 @@
     <a href="#whois">🎨 WHO IS ADIRA?</a>
   </nav>
 
-  <!-- SECTION 1 -->
+  <!-- FREE COMICS -->
   <div class="episodes-hero" id="free-comics">
     <div class="section-inner">
       <h2 class="section-title">START READING — <span>FOR FREE!</span></h2>
-      <div class="preview-grid" style="margin-top:30px;">
-        <div class="preview-cell"><a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" target="_blank"><img src="https://bookshelfbliss.com/cdn/shop/articles/cover1_normal_4f90dabb-b42b-43fc-a3dd-d17a42aaaa83.jpg?v=1767713501" /><div class="preview-label">EPISODE 1</div></a></div>
-        <div class="preview-cell"><a href="https://bookshelfbliss.com/blogs/comics/episode-2-fan-club-edition" target="_blank"><img src="https://bookshelfbliss.com/cdn/shop/articles/cover2normal_c04500d1-2c68-4943-bf25-d76627f67e48.jpg?v=1767753599" /><div class="preview-label">EPISODE 2</div></a></div>
-        <div class="preview-cell"><a href="https://bookshelfbliss.com/blogs/comics/episode-3-fan-club-edition-includes-bonus-content-and-additional-scenes" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/cover3_fc.jpg?v=1766878389" /><div class="preview-label">EPISODE 3</div></a></div>
-        <div class="preview-cell"><a href="https://bookshelfbliss.com/blogs/comics/episode-4" target="_blank"><img src="https://bookshelfbliss.com/cdn/shop/articles/cover4_normal.jpg?v=1773329490" /><div class="preview-label">EPISODE 4</div></a></div>
+      <div class="preview-grid">
+        <div class="preview-cell">
+          <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" target="_blank">
+            <img src="https://bookshelfbliss.com/cdn/shop/articles/cover1_normal_4f90dabb-b42b-43fc-a3dd-d17a42aaaa83.jpg?v=1767713501" alt="Episode 1" />
+            <div class="preview-label">EPISODE 1</div>
+          </a>
+        </div>
+        <div class="preview-cell">
+          <a href="https://bookshelfbliss.com/blogs/comics/episode-2-fan-club-edition" target="_blank">
+            <img src="https://bookshelfbliss.com/cdn/shop/articles/cover2normal_c04500d1-2c68-4943-bf25-d76627f67e48.jpg?v=1767753599" alt="Episode 2" />
+            <div class="preview-label">EPISODE 2</div>
+          </a>
+        </div>
+        <div class="preview-cell">
+          <a href="https://bookshelfbliss.com/blogs/comics/episode-3-fan-club-edition-includes-bonus-content-and-additional-scenes" target="_blank">
+            <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/cover3_fc.jpg?v=1766878389" alt="Episode 3" />
+            <div class="preview-label">EPISODE 3</div>
+          </a>
+        </div>
+        <div class="preview-cell">
+          <a href="https://bookshelfbliss.com/blogs/comics/episode-4" target="_blank">
+            <img src="https://bookshelfbliss.com/cdn/shop/articles/cover4_normal.jpg?v=1773329490" alt="Episode 4" />
+            <div class="preview-label">EPISODE 4</div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 2: PIPELINE -->
+  <!-- PIPELINE (NEW AND HOT) -->
   <div class="story-section" id="pipeline">
     <div class="section-inner">
-      <h2 class="story-title">NEW AND HOT: IN PRODUCTION</h2>
-      <div class="fomo-grid" style="margin-top:30px;">
-        <div class="fomo-card"><img src="https://bookshelfbliss.com/cdn/shop/articles/Vertical_sketch_with_d0baf075-d717-432c-8795-d6828ea6b44f.png?v=1773330064" style="width:100%" /></div>
-        <div class="fomo-card"><img src="https://bookshelfbliss.com/cdn/shop/articles/Gemini_Generated_Image_nfur4znfur4znfur.png?v=1773330091" style="width:100%" /></div>
-        <div class="fomo-card"><img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/rough_cover_10.jpg?v=1777498466" style="width:100%" /></div>
+      <h2 class="story-title">🔥 NEW AND HOT: IN THE PIPELINE</h2>
+      <div class="fomo-grid">
+        <div class="fomo-card"><img src="https://bookshelfbliss.com/cdn/shop/articles/Vertical_sketch_with_d0baf075-d717-432c-8795-d6828ea6b44f.png?v=1773330064" alt="Pipeline 1" /></div>
+        <div class="fomo-card"><img src="https://bookshelfbliss.com/cdn/shop/articles/Gemini_Generated_Image_nfur4znfur4znfur.png?v=1773330091" alt="Pipeline 2" /></div>
+        <div class="fomo-card"><img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/rough_cover_10.jpg?v=1777498466" alt="Pipeline 3" /></div>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 3: FAN CLUB (PRICE UPDATED) -->
+  <!-- FAN CLUB (PRICE UPDATED) -->
   <div class="founder-section" id="fanclub">
     <div class="founder-inner">
       <div class="founder-badge-wrap">
-        <img style="width:100%" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" />
-        <div class="price-pill">$3.50 / MONTH<br><span style="font-size:22px;">FOUNDER'S PRICE 🔒</span></div>
+        <img style="width:100%; max-width:340px; border-radius: 50%;" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" alt="Fan Club" />
+        <div class="price-pill" style="margin-top:20px;">$3.50 / MONTH<br><span style="font-size:22px;">FOUNDER'S PRICE 🔒</span></div>
       </div>
-      <div>
-        <h2 class="story-title" style="font-size:40px;">THE FOUNDER'S DEAL</h2>
-        <p style="color:#fff; margin: 20px 0;">Lock in our lowest price ever. This discount is for early members only!</p>
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-sticker" style="background:#ff9f00">⚡ JOIN THE FAN CLUB NOW</a>
+      <div class="founder-text-col">
+        <h2 class="story-title" style="text-align:left; font-size:50px;">THE FOUNDER'S DEAL</h2>
+        <p style="color:#fff; font-family:'Fredoka One', cursive; font-size:20px; line-height:1.5;">Join the Adira Clementine Fan Club today and lock in our lowest price ever! Get exclusive Director's Cut episodes, creator access, and your name in the credits.</p>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-join">⚡ JOIN THE FAN CLUB NOW!</a>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 4: STICKERS (CLEANED UP) -->
+  <!-- STICKERS (CLEANED) -->
   <div class="sticker-section" id="stickers">
     <div class="sticker-inner">
       <div class="sticker-text-col">
@@ -146,17 +241,58 @@
         <a href="https://subscribe-forms.beehiiv.com/b262cefc-9ec7-4a7e-bc04-d49031bc8e9a" target="_blank" class="btn-sticker">🎁 SEND ME MY FREE STICKERS!</a>
       </div>
       <div class="sticker-img-col">
-        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Pale_blue_background.png?v=1773932209" style="width:100%; border: 5px solid #ffec00; border-radius: 16px;" />
+        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Pale_blue_background.png?v=1773932209" alt="Stickers" style="width:100%; border: 5px solid #ffec00; border-radius: 16px; box-shadow: 10px 10px 0 #1a1a1a;" />
       </div>
     </div>
   </div>
 
+  <!-- WHO IS ADIRA -->
+  <div class="whois-section" id="whois">
+    <div class="whois-inner">
+      <div class="whois-img-col">
+        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" alt="Adira" class="whois-img" />
+      </div>
+      <div class="whois-text-col">
+        <h2 class="whois-title">WHO IS<br><span>ADIRA</span><br>CLEMENTINE?</h2>
+        <p style="color:#fff; font-family:'Fredoka One', cursive; font-size:18px; margin-top:20px;">She's chaotic, hilarious, and unpredictable. Adira breaks the rules and always lands on her feet—usually by accident.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="lp-footer">
+    <div class="footer-text">© 2026 VISTA COMICS COMPANY · ALL RIGHTS RESERVED</div>
+    <div style="display:flex; gap:16px;">
+      <a href="https://bookshelfbliss.com/pages/faq" target="_blank" style="color:#aaa; text-decoration:none;">FAQ</a>
+      <a href="https://bookshelfbliss.com/pages/contact" target="_blank" style="color:#aaa; text-decoration:none;">CONTACT</a>
+    </div>
+  </div>
+
   <script>
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 60,
+            behavior: 'smooth'
+          });
+        }
       });
+    });
+
+    // Hide float btn at bottom
+    window.addEventListener('scroll', function() {
+      const stickerSection = document.getElementById('stickers');
+      const floatBtn = document.getElementById('float-sticker-btn');
+      const rect = stickerSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        floatBtn.classList.add('hidden');
+      } else {
+        floatBtn.classList.remove('hidden');
+      }
     });
   </script>
 </body>
