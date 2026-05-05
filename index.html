@@ -12,25 +12,38 @@
     /* ===================== NAV ===================== */
     .top-nav {
       position: sticky; top: 0; z-index: 1000;
-      background: #1a1a1a; border-bottom: 4px solid #ffec00;
+      border-bottom: 4px solid #1a1a1a;
       display: flex; align-items: stretch; justify-content: center;
-      flex-wrap: wrap;
+      flex-wrap: wrap; overflow: hidden;
     }
     .top-nav a {
-      font-family: 'Bangers', cursive; font-size: 16px; letter-spacing: 1.5px;
-      color: #ffec00; text-decoration: none;
-      padding: 14px 18px; border-right: 2px solid #333;
-      transition: background 0.15s, color 0.15s; white-space: nowrap;
-      display: flex; align-items: center;
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase;
+      text-decoration: none;
+      padding: 15px 18px; border-right: 3px solid #1a1a1a;
+      transition: filter 0.15s; white-space: nowrap;
+      display: flex; align-items: center; gap: 6px; line-height: 1;
     }
     .top-nav a:last-child { border-right: none; }
-    .top-nav a:hover { background: #ffec00; color: #1a1a1a; }
-    .top-nav a.nav-sticker { color: #ff9f00; }
-    .top-nav a.nav-sticker:hover { background: #ff9f00; color: #1a1a1a; }
-    .top-nav a.nav-fanclub { color: #ff2d55; }
-    .top-nav a.nav-fanclub:hover { background: #ff2d55; color: #fff; }
-    .top-nav a.nav-whois { color: #00c2ff; }
-    .top-nav a.nav-whois:hover { background: #00c2ff; color: #1a1a1a; }
+    .top-nav a:hover { filter: brightness(1.18); }
+    .top-nav a.nav-comics  { background: #00c2ff; color: #1a1a1a; }
+    .top-nav a.nav-sticker { background: #7b2fff; color: #ffec00; }
+    .top-nav a.nav-fanclub { background: #ff2d55; color: #fff; }
+    .top-nav a.nav-hot     { background: #ff9f00; color: #1a1a1a; position: relative; padding-right: 44px; }
+    .top-nav a.nav-hot::after {
+      content: 'NEW'; font-size: 9px; font-weight: 900;
+      background: #ff2d55; color: #fff; padding: 2px 5px;
+      border-radius: 4px; position: absolute; top: 8px; right: 8px;
+    }
+    .top-nav a.nav-whois   { background: #1a1a1a; color: #ffec00; }
+    /* Mobile nav */
+    @media (max-width: 700px) {
+      .top-nav { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .top-nav::-webkit-scrollbar { display: none; }
+      .top-nav a { font-size: 11px; padding: 13px 12px; flex-shrink: 0; }
+      .top-nav a.nav-hot { padding-right: 34px; }
+      .top-nav a.nav-hot::after { top: 5px; right: 4px; }
+    }
 
     /* ===================== FLOATING STICKER BUTTON ===================== */
     #float-sticker-btn {
@@ -84,19 +97,15 @@
       font-size: 19px; color: #1a1a1a; margin-bottom: 28px;
     }
 
-    /* Sticker nudge — prominent, above the covers */
+    /* Sticker nudge — button only, centered */
     .sticker-nudge {
-      background: #7b2fff; border: 4px solid #1a1a1a; border-radius: 12px;
-      padding: 16px 24px; display: flex; align-items: center;
-      justify-content: center; gap: 16px; margin-bottom: 28px;
-      box-shadow: 5px 5px 0 #1a1a1a; flex-wrap: wrap;
+      display: flex; align-items: center;
+      justify-content: center; margin-bottom: 28px;
     }
-    .sticker-nudge-text { font-family: 'Fredoka One', cursive; font-size: 17px; color: #fff; }
-    .sticker-nudge-text span { color: #ffec00; font-size: 19px; }
     .btn-nudge-sticker {
-      font-family: 'Bangers', cursive; font-size: 20px; letter-spacing: 1.5px;
-      background: #ffec00; color: #1a1a1a; border: 4px solid #1a1a1a; border-radius: 8px;
-      padding: 10px 22px; text-decoration: none; box-shadow: 4px 4px 0 #1a1a1a;
+      font-family: 'Bangers', cursive; font-size: 26px; letter-spacing: 2px;
+      background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; border-radius: 10px;
+      padding: 14px 32px; text-decoration: none; box-shadow: 6px 6px 0 #1a1a1a;
       transition: transform 0.1s, box-shadow 0.1s; white-space: nowrap;
       animation: pulse-btn 2s ease-in-out infinite;
     }
@@ -123,21 +132,6 @@
 
     .preview-cta { text-align: center; padding: 24px 0 0; position: relative; z-index: 1; }
     .preview-cta p { font-family: 'Fredoka One', cursive; font-size: 18px; color: #1a1a1a; }
-
-    .sticker-cta-bar {
-      background: #7b2fff; border-top: 5px solid #1a1a1a;
-      padding: 24px; text-align: center; margin-top: 32px;
-      position: relative; z-index: 1;
-    }
-    .btn-sticker-bar {
-      font-family: 'Bangers', cursive; font-size: 24px; letter-spacing: 2px;
-      background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; border-radius: 10px;
-      padding: 14px 32px; text-decoration: none; display: inline-block;
-      box-shadow: 7px 7px 0 #1a1a1a;
-      transition: transform 0.1s, box-shadow 0.1s;
-      animation: pulse-btn 2s ease-in-out infinite;
-    }
-    .btn-sticker-bar:hover { transform: translate(-3px,-3px); box-shadow: 10px 10px 0 #1a1a1a; animation: none; }
 
     /* ===================== TICKER ===================== */
     .strip-banner {
@@ -205,17 +199,18 @@
     .story-badge-col { display: flex; align-items: flex-start; justify-content: center; padding-top: 70px; flex-shrink: 0; }
     .subscribe-badge {
       background: #ff9f00; border: 5px solid #1a1a1a; border-radius: 50%;
-      width: 200px; height: 200px;
+      width: 260px; height: 260px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; box-shadow: 6px 6px 0 #1a1a1a;
+      text-align: center; box-shadow: 8px 8px 0 #1a1a1a;
       transform: rotate(8deg); animation: badge-pulse 1.8s ease-in-out infinite;
-      text-decoration: none; padding: 12px;
+      text-decoration: none; padding: 18px;
       transition: background 0.2s, transform 0.2s;
     }
     .subscribe-badge:hover { background: #00c853; transform: rotate(8deg) scale(1.08); }
     @keyframes badge-pulse { 0%,100%{transform:rotate(8deg) scale(1);} 50%{transform:rotate(8deg) scale(1.1);} }
-    .subscribe-badge-text { font-family: 'Bangers', cursive; font-size: 20px; letter-spacing: 1px; color: #1a1a1a; line-height: 1.3; }
-    .subscribe-badge-btn { font-size: 14px; background: #ff2d55; color: #fff; padding: 4px 10px; border-radius: 4px; margin-top: 6px; display: inline-block; border: 2px solid #1a1a1a; font-family: 'Bangers', cursive; letter-spacing: 1px; }
+    .subscribe-badge-text { font-family: 'Bangers', cursive; font-size: 24px; letter-spacing: 1px; color: #1a1a1a; line-height: 1.25; }
+    .subscribe-badge-price { font-family: 'Bangers', cursive; font-size: 20px; color: #ff2d55; background: #1a1a1a; padding: 3px 10px; border-radius: 6px; margin: 6px 0 4px; display: inline-block; letter-spacing: 1px; }
+    .subscribe-badge-btn { font-size: 16px; background: #ff2d55; color: #fff; padding: 6px 14px; border-radius: 4px; margin-top: 4px; display: inline-block; border: 2px solid #1a1a1a; font-family: 'Bangers', cursive; letter-spacing: 1px; }
 
     /* ===================== FOUNDER ===================== */
     .founder-section { background: #7b2fff; border-bottom: 5px solid #1a1a1a; }
@@ -285,24 +280,113 @@
 
     @keyframes pulse-btn { 0%,100%{box-shadow:5px 5px 0 #1a1a1a;} 50%{box-shadow:7px 7px 0 #1a1a1a;} }
 
-    /* ===================== RESPONSIVE ===================== */
-    @media (max-width: 700px) {
-      .top-nav a { font-size: 12px; padding: 10px 8px; letter-spacing: 0; }
+    /* ===================== IPHONE / MOBILE ===================== */
+    @media (max-width: 480px) {
+
+      /* --- Hero / Free Episodes --- */
+      .episodes-hero { padding: 28px 0 0; }
+      .section-inner { padding: 0 16px; }
+      .section-title { font-size: 30px; letter-spacing: 0; margin-bottom: 8px; }
+      .section-sub { font-size: 15px; margin-bottom: 18px; }
+      .sticker-nudge { margin-bottom: 20px; }
+      .btn-nudge-sticker { font-size: 20px; padding: 14px 24px; width: 100%; text-align: center; justify-content: center; display: flex; }
+
+      /* 2-column comic grid on iPhone */
+      .preview-grid { grid-template-columns: repeat(2,1fr); border-radius: 8px; box-shadow: 4px 4px 0 #1a1a1a; }
+      .preview-label { font-size: 13px; padding: 7px 6px; }
+      .preview-cta { padding: 16px 0 0; }
+      .preview-cta p { font-size: 15px; }
+
+      /* --- Story / Fan Club section --- */
+      .story-section { padding: 40px 0; }
+      .story-layout { grid-template-columns: 1fr; gap: 0; }
+      .story-eyebrow { font-size: 13px; }
+      .story-title { font-size: 36px; margin-bottom: 10px; }
+      .story-sub { font-size: 16px; margin-bottom: 24px; }
+
+      /* Episode cards: 1 column on iPhone so they're big enough to see */
+      .fomo-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 20px; }
+      .fomo-card { flex-direction: row; height: 110px; border-radius: 10px; }
+      .fomo-card-img-wrap { width: 80px; height: 110px; aspect-ratio: unset; flex-shrink: 0; }
+      .fomo-card img { object-position: center center; }
+      .fomo-card-info { height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 6px; padding: 10px 14px; }
+      .fomo-lock { font-size: 18px; }
+      .fomo-ep-label { font-size: 16px; }
+      .fomo-coming { font-size: 11px; }
+      .fomo-members-only { font-size: 11px; width: 100%; }
+
+      .pipeline-label { font-size: 16px; letter-spacing: 1px; padding-top: 16px; margin-top: 4px; margin-bottom: 12px; }
+
+      /* Subscribe badge — full width row under cards on mobile */
+      .story-badge-col { padding-top: 28px; justify-content: center; width: 100%; }
+      .subscribe-badge {
+        width: 220px; height: 220px;
+        transform: rotate(4deg);
+      }
+      @keyframes badge-pulse { 0%,100%{transform:rotate(4deg) scale(1);} 50%{transform:rotate(4deg) scale(1.08);} }
+      .subscribe-badge:hover { transform: rotate(4deg) scale(1.08); }
+      .subscribe-badge-text { font-size: 20px; }
+      .subscribe-badge-price { font-size: 16px; }
+      .subscribe-badge-btn { font-size: 14px; }
+
+      /* --- Founder section --- */
+      .founder-inner { grid-template-columns: 1fr; padding: 36px 16px; gap: 32px; }
+      .fan-club-badge { max-width: 220px; }
+      .price-pill { font-size: 36px; padding: 10px 20px; }
+      .price-pill span { font-size: 17px !important; }
+      .lock-in-btn { font-size: 15px; padding: 13px 16px; }
+      .founder-title { font-size: 36px; }
+      .founder-intro { font-size: 15px; }
+      .perk-title { font-size: 14px; }
+      .perk-desc { font-size: 12px; }
+      .btn-boom { font-size: 20px; padding: 14px 20px; width: 100%; text-align: center; }
+      .cancel-note { font-size: 12px; }
+
+      /* --- Who is Adira --- */
+      .whois-inner { grid-template-columns: 1fr; padding: 36px 16px; gap: 28px; }
+      .whois-img { max-width: 260px; margin: 0 auto; }
+      .whois-title { font-size: clamp(2.4rem, 12vw, 3.5rem); }
+      .whois-btn { font-size: 17px; padding: 12px 20px; width: 100%; text-align: center; }
+
+      /* --- Sticker section --- */
+      .sticker-section { padding: 48px 16px; }
+      .sticker-inner { grid-template-columns: 1fr; gap: 32px; }
+      .sticker-img-col { order: -1; }
+      .sticker-img { max-width: 280px; margin: 0 auto; }
+      .sticker-badge { width: 80px; height: 80px; font-size: 16px; right: calc(50% - 150px); }
+      .sticker-title { font-size: 36px; }
+      .sticker-sub { font-size: 15px; }
+      .sticker-bullet { font-size: 15px; padding: 10px 14px; }
+      .btn-sticker { font-size: 20px; padding: 14px 20px; width: 100%; text-align: center; }
+      .sticker-fine { font-size: 12px; }
+
+      /* --- Footer --- */
+      .lp-footer { flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 20px 16px; }
+      .footer-logo { height: 40px; }
+      .footer-text { font-size: 12px; }
+      .footer-links { gap: 20px; }
+
+      /* --- Float button --- */
+      #float-sticker-btn { font-size: 14px; padding: 12px 16px; bottom: 16px; right: 12px; border-width: 3px; box-shadow: 3px 3px 0 #1a1a1a; }
+    }
+
+    /* Tablet (481–768px) */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .section-title { font-size: 42px; }
       .preview-grid { grid-template-columns: repeat(2,1fr); }
       .story-layout { grid-template-columns: 1fr; }
-      .story-badge-col { padding-top: 0; justify-content: flex-start; }
+      .story-badge-col { padding-top: 24px; justify-content: center; }
       .fomo-grid { grid-template-columns: repeat(2,1fr); }
-      .story-title { font-size: 40px; }
+      .story-title { font-size: 46px; }
       .founder-inner { grid-template-columns: 1fr; }
       .sticker-inner { grid-template-columns: 1fr; }
       .sticker-img-col { order: -1; }
-      .sticker-title { font-size: 42px; }
-      .section-title { font-size: 38px; }
+      .sticker-title { font-size: 46px; }
       .whois-inner { grid-template-columns: 1fr; }
       .lp-footer { flex-direction: column; align-items: center; text-align: center; }
       #float-sticker-btn { font-size: 15px; padding: 11px 16px; bottom: 16px; right: 14px; }
-      .sticker-nudge { flex-direction: column; text-align: center; }
     }
+
   </style>
 </head>
 <body>
@@ -312,10 +396,11 @@
 
   <!-- TOP NAV -->
   <nav class="top-nav">
-    <a href="#free-comics">📖 READ FOUR FREE COMICS!</a>
-    <a href="#stickers" class="nav-sticker">🎁 FREE STICKER PACK!</a>
-    <a href="#fanclub" class="nav-fanclub">⚡ HUGE FAN CLUB DISCOUNT!</a>
-    <a href="#whois" class="nav-whois">🎨 WHO IS ADIRA?</a>
+    <a href="#free-comics" class="nav-comics">📖 Read Four Free Comics!</a>
+    <a href="#stickers" class="nav-sticker">🎁 Free Sticker Pack!</a>
+    <a href="#founder-perks" class="nav-fanclub">⚡ Huge Fan Club Discount!</a>
+    <a href="#pipeline" class="nav-hot">🔥 New &amp; Hot!</a>
+    <a href="#whois" class="nav-whois">🎨 Who is Adira?</a>
   </nav>
 
   <!-- ===== SECTION 1: START READING FOR FREE ===== -->
@@ -324,9 +409,8 @@
       <h2 class="section-title">START READING — <span>FOR FREE!</span></h2>
       <p class="section-sub">Four complete episodes. Zero dollars. No credit card. No catch. Click on a cover and enjoy!</p>
 
-      <!-- Sticker nudge — prominent, above covers -->
+      <!-- Sticker button only — no surrounding text -->
       <div class="sticker-nudge">
-        <span class="sticker-nudge-text">🎁 Visiting for the first time? We have a <span>FREE digital sticker pack</span> waiting for you!</span>
         <a href="#stickers" class="btn-nudge-sticker">🎁 GET MY FREE STICKERS ↓</a>
       </div>
 
@@ -358,10 +442,6 @@
       </div>
       <div class="preview-cta"><p>Read all 4 and want more? Good. Keep scrolling. 👇</p></div>
     </div>
-
-    <div class="sticker-cta-bar">
-      <a href="#stickers" class="btn-sticker-bar">🎁 CLAIM YOUR FREE STICKER PACK RIGHT HERE ↓</a>
-    </div>
   </div>
 
   <!-- TICKER -->
@@ -380,7 +460,8 @@
           <h2 class="story-title">THE STORY IS JUST<br>GETTING STARTED!!!</h2>
           <p class="story-sub">A new online episode drops <span>every single month.</span> Fan Club members get all of it — unlocked and loaded.</p>
 
-          <!-- Out Now -->
+          <!-- Out Now — New & Hot lands here -->
+          <div id="pipeline"></div>
           <div class="fomo-grid">
             <div class="fomo-card">
               <div class="fomo-card-img-wrap"><img src="https://bookshelfbliss.com/cdn/shop/articles/cover5_fc.jpg?v=1773329788" alt="Episode 5" /></div>
@@ -418,6 +499,7 @@
         <div class="story-badge-col">
           <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="subscribe-badge">
             <div class="subscribe-badge-text">SEE YOUR NAME<br>IN OUR COMIC<br>BOOK!</div>
+            <span class="subscribe-badge-price">ONLY $3.50/MONTH!</span>
             <span class="subscribe-badge-btn">SUBSCRIBE NOW!</span>
           </a>
         </div>
@@ -426,16 +508,16 @@
   </div>
 
   <!-- ===== SECTION 3: FOUNDER'S DEAL ===== -->
-  <div class="founder-section">
+  <div class="founder-section" id="founder-perks">
     <div class="founder-inner">
       <div class="founder-badge-wrap">
         <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" alt="Adira Clementine Fan Club" />
-        <div class="price-pill">$5 / MONTH<br><span style="font-size:22px;">FOUNDER'S PRICE 🔒</span></div>
+        <div class="price-pill">$3.50 / MONTH<br><span style="font-size:22px;">FOUNDER'S PRICE 🔒</span></div>
         <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="lock-in-btn">FOUNDER'S PRICE — LOCK IT IN NOW!</a>
       </div>
       <div>
         <h2 class="founder-title">THE <span>FOUNDER'S</span> DEAL</h2>
-        <p class="founder-intro">Lock in $5/month at this price — it will go up for new members in the future. These perks are exclusive to Fan Club members only.</p>
+        <p class="founder-intro">Lock in $3.50/month at this price — it will go up for new members in the future. These perks are exclusive to Fan Club members only.</p>
         <ul class="perks-list">
           <li class="perk-item"><span class="perk-icon">📖</span><div><span class="perk-title">DIRECTOR'S CUT EPISODES</span><span class="perk-desc">Exclusive panels + 3 bonus pages every month not available anywhere else.</span></div></li>
           <li class="perk-item"><span class="perk-icon">🎥</span><div><span class="perk-title">UNPRECEDENTED CREATOR ACCESS</span><span class="perk-desc">Unprecedented access to our private creator video conferences. You're a fly on the wall — in the room where it all happens!</span></div></li>
