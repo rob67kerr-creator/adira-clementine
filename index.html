@@ -26,7 +26,7 @@
     }
     .top-nav a:last-child { border-right: none; }
     .top-nav a:hover { filter: brightness(1.18); }
-    .top-nav a.nav-fanclub { background: #ff2d55; color: #fff; flex-grow: 1; justify-content: center; }
+    .top-nav a.nav-fanclub { background: #ff2d55; color: #fff; }
     .top-nav a.nav-hot     { background: #ff9f00; color: #1a1a1a; position: relative; padding-right: 44px; }
     .top-nav a.nav-hot::after {
       content: 'NEW'; font-size: 9px; font-weight: 900;
@@ -37,24 +37,44 @@
     
     @media (max-width: 700px) {
       .top-nav { display: grid; grid-template-columns: 1fr 1fr; }
-      .top-nav a { font-size: 11px; padding: 12px 5px; border-bottom: 3px solid #1a1a1a; }
-      .top-nav a.nav-fanclub { grid-column: 1 / -1; font-size: 13px; }
+      .top-nav a { font-size: 12px; padding: 13px 10px; border-right: 3px solid #1a1a1a; border-bottom: 3px solid #1a1a1a; justify-content: center; text-align: center; white-space: normal; line-height: 1.2; }
+      .top-nav a:last-child { grid-column: 1 / -1; border-right: none; }
+    }
+
+    /* ===================== FLOATING STICKER BUTTON ===================== */
+    #float-sticker-btn {
+      position: fixed; bottom: 28px; right: 24px; z-index: 9999;
+      background: #ffec00; color: #1a1a1a;
+      font-family: 'Bangers', cursive; font-size: 18px; letter-spacing: 1.5px;
+      padding: 14px 22px; border: 4px solid #1a1a1a; border-radius: 50px;
+      box-shadow: 5px 5px 0 #1a1a1a; text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.3s;
+      animation: float-pulse 2.5s ease-in-out infinite;
+    }
+    #float-sticker-btn:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 #1a1a1a; animation: none; }
+    #float-sticker-btn.hidden { opacity: 0; pointer-events: none; }
+    @keyframes float-pulse {
+      0%,100%{ box-shadow:5px 5px 0 #1a1a1a; transform:translateY(0); }
+      50%{ box-shadow:7px 7px 0 #1a1a1a; transform:translateY(-5px); }
     }
 
     /* ===================== FREE EPISODES HERO ===================== */
     .episodes-hero {
       background-color: #00c2ff;
       border-bottom: 5px solid #1a1a1a;
-      padding: 48px 0 30px;
+      padding: 48px 0 0;
       position: relative; overflow: hidden;
     }
     .episodes-hero::before {
       content: ''; position: absolute; inset: 0;
       background-image:
         url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/part3_007.jpg?v=1762469290'),
-        url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/fan_club_ver_4.jpg?v=1768859346');
-      background-size: 50% auto;
-      background-position: left top, right top;
+        url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/fan_club_ver_4.jpg?v=1768859346'),
+        url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/fan_club_ver_7.jpg?v=1768859346'),
+        url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/fan_club_ver_10.jpg?v=1768859345');
+      background-size: 25% auto, 25% auto, 25% auto, 25% auto;
+      background-position: left top, 33% top, 66% top, right top;
       background-repeat: no-repeat;
       filter: sepia(1) brightness(0.6) opacity(0.35);
       mix-blend-mode: multiply; z-index: 0;
@@ -68,18 +88,12 @@
       text-shadow: 3px 3px 0 #fff;
     }
     .section-title span { color: #ff2d55; text-shadow: 3px 3px 0 #1a1a1a; }
-    
-    /* NEW AD-MATCH TEXT STYLE */
+
     .ad-match-text {
-      font-family: 'Bangers', cursive;
-      text-align: center;
-      font-size: 28px;
-      color: #fff;
-      margin-bottom: 32px;
-      transform: rotate(-2deg);
-      text-shadow: 4px 4px 0 #1a1a1a;
-      letter-spacing: 1px;
-      line-height: 1.2;
+      font-family: 'Bangers', cursive; text-align: center;
+      font-size: 28px; color: #fff; margin-bottom: 32px;
+      transform: rotate(-2deg); text-shadow: 4px 4px 0 #1a1a1a;
+      letter-spacing: 1px; line-height: 1.2;
     }
     .ad-match-text span { color: #ffec00; }
 
@@ -102,6 +116,9 @@
     .preview-cell:nth-child(3) .preview-label { background: #ff9f00; color: #1a1a1a; }
     .preview-cell:nth-child(4) .preview-label { background: #1a1a1a; color: #ffec00; }
 
+    .preview-cta { text-align: center; padding: 24px 0 0; position: relative; z-index: 1; }
+    .preview-cta p { font-family: 'Fredoka One', cursive; font-size: 18px; color: #1a1a1a; }
+
     /* ===================== TICKER ===================== */
     .strip-banner {
       background: #1a1a1a; overflow: hidden; white-space: nowrap;
@@ -114,7 +131,7 @@
     }
     @keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
 
-    /* ===================== STORY / FAN CLUB ===================== */
+    /* ===================== STORY / PIPELINE ===================== */
     .story-section {
       background: #0d1520;
       background-image: url('https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Convert_to_1MB_JPEG.png?v=1773761992');
@@ -125,64 +142,98 @@
     .story-section::before { content: ''; position: absolute; inset: 0; background: rgba(10,15,30,0.72); z-index: 0; }
     .story-section .section-inner { position: relative; z-index: 1; }
     .story-layout { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; }
-    .story-eyebrow { font-family: 'Bangers', cursive; font-size: 16px; letter-spacing: 4px; color: #ff2d55; margin-bottom: 8px; }
+    .story-eyebrow { font-family: 'Bangers', cursive; font-size: 16px; letter-spacing: 4px; color: #ff2d55; margin-bottom: 8px; animation: pulse-btn 2s ease-in-out infinite; }
     .story-title { font-family: 'Bangers', cursive; font-size: 58px; letter-spacing: 2px; color: #ffec00; line-height: 1; text-shadow: 4px 4px 0 #ff2d55; margin-bottom: 10px; }
     .story-sub { font-family: 'Fredoka One', cursive; font-size: 20px; color: #fff; margin-bottom: 36px; max-width: 560px; line-height: 1.5; }
     .story-sub span { color: #ffec00; }
     .fomo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-bottom: 24px; }
-    .fomo-card { display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; border: 4px solid #333; background: #1a1a1a; }
-    .fomo-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; filter: brightness(0.75); }
-    .fomo-card-info { padding: 12px 10px; display: flex; flex-direction: column; align-items: center; background: #1a1a1a; }
-    .fomo-ep-label { font-family: 'Bangers', cursive; font-size: 17px; color: #ffec00; }
-    .fomo-coming { font-family: 'Fredoka One', cursive; font-size: 11px; color: #fff; background: #ff2d55; padding: 3px 10px; border-radius: 20px; margin-top: 5px; }
-
-    .story-badge-col { display: flex; align-items: flex-start; justify-content: center; padding-top: 70px; }
+    .fomo-card { display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; border: 4px solid #333; transition: border-color 0.2s, transform 0.2s; background: #1a1a1a; }
+    .fomo-card:hover { border-color: #ffec00; transform: translateY(-8px); }
+    .fomo-card-img-wrap { width: 100%; aspect-ratio: 2/3; overflow: hidden; flex-shrink: 0; }
+    .fomo-card img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; filter: brightness(0.75); transition: filter 0.3s; }
+    .fomo-card:hover img { filter: brightness(0.95); }
+    .fomo-card-info { padding: 12px 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; background: #1a1a1a; height: 100px; flex-shrink: 0; }
+    .fomo-lock { font-size: 22px; line-height: 1; }
+    .fomo-ep-label { font-family: 'Bangers', cursive; font-size: 17px; letter-spacing: 2px; color: #ffec00; text-align: center; }
+    .fomo-coming { font-family: 'Fredoka One', cursive; font-size: 11px; color: #fff; background: #ff2d55; padding: 3px 10px; border-radius: 20px; text-align: center; }
+    .fomo-members-only { font-family: 'Bangers', cursive; font-size: 12px; letter-spacing: 1px; color: #888; text-align: center; }
+    .pipeline-label { font-family: 'Bangers', cursive; font-size: 22px; letter-spacing: 3px; color: #ff9f00; margin-bottom: 16px; margin-top: 8px; border-top: 3px dashed rgba(255,159,0,0.4); padding-top: 20px; }
+    .story-badge-col { display: flex; align-items: flex-start; justify-content: center; padding-top: 70px; flex-shrink: 0; }
     .subscribe-badge {
-      background: #ff9f00; border: 5px solid #1a1a1a; border-radius: 50%;
-      width: 260px; height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; box-shadow: 8px 8px 0 #1a1a1a; transform: rotate(8deg); animation: badge-pulse 1.8s ease-in-out infinite;
-      text-decoration: none; padding: 18px; transition: transform 0.2s;
+      background: #ff9f00; border: 5px solid #1a1a1a; border-radius: 50%; width: 260px; height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 8px 8px 0 #1a1a1a; transform: rotate(8deg); animation: badge-pulse 1.8s ease-in-out infinite; text-decoration: none; padding: 18px; transition: background 0.2s, transform 0.2s;
     }
-    .subscribe-badge:hover { transform: rotate(8deg) scale(1.08); }
-    .subscribe-badge-text { font-family: 'Bangers', cursive; font-size: 24px; color: #1a1a1a; }
-    .subscribe-badge-price { font-family: 'Bangers', cursive; font-size: 20px; color: #ff2d55; background: #1a1a1a; padding: 3px 10px; border-radius: 6px; margin: 5px 0; }
-    .subscribe-badge-btn { background: #ff2d55; color: #fff; padding: 6px 14px; border-radius: 4px; font-family: 'Bangers', cursive; }
+    .subscribe-badge:hover { background: #00c853; transform: rotate(8deg) scale(1.08); }
+    @keyframes badge-pulse { 0%,100%{transform:rotate(8deg) scale(1);} 50%{transform:rotate(8deg) scale(1.1);} }
+    .subscribe-badge-text { font-family: 'Bangers', cursive; font-size: 24px; color: #1a1a1a; line-height: 1.25; }
+    .subscribe-badge-price { font-family: 'Bangers', cursive; font-size: 20px; color: #ff2d55; background: #1a1a1a; padding: 3px 10px; border-radius: 6px; margin: 6px 0 4px; display: inline-block; }
+    .subscribe-badge-btn { font-size: 16px; background: #ff2d55; color: #fff; padding: 6px 14px; border-radius: 4px; margin-top: 4px; display: inline-block; border: 2px solid #1a1a1a; font-family: 'Bangers', cursive; }
 
-    /* ===================== FOUNDER'S DEAL ===================== */
-    .founder-section { background: #7b2fff; border-bottom: 5px solid #1a1a1a; padding: 60px 0; }
-    .founder-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    /* ===================== FOUNDER ===================== */
+    .founder-section { background: #7b2fff; border-bottom: 5px solid #1a1a1a; }
+    .founder-inner { max-width: 980px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     .founder-badge-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .fan-club-badge { width: 100%; max-width: 300px; border-radius: 50%; box-shadow: 0 0 20px rgba(0,0,0,0.3); }
-    .price-pill { background: #ffec00; color: #1a1a1a; font-family: 'Bangers', cursive; font-size: 40px; padding: 15px; border: 5px solid #1a1a1a; border-radius: 12px; text-align: center; }
-    .founder-title { font-family: 'Bangers', cursive; font-size: 50px; color: #ffec00; text-shadow: 3px 3px 0 #1a1a1a; }
-    .perks-list { list-style: none; margin-top: 20px; }
-    .perk-item { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 2px solid rgba(255,255,255,0.2); }
-    .perk-title { font-family: 'Bangers', cursive; color: #ffec00; display: block; }
-    .perk-desc { font-family: 'Fredoka One', cursive; color: #fff; font-size: 14px; }
-    .btn-boom { font-family: 'Bangers', cursive; font-size: 28px; background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; padding: 15px 30px; border-radius: 10px; text-decoration: none; display: inline-block; margin-top: 20px; box-shadow: 6px 6px 0 #1a1a1a; }
+    .fan-club-badge { width: 100%; max-width: 340px; display: block; filter: drop-shadow(0 0 20px rgba(255,236,0,0.5)) drop-shadow(4px 4px 0 rgba(0,0,0,0.4)); animation: badge-float 3s ease-in-out infinite; border-radius: 50%; }
+    @keyframes badge-float { 0%,100%{transform:translateY(0) rotate(-2deg);} 50%{transform:translateY(-12px) rotate(2deg);} }
+    .price-pill { background: #ffec00; color: #1a1a1a; font-family: 'Bangers', cursive; font-size: 50px; padding: 12px 28px; border: 5px solid #1a1a1a; border-radius: 12px; text-align: center; box-shadow: 7px 7px 0 #1a1a1a; line-height: 1.1; }
+    .lock-in-btn { font-family: 'Bangers', cursive; font-size: 18px; background: #ff9f00; color: #1a1a1a; border: 4px solid #1a1a1a; border-radius: 10px; padding: 14px 20px; box-shadow: 5px 5px 0 #1a1a1a; text-align: center; width: 100%; max-width: 340px; text-decoration: none; display: block; transition: transform 0.1s, box-shadow 0.1s; }
+    .lock-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 #1a1a1a; }
+    .founder-title { font-family: 'Bangers', cursive; font-size: 50px; color: #ffec00; margin-bottom: 6px; text-shadow: 3px 3px 0 #1a1a1a; }
+    .founder-title span { color: #ff2d55; }
+    .founder-intro { font-family: 'Fredoka One', cursive; font-size: 17px; color: #fff; margin-bottom: 20px; line-height: 1.55; }
+    .perks-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .perk-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border: 3px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); transition: transform 0.2s; }
+    .perk-item:hover { border-color: #ffec00; background: rgba(255,236,0,0.15); transform: translateX(4px); }
+    .perk-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .perk-title { font-family: 'Bangers', cursive; font-size: 16px; color: #ffec00; display: block; margin-bottom: 2px; }
+    .perk-desc { font-family: 'Fredoka One', cursive; font-size: 13px; color: #e0d0ff; line-height: 1.4; }
+    .btn-boom { font-family: 'Bangers', cursive; font-size: 28px; background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; padding: 15px 36px; border-radius: 10px; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 7px 7px 0 #1a1a1a; margin-top: 20px; }
+    .cancel-note { font-family: 'Fredoka One', cursive; color: #ddd; font-size: 13px; margin-top: 10px; }
+
+    /* ===================== WHO IS ADIRA ===================== */
+    .whois-section { background: #1a1a1a; border-bottom: 5px solid #ffec00; overflow: hidden; }
+    .whois-inner { max-width: 980px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: center; }
+    .whois-img { width: 100%; max-width: 380px; display: block; border: 5px solid #ffec00; border-radius: 8px; box-shadow: 10px 10px 0 #ff2d55; transform: rotate(-2deg); }
+    .whois-title { font-family: 'Bangers', cursive; font-size: clamp(3rem,8vw,6rem); line-height: .9; color: #fff; margin-bottom: 24px; text-shadow: 4px 4px 0 #ff2d55; }
+    .whois-title span { color: #ffec00; }
+    .whois-facts { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+    .whois-fact { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,0.06); border: 2px solid rgba(255,236,0,0.2); border-radius: 8px; padding: 12px 14px; }
+    .whois-fact p { font-family: 'Fredoka One', cursive; font-size: 15px; color: #e0d0ff; line-height: 1.5; }
+    .whois-btn { font-family: 'Bangers', cursive; font-size: 22px; background: #ff2d55; color: #fff; border: 4px solid #ffec00; padding: 14px 28px; border-radius: 8px; text-decoration: none; display: inline-block; box-shadow: 5px 5px 0 #ffec00; }
+
+    /* ===================== STICKER SECTION ===================== */
+    .sticker-section { background: #7b2fff; border-top: 5px solid #ffec00; border-bottom: 5px solid #ffec00; padding: 72px 24px; position: relative; overflow: hidden; }
+    .sticker-inner { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr 0.8fr; align-items: center; gap: 48px; position: relative; z-index: 2; }
+    .sticker-title { font-family: 'Bangers', cursive; font-size: 56px; color: #fff; line-height: 1; margin-bottom: 20px; text-shadow: 3px 3px 0 #1a1a1a; }
+    .sticker-title span { color: #ffec00; }
+    .sticker-bullet { font-family: 'Fredoka One', cursive; font-size: 17px; color: #fff; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,236,0,0.3); border-radius: 8px; padding: 10px 16px; margin-bottom: 10px; }
+    .btn-sticker { font-family: 'Bangers', cursive; font-size: 28px; background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; padding: 16px 36px; border-radius: 10px; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 7px 7px 0 #1a1a1a; }
+    .sticker-img { width: 100%; max-width: 380px; border: 5px solid #ffec00; border-radius: 16px; box-shadow: 10px 10px 0 #1a1a1a; }
+    .sticker-badge { position: absolute; top: -16px; right: -8px; background: #ff2d55; color: #fff; font-family: 'Bangers', cursive; font-size: 22px; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; border: 4px solid #ffec00; transform: rotate(12deg); }
 
     /* ===================== FOOTER ===================== */
-    .lp-footer { background: #1a1a1a; border-top: 5px solid #ffec00; padding: 40px 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .footer-logo { height: 50px; filter: invert(1); }
-    .footer-text { font-family: 'Bangers', cursive; color: #ffec00; letter-spacing: 1px; }
-    .footer-links a { color: #888; text-decoration: none; font-family: 'Fredoka One', cursive; margin: 0 10px; }
+    .lp-footer { background: #1a1a1a; border-top: 5px solid #ffec00; padding: 28px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { height: 54px; filter: invert(1); opacity: 0.85; }
+    .footer-text { font-family: 'Bangers', cursive; font-size: 14px; letter-spacing: 2px; color: #ffec00; text-align: center; flex: 1; }
+    .footer-links { display: flex; gap: 16px; }
+    .footer-links a { font-family: 'Fredoka One', cursive; color: #aaa; font-size: 13px; text-decoration: none; }
 
-    @keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
-    @keyframes badge-pulse { 0%,100%{transform:rotate(8deg) scale(1);} 50%{transform:rotate(8deg) scale(1.05);} }
+    @keyframes pulse-btn { 0%,100%{box-shadow:5px 5px 0 #1a1a1a;} 50%{box-shadow:7px 7px 0 #1a1a1a;} }
 
     @media (max-width: 480px) {
-      .section-title { font-size: 32px; }
-      .ad-match-text { font-size: 20px; padding: 0 10px; }
+      .section-title { font-size: 30px; }
+      .ad-match-text { font-size: 22px; }
       .preview-grid { grid-template-columns: repeat(2,1fr); }
-      .story-layout, .founder-inner { grid-template-columns: 1fr; }
-      .story-badge-col { padding-top: 20px; }
+      .story-layout, .founder-inner, .whois-inner, .sticker-inner { grid-template-columns: 1fr; }
+      .story-badge-col { padding-top: 28px; }
     }
   </style>
 </head>
 <body>
 
+  <a href="#stickers" id="float-sticker-btn">🎁 GET MY FREE STICKERS ↓</a>
+
   <nav class="top-nav">
-    <a href="#founder-perks" class="nav-fanclub">⚡ FAN CLUB ONLY $3.50! JOIN BEFORE WE CHANGE OUR MINDS! ➔</a>
+    <a href="#founder-perks" class="nav-fanclub">⚡ FAN CLUB ONLY $3.50! JOIN NOW! ➔</a>
     <a href="#pipeline" class="nav-hot">🔥 New &amp; Hot!</a>
     <a href="#whois" class="nav-whois">🎨 Who is Adira?</a>
   </nav>
@@ -219,13 +270,12 @@
           </a>
         </div>
       </div>
+      <div class="preview-cta"><p>Read all 4 and want more? Good. Keep scrolling. 👇</p></div>
     </div>
   </div>
 
   <div class="strip-banner">
-    <span class="strip-text">
-      💥 WACKY &nbsp;·&nbsp; HILARIOUS &nbsp;·&nbsp; UNPREDICTABLE &nbsp;·&nbsp; ORIGINAL &nbsp;·&nbsp; MONTHLY &nbsp;·&nbsp; INDEPENDENT &nbsp;·&nbsp; UPROARIOUS &nbsp;·&nbsp; MANIC HUMOR &nbsp;·&nbsp; TOTALLY OFF-BEAT &nbsp;·&nbsp; BERSERK &nbsp;·&nbsp; ONE-OF-A-KIND &nbsp;·&nbsp; UNHINGED &nbsp;·&nbsp;
-    </span>
+    <span class="strip-text">💥 WACKY · HILARIOUS · UNPREDICTABLE · ORIGINAL · MONTHLY · INDEPENDENT · UPROARIOUS · MANIC HUMOR · TOTALLY OFF-BEAT · BERSERK · ONE-OF-A-KIND · UNHINGED ·</span>
   </div>
 
   <div class="story-section" id="fanclub">
@@ -234,29 +284,27 @@
         <div class="story-left">
           <div class="story-eyebrow">🔒 FAN CLUB MEMBERS ONLY 🔒</div>
           <h2 class="story-title">THE STORY IS JUST<br>GETTING STARTED!!!</h2>
-          <p class="story-sub">A new online episode drops <span>every month.</span> Fan Club members get all of it. <span>For only $3.50 a month!</span></p>
-
+          <p class="story-sub">A new online episode drops <span>every month.</span> Only <span>$3.50 a month!</span></p>
           <div id="pipeline"></div>
           <div class="fomo-grid">
             <div class="fomo-card">
-              <img src="https://bookshelfbliss.com/cdn/shop/articles/cover5_fc.jpg?v=1773329788" alt="Episode 5" />
-              <div class="fomo-card-info"><div class="fomo-ep-label">EPISODE 5</div><div class="fomo-coming">OUT NOW!</div></div>
+              <div class="fomo-card-img-wrap"><img src="https://bookshelfbliss.com/cdn/shop/articles/cover5_fc.jpg?v=1773329788" alt="Episode 5" /></div>
+              <div class="fomo-card-info"><div class="fomo-lock">🔒</div><div class="fomo-ep-label">EPISODE 5</div><div class="fomo-coming" style="background:#00c2ff;color:#1a1a1a;">OUT NOW!</div></div>
             </div>
             <div class="fomo-card">
-              <img src="https://bookshelfbliss.com/cdn/shop/articles/Screenshot_20260311_090055_Samsung_Notes_3824f0aa-105c-4614-8d63-908305a7f7f7.jpg?v=1773329966" alt="Episode 6" />
-              <div class="fomo-card-info"><div class="fomo-ep-label">EPISODE 6</div><div class="fomo-coming">OUT NOW!</div></div>
+              <div class="fomo-card-img-wrap"><img src="https://bookshelfbliss.com/cdn/shop/articles/Screenshot_20260311_090055_Samsung_Notes_3824f0aa-105c-4614-8d63-908305a7f7f7.jpg?v=1773329966" alt="Episode 6" /></div>
+              <div class="fomo-card-info"><div class="fomo-lock">🔒</div><div class="fomo-ep-label">EPISODE 6</div><div class="fomo-coming" style="background:#00c2ff;color:#1a1a1a;">OUT NOW!</div></div>
             </div>
             <div class="fomo-card">
-              <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/7_cover_2.jpg?v=1777389336" alt="Episode 7" />
-              <div class="fomo-card-info"><div class="fomo-ep-label">EPISODE 7</div><div class="fomo-coming">OUT NOW!</div></div>
+              <div class="fomo-card-img-wrap"><img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/7_cover_2.jpg?v=1777389336" alt="Episode 7" /></div>
+              <div class="fomo-card-info"><div class="fomo-lock">🔒</div><div class="fomo-ep-label">EPISODE 7</div><div class="fomo-coming" style="background:#00c2ff;color:#1a1a1a;">OUT NOW!</div></div>
             </div>
           </div>
         </div>
-
         <div class="story-badge-col">
           <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="subscribe-badge">
-            <div class="subscribe-badge-text">JOIN THE<br>FAN CLUB</div>
-            <span class="subscribe-badge-price">ONLY $3.50!</span>
+            <div class="subscribe-badge-text">SEE YOUR NAME<br>IN OUR COMIC!</div>
+            <span class="subscribe-badge-price">ONLY $3.50/MONTH!</span>
             <span class="subscribe-badge-btn">SUBSCRIBE NOW!</span>
           </a>
         </div>
@@ -268,33 +316,68 @@
     <div class="founder-inner">
       <div class="founder-badge-wrap">
         <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" alt="Fan Club" />
-        <div class="price-pill">$3.50 / MONTH<br><span style="font-size:18px;">LOCK IT IN FOREVER</span></div>
+        <div class="price-pill">$3.50 / MONTH</div>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="lock-in-btn">FOUNDER'S PRICE — LOCK IT IN!</a>
       </div>
       <div>
         <h2 class="founder-title">THE <span>FOUNDER'S</span> DEAL</h2>
         <ul class="perks-list">
-          <li class="perk-item"><span class="perk-title">📖 DIRECTOR'S CUTS</span><span class="perk-desc">Bonus pages every month.</span></li>
-          <li class="perk-item"><span class="perk-title">🎥 CREATOR ACCESS</span><span class="perk-desc">Private video conferences.</span></li>
-          <li class="perk-item"><span class="perk-title">🌟 YOUR NAME IN THE CREDITS</span><span class="perk-desc">Get published in the comic!</span></li>
+          <li class="perk-item"><span class="perk-icon">📖</span><div><span class="perk-title">DIRECTOR'S CUT</span><span class="perk-desc">Exclusive panels every month.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🎥</span><div><span class="perk-title">CREATOR ACCESS</span><span class="perk-desc">Private creator video conferences.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🌟</span><div><span class="perk-title">YOUR NAME IN THE CREDITS</span><span class="perk-desc">Published online forever.</span></div></li>
         </ul>
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-boom">⚡ CLAIM YOUR $3.50 DEAL NOW!</a>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-boom">⚡ CLAIM YOUR FOUNDER'S DEAL!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="whois-section" id="whois">
+    <div class="whois-inner">
+      <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" alt="Adira" class="whois-img" />
+      <div class="whois-text-col">
+        <h2 class="whois-title">WHO IS<br><span>ADIRA</span><br>CLEMENTINE?</h2>
+        <div class="whois-facts">
+          <div class="whois-fact"><p>💥 She's chaotic. She's hilarious. She breaks the fourth wall.</p></div>
+          <div class="whois-fact"><p>⚡ Part disaster, part genius — Adira is unlike ANY comic character.</p></div>
+        </div>
+        <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" target="_blank" class="whois-btn">⚡ Meet Her Now — Episode 1 is FREE</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticker-section" id="stickers">
+    <div class="sticker-inner">
+      <div class="sticker-text-col">
+        <h2 class="sticker-title">THANK YOU!<br><span>HERE'S A GIFT!!</span></h2>
+        <div class="sticker-bullet">🎨 Full set of digital stickers</div>
+        <div class="sticker-bullet">⚡ Delivered instantly to your email</div>
+        <a href="https://subscribe-forms.beehiiv.com/b262cefc-9ec7-4a7e-bc04-d49031bc8e9a" target="_blank" class="btn-sticker">🎁 SEND MY FREE STICKERS!</a>
+      </div>
+      <div class="sticker-img-col">
+        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Pale_blue_background.png?v=1773932209" alt="Stickers" class="sticker-img" />
+        <div class="sticker-badge">FREE!!!</div>
       </div>
     </div>
   </div>
 
   <div class="lp-footer">
-    <img class="footer-logo" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Cookie_logo_black.jpg?v=1773676495" alt="Vista Comics" />
+    <img class="footer-logo" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Cookie_logo_black.jpg?v=1773676495" alt="Vista" />
     <div class="footer-text">© 2026 VISTA COMICS COMPANY</div>
-    <div class="footer-links">
-      <a href="https://bookshelfbliss.com/pages/faq">FAQ</a>
-      <a href="https://bookshelfbliss.com/pages/contact">CONTACT</a>
-    </div>
   </div>
 
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Restore Scroll Logic
+    var stickerSection = document.getElementById('stickers');
+    var floatBtn = document.getElementById('float-sticker-btn');
+    if (stickerSection && floatBtn) {
+      window.addEventListener('scroll', function() {
+        var rect = stickerSection.getBoundingClientRect();
+        floatBtn.classList.toggle('hidden', rect.top < window.innerHeight * 0.8);
+      });
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
+        var target = document.querySelector(this.getAttribute('href'));
         if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
       });
     });
