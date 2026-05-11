@@ -248,7 +248,7 @@
     <div class="founder-inner">
       <div class="founder-badge-wrap">
         <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" />
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="price-pill" style="text-decoration:none; display:block; cursor:pointer;">$3.50 USD / MONTH<br><span style="font-size:22px;">FOUNDER'S PRICE 🔒</span></a>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="price-pill" style="text-decoration:none; display:block; cursor:pointer;">$3.50 USD / MONTH<br><span style="font-size:36px;">CLICK HERE!! 🔒</span></a>
         <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="lock-in-btn">FOUNDER'S PRICE — LOCK IT IN NOW!</a>
       </div>
       <div>
@@ -408,4 +408,10 @@
     }
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
-      
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
