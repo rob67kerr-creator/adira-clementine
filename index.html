@@ -39,26 +39,10 @@
     @media (max-width: 700px) {
       .top-nav { display: grid; grid-template-columns: 1fr 1fr; }
       .top-nav a { font-size: 12px; padding: 13px 10px; border-right: 3px solid #1a1a1a; border-bottom: 3px solid #1a1a1a; justify-content: center; text-align: center; white-space: normal; line-height: 1.2; }
-      .top-nav a.nav-fanclub { grid-column: 1 / -1; }
-      .top-nav a:last-child { border-right: none; border-bottom: none; }
-    }
-
-    /* ===================== FLOATING STICKER BUTTON ===================== */
-    #float-sticker-btn {
-      position: fixed; bottom: 28px; right: 24px; z-index: 9999;
-      background: #ffec00; color: #1a1a1a;
-      font-family: 'Bangers', cursive; font-size: 18px; letter-spacing: 1.5px;
-      padding: 14px 22px; border: 4px solid #1a1a1a; border-radius: 50px;
-      box-shadow: 5px 5px 0 #1a1a1a; text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
-      transition: transform 0.15s, box-shadow 0.15s, opacity 0.3s;
-      animation: float-pulse 2.5s ease-in-out infinite;
-    }
-    #float-sticker-btn:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 #1a1a1a; animation: none; }
-    #float-sticker-btn.hidden { opacity: 0; pointer-events: none; }
-    @keyframes float-pulse {
-      0%,100%{ box-shadow:5px 5px 0 #1a1a1a; transform:translateY(0); }
-      50%{ box-shadow:7px 7px 0 #1a1a1a; transform:translateY(-5px); }
+      .top-nav a.nav-fanclub { grid-column: 1 / -1; border-bottom: 3px solid #1a1a1a; }
+      .top-nav a.nav-freecomics { border-right: 3px solid #1a1a1a; }
+      .top-nav a.nav-whois { border-right: 3px solid #1a1a1a; border-bottom: none; }
+      .top-nav a.nav-hot { border-bottom: none; }
     }
 
     /* ===================== HERO / FREE EPISODES ===================== */
@@ -236,10 +220,8 @@
 </head>
 <body>
 
-  <a href="#stickers" id="float-sticker-btn">🎁 GET MY FREE STICKERS ↓</a>
-
   <nav class="top-nav">
-    <a href="#founder-perks" class="nav-fanclub">⚡ Fan Club Less Than A Latte A Month!</a> <a href="#free-comics" class="nav-freecomics">📚 Read 4 Comics Free!</a>
+    <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="nav-fanclub">⚡ Fan Club Less Than A Latte A Month!</a> <a href="#free-comics" class="nav-freecomics">📚 Read 4 Comics Free!</a>
     <a href="#pipeline" class="nav-hot">🔥 New &amp; Hot!</a>
     <a href="#whois" class="nav-whois">🎨 Who is Adira?</a>
   </nav>
@@ -398,14 +380,6 @@
   </div>
 
   <script>
-    var stickerSection = document.getElementById('stickers');
-    var floatBtn = document.getElementById('float-sticker-btn');
-    if (stickerSection && floatBtn) {
-      window.addEventListener('scroll', function() {
-        var rect = stickerSection.getBoundingClientRect();
-        floatBtn.classList.toggle('hidden', rect.top < window.innerHeight * 0.8);
-      });
-    }
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         var target = document.querySelector(this.getAttribute('href'));
