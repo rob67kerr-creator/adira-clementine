@@ -33,12 +33,14 @@
       background: #ff2d55; color: #fff; padding: 2px 5px;
       border-radius: 4px; position: absolute; top: 8px; right: 8px;
     }
+    .top-nav a.nav-freecomics { background: #00c2ff; color: #1a1a1a; }
     .top-nav a.nav-whois   { background: #1a1a1a; color: #ffec00; }
     
     @media (max-width: 700px) {
       .top-nav { display: grid; grid-template-columns: 1fr 1fr; }
       .top-nav a { font-size: 12px; padding: 13px 10px; border-right: 3px solid #1a1a1a; border-bottom: 3px solid #1a1a1a; justify-content: center; text-align: center; white-space: normal; line-height: 1.2; }
-      .top-nav a:last-child { grid-column: 1 / -1; border-right: none; }
+      .top-nav a.nav-fanclub { grid-column: 1 / -1; }
+      .top-nav a:last-child { border-right: none; border-bottom: none; }
     }
 
     /* ===================== FLOATING STICKER BUTTON ===================== */
@@ -237,9 +239,33 @@
   <a href="#stickers" id="float-sticker-btn">🎁 GET MY FREE STICKERS ↓</a>
 
   <nav class="top-nav">
-    <a href="#founder-perks" class="nav-fanclub">⚡ Fan Club Less Than A Latte A Month!</a> <a href="#pipeline" class="nav-hot">🔥 New &amp; Hot!</a>
+    <a href="#founder-perks" class="nav-fanclub">⚡ Fan Club Less Than A Latte A Month!</a> <a href="#free-comics" class="nav-freecomics">📚 Read 4 Comics Free!</a>
+    <a href="#pipeline" class="nav-hot">🔥 New &amp; Hot!</a>
     <a href="#whois" class="nav-whois">🎨 Who is Adira?</a>
   </nav>
+
+  <div class="founder-section" id="founder-perks">
+    <div class="founder-inner">
+      <div class="founder-badge-wrap">
+        <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" />
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="price-pill" style="text-decoration:none; display:block; cursor:pointer;">$3.50 USD / MONTH<br><span style="font-size:22px;">FOUNDER'S PRICE 🔒</span></a>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="lock-in-btn">FOUNDER'S PRICE — LOCK IT IN NOW!</a>
+      </div>
+      <div>
+        <h2 class="founder-title">THE <span>FOUNDER'S</span> DEAL</h2>
+        <p class="founder-intro">Lock in $3.50 USD/month at this price — it will go up for new members in the future. These perks are exclusive to Fan Club members only.</p>
+        <ul class="perks-list">
+          <li class="perk-item"><span class="perk-icon">📖</span><div><span class="perk-title">DIRECTOR'S CUT EPISODES</span><span class="perk-desc">Exclusive panels + 3 bonus pages every month not available anywhere else.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🎥</span><div><span class="perk-title">UNPRECEDENTED CREATOR ACCESS</span><span class="perk-desc">Unprecedented access to our private creator video conferences. You're a fly on the wall — in the room where it all happens!</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🌟</span><div><span class="perk-title">YOUR NAME IN THE CREDITS</span><span class="perk-desc">Every member gets their name in the credits of an actual Adira Clementine episode. Published. Online. Permanent.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">📰</span><div><span class="perk-title">QUARTERLY INSIDER NEWSLETTER</span><span class="perk-desc">Future storylines, interviews, first looks at Vista Comics projects coming up.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🛍️</span><div><span class="perk-title">EXCLUSIVE MERCH DISCOUNTS</span><span class="perk-desc">Founders get priority discounts on all Adira Clementine merchandise. It's cool stuff.</span></div></li>
+        </ul>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-boom">⚡ SUBSCRIBE &amp; CLAIM YOUR FOUNDER'S DEAL NOW!</a>
+        <p class="cancel-note">Cancel anytime · Secure checkout · Instant access to all episodes</p>
+      </div>
+    </div>
+  </div>
 
   <div class="episodes-hero" id="free-comics">
     <div class="section-inner">
@@ -328,29 +354,6 @@
     </div>
   </div>
 
-  <div class="founder-section" id="founder-perks">
-    <div class="founder-inner">
-      <div class="founder-badge-wrap">
-        <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" />
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="price-pill" style="text-decoration:none; display:block; cursor:pointer;">$3.50 USD / MONTH<br><span style="font-size:22px;">FOUNDER'S PRICE 🔒</span></a>
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="lock-in-btn">FOUNDER'S PRICE — LOCK IT IN NOW!</a>
-      </div>
-      <div>
-        <h2 class="founder-title">THE <span>FOUNDER'S</span> DEAL</h2>
-        <p class="founder-intro">Lock in $3.50 USD/month at this price — it will go up for new members in the future. These perks are exclusive to Fan Club members only.</p>
-        <ul class="perks-list">
-          <li class="perk-item"><span class="perk-icon">📖</span><div><span class="perk-title">DIRECTOR'S CUT EPISODES</span><span class="perk-desc">Exclusive panels + 3 bonus pages every month not available anywhere else.</span></div></li>
-          <li class="perk-item"><span class="perk-icon">🎥</span><div><span class="perk-title">UNPRECEDENTED CREATOR ACCESS</span><span class="perk-desc">Unprecedented access to our private creator video conferences. You're a fly on the wall — in the room where it all happens!</span></div></li>
-          <li class="perk-item"><span class="perk-icon">🌟</span><div><span class="perk-title">YOUR NAME IN THE CREDITS</span><span class="perk-desc">Every member gets their name in the credits of an actual Adira Clementine episode. Published. Online. Permanent.</span></div></li>
-          <li class="perk-item"><span class="perk-icon">📰</span><div><span class="perk-title">QUARTERLY INSIDER NEWSLETTER</span><span class="perk-desc">Future storylines, interviews, first looks at Vista Comics projects coming up.</span></div></li>
-          <li class="perk-item"><span class="perk-icon">🛍️</span><div><span class="perk-title">EXCLUSIVE MERCH DISCOUNTS</span><span class="perk-desc">Founders get priority discounts on all Adira Clementine merchandise. It's cool stuff.</span></div></li>
-        </ul>
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-boom">⚡ SUBSCRIBE &amp; CLAIM YOUR FOUNDER'S DEAL NOW!</a>
-        <p class="cancel-note">Cancel anytime · Secure checkout · Instant access to all episodes</p>
-      </div>
-    </div>
-  </div>
-
   <div class="whois-section" id="whois">
     <div class="whois-inner">
       <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" class="whois-img" />
@@ -405,10 +408,4 @@
     }
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
-  </script>
-</body>
-</html>
+      
