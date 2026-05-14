@@ -24,182 +24,7 @@
       overflow-x: hidden;
     }
 
-    /* =====================================================================
-       GATE OVERLAY
-    ===================================================================== */
-    #gate-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      animation: gateFadeIn 0.4s ease both;
-    }
-
-    @keyframes gateFadeIn  { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes gateSlideOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-40px); } }
-
-    .gate-card {
-      background: #1a1a1a;
-      border: 5px solid var(--yellow);
-      border-radius: 12px;
-      box-shadow: 10px 10px 0 var(--red);
-      padding: 2.5rem 2rem;
-      width: 100%;
-      max-width: 460px;
-      text-align: center;
-    }
-
-    .gate-logo {
-      width: 90px;
-      border-radius: 50%;
-      border: 4px solid var(--yellow);
-      box-shadow: 4px 4px 0 var(--red);
-      margin-bottom: 1.25rem;
-    }
-
-    .gate-title {
-      font-family: 'Bangers', cursive;
-      font-size: clamp(1.8rem, 6vw, 2.6rem);
-      letter-spacing: 2px;
-      color: var(--yellow);
-      text-shadow: 3px 3px 0 var(--red);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .gate-sub {
-      font-family: 'Fredoka One', cursive;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 1.75rem;
-      line-height: 1.5;
-    }
-
-    .gate-label {
-      font-family: 'Bangers', cursive;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.5);
-      text-align: left;
-      margin-bottom: 0.5rem;
-    }
-
-    #key-input {
-      width: 100%;
-      background: #0d0d0d;
-      border: 3px solid #444;
-      border-radius: 6px;
-      padding: 0.85rem 1rem;
-      font-family: 'Fredoka One', cursive;
-      font-size: 0.95rem;
-      color: var(--white);
-      letter-spacing: 0.05em;
-      outline: none;
-      transition: border-color 0.2s;
-      margin-bottom: 0.85rem;
-    }
-    #key-input::placeholder { color: #555; }
-    #key-input:focus { border-color: var(--yellow); }
-    #key-input.shake { animation: shake 0.4s ease; border-color: var(--red); }
-
-    @keyframes shake {
-      0%,100% { transform: translateX(0); }
-      25%      { transform: translateX(-8px); }
-      75%      { transform: translateX(8px); }
-    }
-
-    #verify-btn {
-      width: 100%;
-      background: var(--red);
-      color: var(--white);
-      border: 4px solid var(--yellow);
-      border-radius: 8px;
-      padding: 0.95rem 1rem;
-      font-family: 'Bangers', cursive;
-      font-size: 1.4rem;
-      letter-spacing: 2px;
-      cursor: pointer;
-      box-shadow: 6px 6px 0 var(--yellow);
-      transition: transform 0.1s, box-shadow 0.1s;
-    }
-    #verify-btn:hover   { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--yellow); }
-    #verify-btn:active  { transform: translate(1px,1px);   box-shadow: 3px 3px 0 var(--yellow); }
-    #verify-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
-
-    #error-msg {
-      font-family: 'Fredoka One', cursive;
-      font-size: 0.9rem;
-      color: var(--red);
-      margin-top: 0.75rem;
-      display: none;
-      line-height: 1.4;
-    }
-
-    .gate-help {
-      margin-top: 1.5rem;
-      padding-top: 1.25rem;
-      border-top: 3px dashed rgba(255,255,255,0.12);
-      font-family: 'Fredoka One', cursive;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.6;
-    }
-    .gate-help a { color: var(--yellow); text-decoration: none; }
-    .gate-help a:hover { text-decoration: underline; }
-
-    .spinner {
-      display: inline-block;
-      width: 14px; height: 14px;
-      border: 2px solid rgba(255,255,255,0.3);
-      border-top-color: var(--white);
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* =====================================================================
-       SIGN-OUT BAR
-    ===================================================================== */
-    #signout-bar {
-      display: none;
-      background: #0a0a0a;
-      padding: 8px 20px;
-      text-align: right;
-      border-bottom: 3px solid var(--yellow);
-      position: sticky;
-      top: 0;
-      z-index: 1001;
-    }
-    #signout-bar button {
-      background: transparent;
-      border: 2px solid var(--yellow);
-      color: var(--yellow);
-      font-family: 'Bangers', cursive;
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      padding: 5px 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-    }
-    #signout-bar button:hover { background: var(--yellow); color: var(--ink); }
-
-    /* =====================================================================
-       MAIN CONTENT
-    ===================================================================== */
-    #main-content { display: none; animation: contentFadeIn 0.5s ease both; }
-    @keyframes contentFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* =====================================================================
-       ORIGINAL PAGE STYLES
-    ===================================================================== */
-
+    /* ── MEMBERS BANNER ── */
     .members-banner {
       background: var(--member-green);
       color: var(--ink);
@@ -209,6 +34,9 @@
       font-size: clamp(1.1rem, 3vw, 1.6rem);
       letter-spacing: .08em;
       border-bottom: 4px solid var(--ink);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
     .members-banner span {
       background: var(--yellow);
@@ -220,29 +48,39 @@
 
     body::before {
       content: '';
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background-image: radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1px);
       background-size: 18px 18px;
       pointer-events: none;
       z-index: 0;
     }
 
-    .hero { position: relative; z-index: 1; text-align: center; padding: 48px 20px 32px; background: var(--ink); border-bottom: 6px solid var(--yellow); }
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 48px 20px 32px;
+      background: var(--ink);
+      border-bottom: 6px solid var(--yellow);
+    }
     .hero-logo { width: min(180px, 50vw); margin-bottom: 10px; }
     .hero-presents { font-family: 'Bangers', cursive; letter-spacing: .18em; font-size: 1rem; color: var(--yellow); margin-bottom: 12px; }
     .hero-title-img { width: min(520px, 90vw); margin-bottom: 24px; }
     .hero-cta-wrap { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 20px; }
     .btn-hero { font-family: 'Bangers', cursive; font-size: clamp(1rem, 3vw, 1.3rem); letter-spacing: .06em; padding: 14px 30px; border: 3px solid var(--ink); border-radius: 6px; text-decoration: none; display: inline-block; box-shadow: 5px 5px 0 rgba(0,0,0,.5); transition: transform .1s; }
-    .btn-read   { background: var(--yellow); color: var(--ink); }
+    .btn-read { background: var(--yellow); color: var(--ink); }
     .btn-member { background: var(--member-green); color: var(--ink); }
     .hero-tagline { font-family: 'Bangers', cursive; font-size: clamp(1rem, 3vw, 1.4rem); letter-spacing: .12em; color: var(--red); margin-top: 8px; }
     .hero-cover { width: min(300px, 80vw); margin: 20px auto 0; display: block; border: 4px solid var(--yellow); box-shadow: 8px 8px 0 var(--red); }
 
+    /* ── TICKER ── */
     .ticker-wrap { background: var(--yellow); border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); overflow: hidden; padding: 10px 0; position: relative; z-index: 1; }
     .ticker { display: flex; white-space: nowrap; animation: ticker 28s linear infinite; }
     .ticker span { font-family: 'Bangers', cursive; font-size: 1.15rem; letter-spacing: .08em; color: var(--ink); padding: 0 28px; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+    /* ── WHO IS ADIRA ── */
     .adira-section { position: relative; z-index: 1; background: #0d0d0d; padding: 60px 20px; border-top: 6px solid var(--yellow); border-bottom: 6px solid var(--yellow); text-align: center; }
     .adira-inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; }
     .adira-img { width: min(280px, 80vw); border: 5px solid var(--yellow); box-shadow: 8px 8px 0 var(--red); transform: rotate(-2deg); display: block; }
@@ -255,15 +93,23 @@
     .btn-adira { font-family: 'Bangers', cursive; font-size: 1.2rem; letter-spacing: .06em; padding: 14px 28px; background: var(--yellow); color: var(--ink); border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--red); text-decoration: none; display: inline-block; transition: transform .1s; }
     .btn-adira:hover { transform: translate(-2px,-2px); }
 
-    .episodes-section         { position: relative; z-index: 1; padding: 60px 20px; background: var(--dark); text-align: center; }
+    /* ── EPISODE SECTIONS ── */
+    .episodes-section { position: relative; z-index: 1; padding: 60px 20px; background: var(--dark); text-align: center; }
     .members-episodes-section { position: relative; z-index: 1; padding: 60px 20px; background: #0a1a0a; text-align: center; border-top: 6px solid var(--member-green); border-bottom: 6px solid var(--member-green); }
 
-    .section-heading  { font-family: 'Bangers', cursive; font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: .06em; color: var(--yellow); text-shadow: 4px 4px 0 var(--red); margin-bottom: 12px; }
-    .members-heading  { font-family: 'Bangers', cursive; font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: .06em; color: var(--member-green); text-shadow: 4px 4px 0 var(--ink); margin-bottom: 8px; }
-    .section-sub  { color: rgba(255,255,255,.7); margin-bottom: 36px; font-size: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; }
-    .members-sub  { color: rgba(255,255,255,.7); margin-bottom: 36px; font-size: 1rem; }
+    .section-heading { font-family: 'Bangers', cursive; font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: .06em; color: var(--yellow); text-shadow: 4px 4px 0 var(--red); margin-bottom: 12px; }
+    .members-heading { font-family: 'Bangers', cursive; font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: .06em; color: var(--member-green); text-shadow: 4px 4px 0 var(--ink); margin-bottom: 8px; }
+    .section-sub { color: rgba(255,255,255,.7); margin-bottom: 36px; font-size: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .members-sub { color: rgba(255,255,255,.7); margin-bottom: 36px; font-size: 1rem; }
 
-    .episodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 28px; max-width: 1200px; margin: 0 auto 24px; }
+    /* ── BIGGER COVERS — 50% larger via minmax ── */
+    .episodes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto 24px;
+    }
 
     .episode-card { background: #111; border: 3px solid var(--yellow); box-shadow: 5px 5px 0 var(--red); text-decoration: none; color: var(--white); display: block; transition: transform .15s, box-shadow .15s; }
     .episode-card:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--red); }
@@ -279,6 +125,7 @@
     .coming-soon-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; filter: brightness(.5); }
     .coming-soon-label { font-family: 'Bangers', cursive; letter-spacing: .06em; font-size: 1.15rem; padding: 14px 8px; text-align: center; background: #333; color: #aaa; }
 
+    /* ── THANK YOU ── */
     .thankyou-section { position: relative; z-index: 1; padding: 60px 20px; background: var(--ink); text-align: center; border-top: 6px solid var(--yellow); }
     .thankyou-heading { font-family: 'Bangers', cursive; font-size: clamp(2rem, 6vw, 3rem); letter-spacing: .06em; color: var(--yellow); text-shadow: 4px 4px 0 var(--red); margin-bottom: 20px; }
     .thankyou-body { max-width: 620px; margin: 0 auto 30px; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,.85); }
@@ -286,6 +133,7 @@
     .perks-list li { background: rgba(255,255,255,.06); border-left: 4px solid var(--member-green); padding: 12px 16px; font-size: .95rem; }
     .perks-list li strong { color: var(--member-green); }
 
+    /* ── FOOTER ── */
     footer { position: relative; z-index: 1; background: #0a0a0a; border-top: 4px solid var(--yellow); padding: 32px 20px; text-align: center; }
     .footer-logo { width: 80px; margin-bottom: 12px; opacity: .7; }
     .footer-copy { font-size: .8rem; color: rgba(255,255,255,.4); margin-bottom: 12px; }
@@ -300,299 +148,213 @@
 </head>
 <body>
 
-  <!-- =====================================================================
-       GATE OVERLAY
-  ===================================================================== -->
-  <div id="gate-overlay">
-    <div class="gate-card">
-      <img class="gate-logo"
-           src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_68198c72-f52a-4265-8832-2ea95472852d.jpg?v=1774483876"
-           alt="Adira Clementine Fan Club" />
-      <div class="gate-title">FAN CLUB MEMBERS</div>
-      <div class="gate-sub">Enter your Gumroad license key to unlock your content!</div>
+  <!-- MEMBERS BANNER -->
+  <div class="members-banner">
+    ✅ YOU'RE IN THE FAN CLUB! <span>ALL EPISODES UNLOCKED</span> — WELCOME BACK MEMBER!!!
+  </div>
 
-      <div class="gate-label">YOUR LICENSE KEY</div>
-      <input type="text" id="key-input"
-             placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX"
-             autocomplete="off" spellcheck="false" />
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-logo" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Cookie_logo_black.jpg?v=1773676495" alt="Vista Comics Company" />
+    <p class="hero-presents">PRESENTS</p>
+    <img class="hero-title-img" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260316_104320_Google.jpg?v=1773698229" alt="The Wonderful Breakthrough of Adira Clementine" />
+    <div class="hero-cta-wrap">
+      <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" class="btn-hero btn-read">⚡ Start from Episode 1!</a>
+      <a href="#members-episodes" class="btn-hero btn-member">🔓 Jump to Your Member Episodes!</a>
+    </div>
+    <p class="hero-tagline">A NEW EPISODE EVERY MONTH!</p>
+    <img class="hero-cover" src="https://bookshelfbliss.com/cdn/shop/articles/cover1_normal_4f90dabb-b42b-43fc-a3dd-d17a42aaaa83.jpg?v=1767713501" alt="Episode 1 Cover" />
+  </section>
 
-      <div id="error-msg">❌ That key doesn't look right, or your subscription may have lapsed. Check your Gumroad email and try again!</div>
-
-      <button id="verify-btn" onclick="verify()">⚡ UNLOCK MY CONTENT!</button>
-
-      <div class="gate-help">
-        Your key was emailed when you subscribed. You can also find it in your
-        <a href="https://app.gumroad.com/library" target="_blank">Gumroad library</a>
-        — open the Adira Clementine product and look for "License Key."
-      </div>
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>💥 WACKY</span><span>·</span><span>HILARIOUS</span><span>·</span><span>UNPREDICTABLE</span><span>·</span><span>ORIGINAL</span><span>·</span><span>MONTHLY</span><span>·</span><span>INDEPENDENT</span><span>·</span><span>UPROARIOUS</span><span>·</span><span>MANIC HUMOR</span><span>·</span><span>TOTALLY OFF-BEAT</span><span>·</span><span>BERSERK</span><span>·</span><span>ONE-OF-A-KIND</span><span>·</span><span>UNHINGED</span><span>·</span>
+      <span>💥 WACKY</span><span>·</span><span>HILARIOUS</span><span>·</span><span>UNPREDICTABLE</span><span>·</span><span>ORIGINAL</span><span>·</span><span>MONTHLY</span><span>·</span><span>INDEPENDENT</span><span>·</span><span>UPROARIOUS</span><span>·</span><span>MANIC HUMOR</span><span>·</span><span>TOTALLY OFF-BEAT</span><span>·</span><span>BERSERK</span><span>·</span><span>ONE-OF-A-KIND</span><span>·</span><span>UNHINGED</span><span>·</span>
     </div>
   </div>
 
-  <!-- =====================================================================
-       SIGN-OUT BAR (shown after unlock)
-  ===================================================================== -->
-  <div id="signout-bar">
-    <button onclick="signOut()">SIGN OUT</button>
+  <!-- WHO IS ADIRA -->
+  <section class="adira-section">
+    <div class="adira-inner">
+      <div class="adira-img-wrap">
+        <img class="adira-img" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" alt="Adira Clementine" />
+      </div>
+      <div class="adira-text">
+        <p class="adira-eyebrow">🎨 Meet the star of the show</p>
+        <h2 class="adira-heading">WHO IS ADIRA CLEMENTINE?</h2>
+        <div class="adira-facts">
+          <div class="adira-fact"><strong>💥 CHAOTIC GENIUS</strong>She's hilarious. She breaks the fourth wall, bends the rules, and somehow always lands on her feet — usually by accident.</div>
+          <div class="adira-fact"><strong>⚡ TOTALLY UNPREDICTABLE</strong>Part disaster, part genius — Adira Clementine is unlike ANY comic character you've ever read.</div>
+          <div class="adira-fact"><strong>🤯 GLORIOUSLY UNHINGED</strong>Every episode she faces something new, something ridiculous, something completely off the wall.</div>
+        </div>
+        <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" class="btn-adira">⚡ Start with Episode 1</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE EPISODES -->
+  <section class="episodes-section">
+    <h2 class="section-heading">START FROM THE BEGINNING!</h2>
+    <p class="section-sub">All four free episodes — read them all before diving into your member content!</p>
+    <div class="episodes-grid">
+      <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" class="episode-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/cover1_normal_4f90dabb-b42b-43fc-a3dd-d17a42aaaa83.jpg?v=1767713501" alt="Episode 1" />
+        <div class="episode-label">EPISODE 1 — READ NOW</div>
+      </a>
+      <a href="https://bookshelfbliss.com/blogs/comics/episode-2-fan-club-edition" class="episode-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/cover2normal_c04500d1-2c68-4943-bf25-d76627f67e48.jpg?v=1767753599" alt="Episode 2" />
+        <div class="episode-label">EPISODE 2 — READ NOW</div>
+      </a>
+      <a href="https://bookshelfbliss.com/blogs/comics/episode-3-fan-club-edition-includes-bonus-content-and-additional-scenes" class="episode-card">
+        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251217-WA0001.jpg?v=1766878224" alt="Episode 3" />
+        <div class="episode-label">EPISODE 3 — READ NOW</div>
+      </a>
+      <a href="https://bookshelfbliss.com/blogs/comics/episode-4" class="episode-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/cover4_normal.jpg?v=1773329490" alt="Episode 4" />
+        <div class="episode-label">EPISODE 4 — READ NOW</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MEMBERS EPISODES — ALL UNLOCKED -->
+  <section class="members-episodes-section" id="members-episodes">
+    <h2 class="members-heading">🔓 YOUR MEMBER EPISODES — ALL UNLOCKED!</h2>
+    <p class="members-sub">Every episode. Every bonus page. All yours. A new one drops every single month.</p>
+    <div class="episodes-grid">
+      <a href="https://bookshelfbliss.com/blogs/comics/episode-5" class="member-episode-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/cover5_fc.jpg?v=1773329788" alt="Episode 5" />
+        <div class="member-label">EPISODE 5 — READ NOW!</div>
+      </a>
+      <a href="https://bookshelfbliss.com/blogs/comics/episode-6" class="member-episode-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/Screenshot_20260311_090055_Samsung_Notes_3824f0aa-105c-4614-8d63-908305a7f7f7.jpg?v=1773329966" alt="Episode 6" />
+        <div class="member-label">EPISODE 6 — READ NOW!</div>
+      </a>
+      <a href="https://bookshelfbliss.com/blogs/comics/episode-7" class="member-episode-card">
+        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/7_cover_2.jpg?v=1777389336" alt="Episode 7" />
+        <div class="member-label">EPISODE 7 — READ NOW!</div>
+      </a>
+      <div class="coming-soon-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/Vertical_sketch_with_d0baf075-d717-432c-8795-d6828ea6b44f.png?v=1773330064" alt="Episode 8" />
+        <div class="coming-soon-label">EPISODE 8 — MAY 🗓️</div>
+      </div>
+      <div class="coming-soon-card">
+        <img src="https://bookshelfbliss.com/cdn/shop/articles/Gemini_Generated_Image_nfur4znfur4znfur.png?v=1773330091" alt="Episode 9" />
+        <div class="coming-soon-label">EPISODE 9 — JUNE 🗓️</div>
+      </div>
+      <div class="coming-soon-card">
+        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/rough_cover_10.jpg?v=1777498466" alt="Episode 10" />
+        <div class="coming-soon-label">EPISODE 10 — JULY 🗓️</div>
+      </div>
+    </div>
+  </section>
+<!-- 
+==============================================
+NEWSLETTER SECTION — paste this into members.html
+just before the YOU MAKE THIS POSSIBLE section
+(look for the h2 that says "YOU MAKE THIS POSSIBLE!!!")
+==============================================
+-->
+
+<!-- INSIDER NEWSLETTER -->
+<div style="background: #1a1a1a; border-top: 5px solid #ffec00; border-bottom: 5px solid #ffec00; padding: 56px 24px; position: relative; overflow: hidden;">
+
+  <!-- dot texture -->
+  <div style="position:absolute;inset:0;pointer-events:none;opacity:0.06;background-image:radial-gradient(circle,#ffec00 2px,transparent 2px);background-size:28px 28px;"></div>
+
+  <div style="max-width:680px;margin:0 auto;position:relative;z-index:2;text-align:center;">
+
+    <!-- Section eyebrow -->
+    <div style="font-family:'Bangers',cursive;font-size:16px;letter-spacing:4px;color:#ff2d55;margin-bottom:12px;">📰 EXCLUSIVE TO FOUNDERS 📰</div>
+
+    <!-- Masthead image -->
+    <div style="border:5px solid #ffec00;border-radius:12px;overflow:hidden;box-shadow:8px 8px 0 #ff2d55;margin-bottom:32px;display:inline-block;width:100%;">
+      <img 
+        src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260408_191322_Samsung_Notes.jpg?v=1775693683" 
+        alt="The Adira Clementine Insider Newsletter" 
+        style="width:100%;height:auto;display:block;"
+      />
+    </div>
+
+    <!-- Description -->
+    <p style="font-family:'Fredoka One',cursive;font-size:18px;color:#e0d0ff;line-height:1.6;margin-bottom:32px;">
+      Quarterly. Exclusive. Gloriously over-the-top. Your insider look at future storylines, 
+      Vista Comics secrets, first looks at upcoming episodes — and everything Adira we haven't 
+      told anyone else. <span style="color:#ffec00;font-family:'Bangers',cursive;font-size:22px;letter-spacing:1px;">YOURS AS A FOUNDER.</span>
+    </p>
+
+    <!-- Newsletter links -->
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:stretch;">
+
+      <a 
+        href="Spring%202026%20Insider.pdf"
+        target="_blank"
+        
+        style="font-family:'Bangers',cursive;font-size:26px;letter-spacing:2px;background:#ff2d55;color:#fff;border:4px solid #ffec00;padding:16px 28px;border-radius:10px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;box-shadow:6px 6px 0 #ffec00;transition:transform 0.1s,box-shadow 0.1s;"
+        onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='9px 9px 0 #ffec00';"
+        onmouseout="this.style.transform='';this.style.boxShadow='6px 6px 0 #ffec00';"
+      >
+        <span>🌸 SPRING 2026</span>
+        <span style="font-size:18px;background:#ffec00;color:#1a1a1a;padding:6px 16px;border-radius:6px;border:2px solid #1a1a1a;">⬇ DOWNLOAD PDF</span>
+      </a>
+
+      <!-- TEMPLATE — add future issues below by copying the <a> block above and updating the season, year, href, and emoji -->
+      <!-- SUMMER 2026 — uncomment and update href when ready:
+      <a 
+        href="YOUR_SHOPIFY_PDF_URL_HERE"
+        target="_blank"
+        download
+        style="font-family:'Bangers',cursive;font-size:26px;letter-spacing:2px;background:#ff9f00;color:#1a1a1a;border:4px solid #1a1a1a;padding:16px 28px;border-radius:10px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;box-shadow:6px 6px 0 #1a1a1a;"
+      >
+        <span>☀️ SUMMER 2026</span>
+        <span style="font-size:18px;background:#1a1a1a;color:#ffec00;padding:6px 16px;border-radius:6px;">⬇ DOWNLOAD PDF</span>
+      </a>
+      -->
+
+      <!-- FALL 2026 — uncomment and update href when ready:
+      <a 
+        href="YOUR_SHOPIFY_PDF_URL_HERE"
+        target="_blank"
+        download
+        style="font-family:'Bangers',cursive;font-size:26px;letter-spacing:2px;background:#7b2fff;color:#fff;border:4px solid #ffec00;padding:16px 28px;border-radius:10px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;box-shadow:6px 6px 0 #ffec00;"
+      >
+        <span>🍂 FALL 2026</span>
+        <span style="font-size:18px;background:#ffec00;color:#1a1a1a;padding:6px 16px;border-radius:6px;border:2px solid #1a1a1a;">⬇ DOWNLOAD PDF</span>
+      </a>
+      -->
+
+    </div>
+
   </div>
+</div>
 
-  <!-- =====================================================================
-       MAIN CONTENT (shown after unlock)
-  ===================================================================== -->
-  <div id="main-content">
+<!-- END NEWSLETTER SECTION -->
 
-    <div class="members-banner">
-      ✅ YOU'RE IN THE FAN CLUB! <span>ALL EPISODES UNLOCKED</span> — WELCOME BACK MEMBER!!!
+  <!-- THANK YOU MEMBERS -->
+  <section class="thankyou-section">
+    <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_68198c72-f52a-4265-8832-2ea95472852d.jpg?v=1774483876" alt="Fan Club" style="width:120px;border-radius:50%;border:4px solid var(--yellow);box-shadow:6px 6px 0 var(--red);margin-bottom:24px;" />
+    <h2 class="thankyou-heading">YOU MAKE THIS POSSIBLE!!!</h2>
+    <p class="thankyou-body">Every single month you subscribe, you keep Adira alive. You keep the chaos going. You keep the bonus pages coming. You are the reason this comic exists — and we will never forget that. Here's everything you get as a Founder member:</p>
+    <ul class="perks-list">
+      <li>📖 <strong>Director's Cut Episodes</strong> — exclusive panels + 3 bonus pages every month, nowhere else on earth</li>
+      <li>🎥 <strong>Unprecedented Creator Access</strong> — private creator video conferences, you're in the room where it happens</li>
+      <li>🌟 <strong>Your Name in the Credits</strong> — published, online, permanent</li>
+      <li>📰 <strong>Quarterly Insider Newsletter</strong> — future storylines, first looks, Vista Comics secrets</li>
+      <li>🛍️ <strong>Exclusive Merch Discounts</strong> — Founders get priority on everything</li>
+      <li>🔒 <strong>$5/month — locked forever</strong> — you got in before the price jumps to $12</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img class="footer-logo" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Cookie_logo_black.jpg?v=1773676495" alt="Vista Comics" />
+    <p class="footer-copy">© 2026 VISTA COMICS COMPANY · ALL RIGHTS RESERVED</p>
+    <div class="footer-links">
+      <a href="https://bookshelfbliss.com/pages/faq">FAQ</a>
+      <a href="https://bookshelfbliss.com/pages/contact">CONTACT</a>
+      <a href="https://bookshelfbliss.com/policies/privacy-policy">PRIVACY</a>
     </div>
-
-    <section class="hero">
-      <img class="hero-logo" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Cookie_logo_black.jpg?v=1773676495" alt="Vista Comics Company" />
-      <p class="hero-presents">PRESENTS</p>
-      <img class="hero-title-img" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260316_104320_Google.jpg?v=1773698229" alt="The Wonderful Breakthrough of Adira Clementine" />
-      <div class="hero-cta-wrap">
-        <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" class="btn-hero btn-read">⚡ Start from Episode 1!</a>
-        <a href="#members-episodes" class="btn-hero btn-member">🔓 Jump to Your Member Episodes!</a>
-      </div>
-      <p class="hero-tagline">A NEW EPISODE EVERY MONTH!</p>
-      <img class="hero-cover" src="https://bookshelfbliss.com/cdn/shop/articles/cover1_normal_4f90dabb-b42b-43fc-a3dd-d17a42aaaa83.jpg?v=1767713501" alt="Episode 1 Cover" />
-    </section>
-
-    <div class="ticker-wrap">
-      <div class="ticker">
-        <span>💥 WACKY</span><span>·</span><span>HILARIOUS</span><span>·</span><span>UNPREDICTABLE</span><span>·</span><span>ORIGINAL</span><span>·</span><span>MONTHLY</span><span>·</span><span>INDEPENDENT</span><span>·</span><span>UPROARIOUS</span><span>·</span><span>MANIC HUMOR</span><span>·</span><span>TOTALLY OFF-BEAT</span><span>·</span><span>BERSERK</span><span>·</span><span>ONE-OF-A-KIND</span><span>·</span><span>UNHINGED</span><span>·</span>
-        <span>💥 WACKY</span><span>·</span><span>HILARIOUS</span><span>·</span><span>UNPREDICTABLE</span><span>·</span><span>ORIGINAL</span><span>·</span><span>MONTHLY</span><span>·</span><span>INDEPENDENT</span><span>·</span><span>UPROARIOUS</span><span>·</span><span>MANIC HUMOR</span><span>·</span><span>TOTALLY OFF-BEAT</span><span>·</span><span>BERSERK</span><span>·</span><span>ONE-OF-A-KIND</span><span>·</span><span>UNHINGED</span><span>·</span>
-      </div>
-    </div>
-
-    <section class="adira-section">
-      <div class="adira-inner">
-        <div class="adira-img-wrap">
-          <img class="adira-img" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" alt="Adira Clementine" />
-        </div>
-        <div class="adira-text">
-          <p class="adira-eyebrow">🎨 Meet the star of the show</p>
-          <h2 class="adira-heading">WHO IS ADIRA CLEMENTINE?</h2>
-          <div class="adira-facts">
-            <div class="adira-fact"><strong>💥 CHAOTIC GENIUS</strong>She's hilarious. She breaks the fourth wall, bends the rules, and somehow always lands on her feet — usually by accident.</div>
-            <div class="adira-fact"><strong>⚡ TOTALLY UNPREDICTABLE</strong>Part disaster, part genius — Adira Clementine is unlike ANY comic character you've ever read.</div>
-            <div class="adira-fact"><strong>🤯 GLORIOUSLY UNHINGED</strong>Every episode she faces something new, something ridiculous, something completely off the wall.</div>
-          </div>
-          <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" class="btn-adira">⚡ Start with Episode 1</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="episodes-section">
-      <h2 class="section-heading">START FROM THE BEGINNING!</h2>
-      <p class="section-sub">All four free episodes — read them all before diving into your member content!</p>
-      <div class="episodes-grid">
-        <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" class="episode-card">
-          <img src="https://bookshelfbliss.com/cdn/shop/articles/cover1_normal_4f90dabb-b42b-43fc-a3dd-d17a42aaaa83.jpg?v=1767713501" alt="Episode 1" />
-          <div class="episode-label">EPISODE 1 — READ NOW</div>
-        </a>
-        <a href="https://bookshelfbliss.com/blogs/comics/episode-2-fan-club-edition" class="episode-card">
-          <img src="https://bookshelfbliss.com/cdn/shop/articles/cover2normal_c04500d1-2c68-4943-bf25-d76627f67e48.jpg?v=1767753599" alt="Episode 2" />
-          <div class="episode-label">EPISODE 2 — READ NOW</div>
-        </a>
-        <a href="https://bookshelfbliss.com/blogs/comics/episode-3-fan-club-edition-includes-bonus-content-and-additional-scenes" class="episode-card">
-          <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251217-WA0001.jpg?v=1766878224" alt="Episode 3" />
-          <div class="episode-label">EPISODE 3 — READ NOW</div>
-        </a>
-        <a href="https://bookshelfbliss.com/blogs/comics/episode-4" class="episode-card">
-          <img src="https://bookshelfbliss.com/cdn/shop/articles/cover4_normal.jpg?v=1773329490" alt="Episode 4" />
-          <div class="episode-label">EPISODE 4 — READ NOW</div>
-        </a>
-      </div>
-    </section>
-
-    <section class="members-episodes-section" id="members-episodes">
-      <h2 class="members-heading">🔓 YOUR MEMBER EPISODES — ALL UNLOCKED!</h2>
-      <p class="members-sub">Every episode. Every bonus page. All yours. A new one drops every single month.</p>
-      <div class="episodes-grid">
-        <a href="https://bookshelfbliss.com/blogs/comics/episode-5" class="member-episode-card">
-          <img src="https://bookshelfbliss.com/cdn/shop/articles/cover5_fc.jpg?v=1773329788" alt="Episode 5" />
-          <div class="member-label">EPISODE 5 — READ NOW!</div>
-        </a>
-        <a href="https://bookshelfbliss.com/blogs/comics/episode-6" class="member-episode-card">
-          <img src="https://bookshelfbliss.com/cdn/shop/articles/Screenshot_20260311_090055_Samsung_Notes_3824f0aa-105c-4614-8d63-908305a7f7f7.jpg?v=1773329966" alt="Episode 6" />
-          <div class="member-label">EPISODE 6 — READ NOW!</div>
-        </a>
-        <a href="https://bookshelfbliss.com/blogs/comics/episode-7" class="member-episode-card">
-          <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/7_cover_2.jpg?v=1777389336" alt="Episode 7" />
-          <div class="member-label">EPISODE 7 — READ NOW!</div>
-        </a>
-        <div class="coming-soon-card">
-          <img src="https://bookshelfbliss.com/cdn/shop/articles/Vertical_sketch_with_d0baf075-d717-432c-8795-d6828ea6b44f.png?v=1773330064" alt="Episode 8" />
-          <div class="coming-soon-label">EPISODE 8 — MAY 🗓️</div>
-        </div>
-        <div class="coming-soon-card">
-          <img src="https://bookshelfbliss.com/cdn/shop/articles/Gemini_Generated_Image_nfur4znfur4znfur.png?v=1773330091" alt="Episode 9" />
-          <div class="coming-soon-label">EPISODE 9 — JUNE 🗓️</div>
-        </div>
-        <div class="coming-soon-card">
-          <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/rough_cover_10.jpg?v=1777498466" alt="Episode 10" />
-          <div class="coming-soon-label">EPISODE 10 — JULY 🗓️</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- INSIDER NEWSLETTER -->
-    <div style="background:#1a1a1a;border-top:5px solid #ffec00;border-bottom:5px solid #ffec00;padding:56px 24px;position:relative;overflow:hidden;">
-      <div style="position:absolute;inset:0;pointer-events:none;opacity:0.06;background-image:radial-gradient(circle,#ffec00 2px,transparent 2px);background-size:28px 28px;"></div>
-      <div style="max-width:680px;margin:0 auto;position:relative;z-index:2;text-align:center;">
-        <div style="font-family:'Bangers',cursive;font-size:16px;letter-spacing:4px;color:#ff2d55;margin-bottom:12px;">📰 EXCLUSIVE TO FOUNDERS 📰</div>
-        <div style="border:5px solid #ffec00;border-radius:12px;overflow:hidden;box-shadow:8px 8px 0 #ff2d55;margin-bottom:32px;display:inline-block;width:100%;">
-          <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260408_191322_Samsung_Notes.jpg?v=1775693683" alt="The Adira Clementine Insider Newsletter" style="width:100%;height:auto;display:block;" />
-        </div>
-        <p style="font-family:'Fredoka One',cursive;font-size:18px;color:#e0d0ff;line-height:1.6;margin-bottom:32px;">
-          Quarterly. Exclusive. Gloriously over-the-top. Your insider look at future storylines,
-          Vista Comics secrets, first looks at upcoming episodes — and everything Adira we haven't
-          told anyone else. <span style="color:#ffec00;font-family:'Bangers',cursive;font-size:22px;letter-spacing:1px;">YOURS AS A FOUNDER.</span>
-        </p>
-        <div style="display:flex;flex-direction:column;gap:14px;align-items:stretch;">
-          <a href="Spring%202026%20Insider.pdf" target="_blank"
-             style="font-family:'Bangers',cursive;font-size:26px;letter-spacing:2px;background:#ff2d55;color:#fff;border:4px solid #ffec00;padding:16px 28px;border-radius:10px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;box-shadow:6px 6px 0 #ffec00;"
-             onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='9px 9px 0 #ffec00';"
-             onmouseout="this.style.transform='';this.style.boxShadow='6px 6px 0 #ffec00';">
-            <span>🌸 SPRING 2026</span>
-            <span style="font-size:18px;background:#ffec00;color:#1a1a1a;padding:6px 16px;border-radius:6px;border:2px solid #1a1a1a;">⬇ DOWNLOAD PDF</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <section class="thankyou-section">
-      <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_68198c72-f52a-4265-8832-2ea95472852d.jpg?v=1774483876" alt="Fan Club" style="width:120px;border-radius:50%;border:4px solid var(--yellow);box-shadow:6px 6px 0 var(--red);margin-bottom:24px;" />
-      <h2 class="thankyou-heading">YOU MAKE THIS POSSIBLE!!!</h2>
-      <p class="thankyou-body">Every single month you subscribe, you keep Adira alive. You keep the chaos going. You keep the bonus pages coming. You are the reason this comic exists — and we will never forget that. Here's everything you get as a Founder member:</p>
-      <ul class="perks-list">
-        <li>📖 <strong>Director's Cut Episodes</strong> — exclusive panels + 3 bonus pages every month, nowhere else on earth</li>
-        <li>🎥 <strong>Unprecedented Creator Access</strong> — private creator video conferences, you're in the room where it happens</li>
-        <li>🌟 <strong>Your Name in the Credits</strong> — published, online, permanent</li>
-        <li>📰 <strong>Quarterly Insider Newsletter</strong> — future storylines, first looks, Vista Comics secrets</li>
-        <li>🛍️ <strong>Exclusive Merch Discounts</strong> — Founders get priority on everything</li>
-        <li>🔒 <strong>$5/month — locked forever</strong> — you got in before the price jumps to $12</li>
-      </ul>
-    </section>
-
-    <footer>
-      <img class="footer-logo" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Cookie_logo_black.jpg?v=1773676495" alt="Vista Comics" />
-      <p class="footer-copy">© 2026 VISTA COMICS COMPANY · ALL RIGHTS RESERVED</p>
-      <div class="footer-links">
-        <a href="https://bookshelfbliss.com/pages/faq">FAQ</a>
-        <a href="https://bookshelfbliss.com/pages/contact">CONTACT</a>
-        <a href="https://bookshelfbliss.com/policies/privacy-policy">PRIVACY</a>
-      </div>
-    </footer>
-
-  </div><!-- /#main-content -->
-
-  <!-- =====================================================================
-       SCRIPT
-  ===================================================================== -->
-  <script>
-    var PRODUCT     = 'krgyk';
-    var STORAGE_KEY = 'ac_license_key';
-
-    window.addEventListener('DOMContentLoaded', function () {
-
-      // ── BACKDOOR: secret URL parameter bypasses gate entirely ──
-      var params = new URLSearchParams(window.location.search);
-      if (params.has('853okg')) {
-        unlockContent();
-        return;
-      }
-
-      // ── RETURNING SUBSCRIBER: auto-verify saved key ──
-      var saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        document.getElementById('key-input').value = saved;
-        verify(true);
-      }
-    });
-
-    function verify(silent) {
-      silent = silent || false;
-      var input  = document.getElementById('key-input');
-      var btn    = document.getElementById('verify-btn');
-      var errMsg = document.getElementById('error-msg');
-      var key    = input.value.trim();
-
-      if (!key) {
-        input.classList.add('shake');
-        setTimeout(function(){ input.classList.remove('shake'); }, 500);
-        return;
-      }
-
-      input.classList.remove('shake');
-      errMsg.style.display = 'none';
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>CHECKING…';
-
-      var body = 'product_permalink=' + encodeURIComponent(PRODUCT) +
-                 '&license_key='       + encodeURIComponent(key) +
-                 '&increment_uses_count=false';
-
-      fetch('https://api.gumroad.com/v2/licenses/verify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body
-      })
-      .then(function(res) { return res.json(); })
-      .then(function(data) {
-        var purchase  = data.purchase || {};
-        var cancelled = purchase.subscription_cancelled_at;
-        var active    = data.success &&
-                        !purchase.refunded &&
-                        !purchase.disputed &&
-                        (cancelled == null || cancelled === false);
-        if (active) {
-          localStorage.setItem(STORAGE_KEY, key);
-          unlockContent();
-        } else {
-          throw new Error('inactive');
-        }
-      })
-      .catch(function() {
-        if (!silent) {
-          input.classList.add('shake');
-          setTimeout(function(){ input.classList.remove('shake'); }, 500);
-          errMsg.style.display = 'block';
-        } else {
-          localStorage.removeItem(STORAGE_KEY);
-          input.value = '';
-        }
-        btn.disabled = false;
-        btn.innerHTML = '⚡ UNLOCK MY CONTENT!';
-      });
-    }
-
-    function unlockContent() {
-      var overlay = document.getElementById('gate-overlay');
-      overlay.style.animation = 'gateSlideOut 0.4s ease both';
-      setTimeout(function() {
-        overlay.style.display = 'none';
-        document.getElementById('signout-bar').style.display = 'block';
-        document.getElementById('main-content').style.display = 'block';
-      }, 380);
-    }
-
-    function signOut() {
-      localStorage.removeItem(STORAGE_KEY);
-      document.getElementById('main-content').style.display  = 'none';
-      document.getElementById('signout-bar').style.display   = 'none';
-      var overlay = document.getElementById('gate-overlay');
-      overlay.style.animation = 'gateFadeIn 0.3s ease both';
-      overlay.style.display   = 'flex';
-      document.getElementById('key-input').value      = '';
-      document.getElementById('error-msg').style.display = 'none';
-      document.getElementById('verify-btn').disabled      = false;
-      document.getElementById('verify-btn').innerHTML     = '⚡ UNLOCK MY CONTENT!';
-    }
-
-    document.getElementById('key-input').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') verify();
-    });
-  </script>
+  </footer>
 
 </body>
 </html>
