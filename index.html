@@ -26,7 +26,7 @@
     }
     .top-nav a:last-child { border-right: none; }
     .top-nav a:hover { filter: brightness(1.18); }
-    .top-nav a.nav-fanclub { background: #ff2d55; color: #fff; flex-grow: 1; justify-content: center; } /* Highlighted the main offer */
+    .top-nav a.nav-fanclub { background: #ff2d55; color: #fff; flex-grow: 1; justify-content: center; }
     .top-nav a.nav-hot     { background: #ff9f00; color: #1a1a1a; position: relative; padding-right: 44px; }
     .top-nav a.nav-hot::after {
       content: 'NEW'; font-size: 9px; font-weight: 900;
@@ -119,6 +119,27 @@
     }
     @keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
 
+    /* ===================== FOUNDER ===================== */
+    .founder-section { background: #7b2fff; border-bottom: 5px solid #1a1a1a; }
+    .founder-inner { max-width: 980px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .founder-badge-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .fan-club-badge { width: 100%; max-width: 340px; display: block; filter: drop-shadow(0 0 20px rgba(255,236,0,0.5)) drop-shadow(4px 4px 0 rgba(0,0,0,0.4)); animation: badge-float 3s ease-in-out infinite; border-radius: 50%; }
+    @keyframes badge-float { 0%,100%{transform:translateY(0) rotate(-2deg);} 50%{transform:translateY(-12px) rotate(2deg);} }
+    .price-pill { background: #ffec00; color: #1a1a1a; font-family: 'Bangers', cursive; font-size: 50px; padding: 12px 28px; border: 5px solid #1a1a1a; border-radius: 12px; text-align: center; box-shadow: 7px 7px 0 #1a1a1a; line-height: 1.1; }
+    .lock-in-btn { font-family: 'Bangers', cursive; font-size: 18px; background: #ff9f00; color: #1a1a1a; border: 4px solid #1a1a1a; border-radius: 10px; padding: 14px 20px; box-shadow: 5px 5px 0 #1a1a1a; text-align: center; width: 100%; max-width: 340px; text-decoration: none; display: block; transition: transform 0.1s, box-shadow 0.1s; }
+    .lock-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 #1a1a1a; }
+    .founder-title { font-family: 'Bangers', cursive; font-size: 50px; color: #ffec00; margin-bottom: 6px; text-shadow: 3px 3px 0 #1a1a1a; }
+    .founder-title span { color: #ff2d55; }
+    .founder-intro { font-family: 'Fredoka One', cursive; font-size: 17px; color: #fff; margin-bottom: 20px; line-height: 1.55; }
+    .perks-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .perk-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border: 3px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); transition: transform 0.2s; }
+    .perk-item:hover { border-color: #ffec00; background: rgba(255,236,0,0.15); transform: translateX(4px); }
+    .perk-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .perk-title { font-family: 'Bangers', cursive; font-size: 16px; color: #ffec00; display: block; margin-bottom: 2px; }
+    .perk-desc { font-family: 'Fredoka One', cursive; font-size: 13px; color: #e0d0ff; line-height: 1.4; }
+    .btn-boom { font-family: 'Bangers', cursive; font-size: 28px; background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; padding: 15px 36px; border-radius: 10px; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 7px 7px 0 #1a1a1a; margin-top: 20px; }
+    .cancel-note { font-family: 'Fredoka One', cursive; color: #ddd; font-size: 13px; margin-top: 10px; }
+
     /* ===================== STORY / PIPELINE ===================== */
     .story-section {
       background: #0d1520;
@@ -153,27 +174,6 @@
     .subscribe-badge-text { font-family: 'Bangers', cursive; font-size: 24px; color: #1a1a1a; line-height: 1.25; }
     .subscribe-badge-price { font-family: 'Bangers', cursive; font-size: 20px; color: #ff2d55; background: #1a1a1a; padding: 3px 10px; border-radius: 6px; margin: 6px 0 4px; display: inline-block; }
     .subscribe-badge-btn { font-size: 16px; background: #ff2d55; color: #fff; padding: 6px 14px; border-radius: 4px; margin-top: 4px; display: inline-block; border: 2px solid #1a1a1a; font-family: 'Bangers', cursive; }
-
-    /* ===================== FOUNDER ===================== */
-    .founder-section { background: #7b2fff; border-bottom: 5px solid #1a1a1a; }
-    .founder-inner { max-width: 980px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-    .founder-badge-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .fan-club-badge { width: 100%; max-width: 340px; display: block; filter: drop-shadow(0 0 20px rgba(255,236,0,0.5)) drop-shadow(4px 4px 0 rgba(0,0,0,0.4)); animation: badge-float 3s ease-in-out infinite; border-radius: 50%; }
-    @keyframes badge-float { 0%,100%{transform:translateY(0) rotate(-2deg);} 50%{transform:translateY(-12px) rotate(2deg);} }
-    .price-pill { background: #ffec00; color: #1a1a1a; font-family: 'Bangers', cursive; font-size: 50px; padding: 12px 28px; border: 5px solid #1a1a1a; border-radius: 12px; text-align: center; box-shadow: 7px 7px 0 #1a1a1a; line-height: 1.1; }
-    .lock-in-btn { font-family: 'Bangers', cursive; font-size: 18px; background: #ff9f00; color: #1a1a1a; border: 4px solid #1a1a1a; border-radius: 10px; padding: 14px 20px; box-shadow: 5px 5px 0 #1a1a1a; text-align: center; width: 100%; max-width: 340px; text-decoration: none; display: block; transition: transform 0.1s, box-shadow 0.1s; }
-    .lock-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 #1a1a1a; }
-    .founder-title { font-family: 'Bangers', cursive; font-size: 50px; color: #ffec00; margin-bottom: 6px; text-shadow: 3px 3px 0 #1a1a1a; }
-    .founder-title span { color: #ff2d55; }
-    .founder-intro { font-family: 'Fredoka One', cursive; font-size: 17px; color: #fff; margin-bottom: 20px; line-height: 1.55; }
-    .perks-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .perk-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border: 3px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); transition: transform 0.2s; }
-    .perk-item:hover { border-color: #ffec00; background: rgba(255,236,0,0.15); transform: translateX(4px); }
-    .perk-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-    .perk-title { font-family: 'Bangers', cursive; font-size: 16px; color: #ffec00; display: block; margin-bottom: 2px; }
-    .perk-desc { font-family: 'Fredoka One', cursive; font-size: 13px; color: #e0d0ff; line-height: 1.4; }
-    .btn-boom { font-family: 'Bangers', cursive; font-size: 28px; background: #ffec00; color: #1a1a1a; border: 5px solid #1a1a1a; padding: 15px 36px; border-radius: 10px; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 7px 7px 0 #1a1a1a; margin-top: 20px; }
-    .cancel-note { font-family: 'Fredoka One', cursive; color: #ddd; font-size: 13px; margin-top: 10px; }
 
     /* ===================== WHO IS ADIRA ===================== */
     .whois-section { background: #1a1a1a; border-bottom: 5px solid #ffec00; overflow: hidden; }
@@ -222,41 +222,21 @@
 </head>
 <body>
 
+  <!-- ===== TOP NAV (unchanged) ===== -->
   <nav class="top-nav">
-    <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="nav-fanclub">⚡ Fan Club Less Than A Latte A Month!</a> <a href="#free-comics" class="nav-freecomics">📚 Read 4 Comics Free!</a>
+    <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="nav-fanclub">⚡ Fan Club Less Than A Latte A Month!</a>
+    <a href="#free-comics" class="nav-freecomics">📚 Read 4 Comics Free!</a>
     <a href="#pipeline" class="nav-hot">🔥 New &amp; Hot!</a>
     <a href="#whois" class="nav-whois">🎨 Who is Adira?</a>
     <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="nav-namecomics">⭐ Your Name In Our Comic!</a>
   </nav>
 
-  <div class="founder-section" id="founder-perks">
-    <div class="founder-inner">
-      <div class="founder-badge-wrap">
-        <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" />
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="price-pill" style="text-decoration:none; display:block; cursor:pointer;">$3.50 USD / MONTH<br><span style="font-size:36px;">CLICK HERE!! 🔒</span></a>
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="lock-in-btn">FOUNDER'S PRICE — LOCK IT IN NOW!</a>
-      </div>
-      <div>
-        <h2 class="founder-title">THE <span>FOUNDER'S</span> DEAL</h2>
-        <p class="founder-intro">Lock in $3.50 USD/month at this price — it will go up for new members in the future. These perks are exclusive to Fan Club members only.</p>
-        <ul class="perks-list">
-          <li class="perk-item"><span class="perk-icon">📖</span><div><span class="perk-title">DIRECTOR'S CUT EPISODES</span><span class="perk-desc">Exclusive panels + 3 bonus pages every month not available anywhere else.</span></div></li>
-          <li class="perk-item"><span class="perk-icon">🎥</span><div><span class="perk-title">UNPRECEDENTED CREATOR ACCESS</span><span class="perk-desc">Unprecedented access to our private creator video conferences. You're a fly on the wall — in the room where it all happens!</span></div></li>
-          <li class="perk-item"><span class="perk-icon">🌟</span><div><span class="perk-title">YOUR NAME IN THE CREDITS</span><span class="perk-desc">Every member gets their name in the credits of an actual Adira Clementine episode. Published. Online. Permanent.</span></div></li>
-          <li class="perk-item"><span class="perk-icon">📰</span><div><span class="perk-title">QUARTERLY INSIDER NEWSLETTER</span><span class="perk-desc">Future storylines, interviews, first looks at Vista Comics projects coming up.</span></div></li>
-          <li class="perk-item"><span class="perk-icon">🛍️</span><div><span class="perk-title">EXCLUSIVE MERCH DISCOUNTS</span><span class="perk-desc">Founders get priority discounts on all Adira Clementine merchandise. It's cool stuff.</span></div></li>
-        </ul>
-        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-boom">⚡ SUBSCRIBE &amp; CLAIM YOUR FOUNDER'S DEAL NOW!</a>
-        <p class="cancel-note">Cancel anytime · Secure checkout · Instant access to all episodes</p>
-      </div>
-    </div>
-  </div>
-
+  <!-- ===== 1. FREE COMICS (now FIRST) ===== -->
   <div class="episodes-hero" id="free-comics">
     <div class="section-inner">
       <h2 class="section-title">START READING — <span>FOR FREE!</span></h2>
-      
-      <p class="ad-match-text">Loved the ad? Join the fan club for only <span>$3.50 USD a month — less than a latte!</span><br>But first, enjoy these four episodes on the house.</p> <div class="preview-grid">
+      <p class="ad-match-text">Loved the ad? Join the fan club for only <span>$3.50 USD a month — less than a latte!</span><br>But first, enjoy these four episodes on the house.</p>
+      <div class="preview-grid">
         <div class="preview-cell">
           <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" target="_blank">
             <img src="https://bookshelfbliss.com/cdn/shop/articles/cover1_normal_4f90dabb-b42b-43fc-a3dd-d17a42aaaa83.jpg?v=1767713501" />
@@ -286,10 +266,12 @@
     </div>
   </div>
 
+  <!-- ===== TICKER ===== -->
   <div class="strip-banner">
-    <span class="strip-text">💥 WACKY · HILARIOUS · UNPREDICTABLE · ORIGINAL · MONTHLY · INDEPENDENT · UPROARIOUS · MANIC HUMOR · TOTALLY OFF-BEAT · BERSERK · ONE-OF-A-KIND · UNHINGED ·</span>
+    <span class="strip-text">💥 WACKY · HILARIOUS · UNPREDICTABLE · ORIGINAL · MONTHLY · INDEPENDENT · UPROARIOUS · MANIC HUMOR · TOTALLY OFF-BEAT · BERSERK · ONE-OF-A-KIND · UNHINGED · 💥 WACKY · HILARIOUS · UNPREDICTABLE · ORIGINAL · MONTHLY · INDEPENDENT · UPROARIOUS · MANIC HUMOR · TOTALLY OFF-BEAT · BERSERK · ONE-OF-A-KIND · UNHINGED ·</span>
   </div>
 
+  <!-- ===== 2. STORY / PIPELINE ===== -->
   <div class="story-section" id="fanclub">
     <div class="section-inner">
       <div class="story-layout">
@@ -339,6 +321,31 @@
     </div>
   </div>
 
+  <!-- ===== 3. FOUNDER'S DEAL (after story/pipeline) ===== -->
+  <div class="founder-section" id="founder-perks">
+    <div class="founder-inner">
+      <div class="founder-badge-wrap">
+        <img class="fan-club-badge" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_4a7ddafb-d51e-440f-8876-21257d593f1f.jpg?v=1773676495" />
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="price-pill" style="text-decoration:none; display:block; cursor:pointer;">$3.50 USD / MONTH<br><span style="font-size:36px;">CLICK HERE!! 🔒</span></a>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="lock-in-btn">FOUNDER'S PRICE — LOCK IT IN NOW!</a>
+      </div>
+      <div>
+        <h2 class="founder-title">THE <span>FOUNDER'S</span> DEAL</h2>
+        <p class="founder-intro">Lock in $3.50 USD/month at this price — it will go up for new members in the future. These perks are exclusive to Fan Club members only.</p>
+        <ul class="perks-list">
+          <li class="perk-item"><span class="perk-icon">📖</span><div><span class="perk-title">DIRECTOR'S CUT EPISODES</span><span class="perk-desc">Exclusive panels + 3 bonus pages every month not available anywhere else.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🎥</span><div><span class="perk-title">UNPRECEDENTED CREATOR ACCESS</span><span class="perk-desc">Unprecedented access to our private creator video conferences. You're a fly on the wall — in the room where it all happens!</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🌟</span><div><span class="perk-title">YOUR NAME IN THE CREDITS</span><span class="perk-desc">Every member gets their name in the credits of an actual Adira Clementine episode. Published. Online. Permanent.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">📰</span><div><span class="perk-title">QUARTERLY INSIDER NEWSLETTER</span><span class="perk-desc">Future storylines, interviews, first looks at Vista Comics projects coming up.</span></div></li>
+          <li class="perk-item"><span class="perk-icon">🛍️</span><div><span class="perk-title">EXCLUSIVE MERCH DISCOUNTS</span><span class="perk-desc">Founders get priority discounts on all Adira Clementine merchandise. It's cool stuff.</span></div></li>
+        </ul>
+        <a href="https://adiraclementine.gumroad.com/l/krgyk" target="_blank" class="btn-boom">⚡ SUBSCRIBE &amp; CLAIM YOUR FOUNDER'S DEAL NOW!</a>
+        <p class="cancel-note">Cancel anytime · Secure checkout · Instant access to all episodes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 4. WHO IS ADIRA ===== -->
   <div class="whois-section" id="whois">
     <div class="whois-inner">
       <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" class="whois-img" />
@@ -355,32 +362,7 @@
     </div>
   </div>
 
-  <div class="sticker-section" id="stickers">
-    <div class="sticker-inner">
-      <div class="sticker-text-col">
-        <div class="sticker-eyebrow">🎁 A GIFT FROM ADIRA TO YOU!</div>
-        <h2 class="sticker-title">THANK YOU<br>FOR VISITING!<br><span>HERE'S A GIFT!!</span></h2>
-        <p class="sticker-sub">As a thank you for stopping by, we want to send you a <span>FREE digital sticker pack</span> of Adira and her crew — on us!</p>
-        <div class="sticker-bullet">🎨 Full set of digital stickers</div>
-        <div class="sticker-bullet">⚡ Delivered instantly to your email</div>
-        <a href="https://subscribe-forms.beehiiv.com/b262cefc-9ec7-4a7e-bc04-d49031bc8e9a" target="_blank" class="btn-sticker">🎁 SEND MY FREE STICKERS!</a>
-      </div>
-      <div class="sticker-img-col">
-        <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Pale_blue_background.png?v=1773932209" class="sticker-img" />
-        <div class="sticker-badge">FREE!!!<br>YOURS<br>TODAY!</div>
-      </div>
-    </div>
-  </div>
 
-  <div class="lp-footer">
-    <img class="footer-logo" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Cookie_logo_black.jpg?v=1773676495" />
-    <div class="footer-text">© 2026 VISTA COMICS COMPANY · ALL RIGHTS RESERVED</div>
-    <div class="footer-links">
-      <a href="https://bookshelfbliss.com/pages/faq">FAQ</a>
-      <a href="https://bookshelfbliss.com/pages/contact">CONTACT</a>
-      <a href="https://bookshelfbliss.com/policies/privacy-policy">PRIVACY</a>
-    </div>
-  </div>
 
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
