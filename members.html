@@ -232,15 +232,15 @@
 
     .adira-section { position: relative; z-index: 1; background: #0d0d0d; padding: 60px 20px; border-top: 6px solid var(--yellow); border-bottom: 6px solid var(--yellow); text-align: center; }
     .adira-inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; }
-    .adira-img { width: min(280px, 80vw); border: 5px solid var(--yellow); box-shadow: 8px 8px 0 var(--red); transform: rotate(-2deg); display: block; }
+    .adira-img-link { display: block; transition: transform .15s; }
+    .adira-img-link:hover { transform: translate(-3px, -3px) rotate(-2deg); }
+    .adira-img-link:hover .adira-img { box-shadow: 12px 12px 0 var(--red); }
+    .adira-img { width: min(280px, 80vw); border: 5px solid var(--yellow); box-shadow: 8px 8px 0 var(--red); transform: rotate(-2deg); display: block; cursor: pointer; transition: box-shadow .15s; }
     .adira-text { flex: 1 1 260px; text-align: left; }
     .adira-eyebrow { font-family: 'Bangers', cursive; color: var(--red); letter-spacing: .12em; font-size: 1rem; margin-bottom: 10px; }
-    .adira-heading { font-family: 'Bangers', cursive; font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: .06em; color: var(--yellow); text-shadow: 4px 4px 0 var(--red); line-height: 1; margin-bottom: 20px; }
-    .adira-facts { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
-    .adira-fact { background: rgba(255,255,255,.06); border-left: 4px solid var(--yellow); padding: 12px 16px; font-size: .95rem; line-height: 1.5; }
-    .adira-fact strong { color: var(--yellow); font-family: 'Bangers', cursive; font-size: 1.05rem; display: block; margin-bottom: 4px; }
-    .btn-adira { font-family: 'Bangers', cursive; font-size: 1.2rem; letter-spacing: .06em; padding: 14px 28px; background: var(--yellow); color: var(--ink); border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--red); text-decoration: none; display: inline-block; transition: transform .1s; }
-    .btn-adira:hover { transform: translate(-2px,-2px); }
+    .adira-heading { font-family: 'Bangers', cursive; font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: .06em; color: var(--yellow); text-shadow: 4px 4px 0 var(--red); line-height: 1; margin-bottom: 24px; }
+    .adira-click-prompt { font-family: 'Fredoka One', cursive; font-size: clamp(1.1rem, 3vw, 1.4rem); color: var(--white); line-height: 1.6; background: rgba(255,255,255,.06); border-left: 4px solid var(--yellow); padding: 16px 20px; }
+    .adira-click-prompt span { color: var(--yellow); }
 
     .episodes-section         { position: relative; z-index: 1; padding: 60px 20px; background: var(--dark); text-align: center; }
     .members-episodes-section { position: relative; z-index: 1; padding: 60px 20px; background: #0a1a0a; text-align: center; border-top: 6px solid var(--member-green); border-bottom: 6px solid var(--member-green); }
@@ -344,17 +344,16 @@
     <section class="adira-section">
       <div class="adira-inner">
         <div class="adira-img-wrap">
-          <img class="adira-img" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" alt="Adira Clementine" />
+          <a href="https://bookshelfbliss.com/blogs/comics/meet-adira-clementine" target="_blank" class="adira-img-link">
+            <img class="adira-img" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" alt="Adira Clementine" />
+          </a>
         </div>
         <div class="adira-text">
           <p class="adira-eyebrow">🎨 Meet the star of the show</p>
           <h2 class="adira-heading">WHO IS ADIRA CLEMENTINE?</h2>
-          <div class="adira-facts">
-            <div class="adira-fact"><strong>💥 CHAOTIC GENIUS</strong>She's hilarious. She breaks the fourth wall, bends the rules, and somehow always lands on her feet — usually by accident.</div>
-            <div class="adira-fact"><strong>⚡ TOTALLY UNPREDICTABLE</strong>Part disaster, part genius — Adira Clementine is unlike ANY comic character you've ever read.</div>
-            <div class="adira-fact"><strong>🤯 GLORIOUSLY UNHINGED</strong>Every episode she faces something new, something ridiculous, something completely off the wall.</div>
+          <div class="adira-click-prompt">
+            👈 Click on Adira's picture to find out!
           </div>
-          <a href="https://bookshelfbliss.com/blogs/comics/episode-1-premium" class="btn-adira">⚡ Start with Episode 1</a>
         </div>
       </div>
     </section>
