@@ -562,4 +562,14 @@
       overlay.style.display   = 'flex';
       document.getElementById('key-input').value      = '';
       document.getElementById('error-msg').style.display = 'none';
-      document.getElementById('verify-btn').d
+      document.getElementById('verify-btn').disabled      = false;
+      document.getElementById('verify-btn').innerHTML     = '⚡ UNLOCK MY CONTENT!';
+    }
+
+    document.getElementById('key-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') verify();
+    });
+  </script>
+
+</body>
+</html>
