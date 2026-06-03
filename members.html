@@ -240,6 +240,12 @@
     .adira-eyebrow { font-family: 'Bangers', cursive; color: var(--red); letter-spacing: .12em; font-size: 1rem; margin-bottom: 10px; }
     .adira-heading { font-family: 'Bangers', cursive; font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: .06em; color: var(--yellow); text-shadow: 4px 4px 0 var(--red); line-height: 1; margin-bottom: 24px; }
     .adira-click-prompt { font-family: 'Fredoka One', cursive; font-size: clamp(1.1rem, 3vw, 1.4rem); color: var(--white); line-height: 1.6; background: rgba(255,255,255,.06); border-left: 4px solid var(--yellow); padding: 16px 20px; }
+    .prompt-arrow-up { display: none; }
+    .prompt-arrow-side { display: inline; }
+    @media (max-width: 700px) {
+      .prompt-arrow-up { display: inline; }
+      .prompt-arrow-side { display: none; }
+    }
     .adira-click-prompt span { color: var(--yellow); }
 
     .episodes-section         { position: relative; z-index: 1; padding: 60px 20px; background: var(--dark); text-align: center; }
@@ -344,7 +350,7 @@
     <section class="adira-section">
       <div class="adira-inner">
         <div class="adira-img-wrap">
-          <a href="https://bookshelfbliss.com/blogs/comics/meet-adira-clementine" target="_blank" class="adira-img-link">
+          <a href="https://bookshelfbliss.com/blogs/comics/meet-adira-clementine" class="adira-img-link">
             <img class="adira-img" src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20251230-WA0000_2.jpg?v=1774400767" alt="Adira Clementine" />
           </a>
         </div>
@@ -352,7 +358,7 @@
           <p class="adira-eyebrow">🎨 Meet the star of the show</p>
           <h2 class="adira-heading">WHO IS ADIRA CLEMENTINE?</h2>
           <div class="adira-click-prompt">
-            👈 Click on Adira's picture to find out!
+            <span class="prompt-arrow-side">👈</span><span class="prompt-arrow-up">👆</span> Click on Adira's picture to find out!
           </div>
         </div>
       </div>
@@ -556,14 +562,4 @@
       overlay.style.display   = 'flex';
       document.getElementById('key-input').value      = '';
       document.getElementById('error-msg').style.display = 'none';
-      document.getElementById('verify-btn').disabled      = false;
-      document.getElementById('verify-btn').innerHTML     = '⚡ UNLOCK MY CONTENT!';
-    }
-
-    document.getElementById('key-input').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') verify();
-    });
-  </script>
-
-</body>
-</html>
+      document.getElementById('verify-btn').d
