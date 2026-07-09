@@ -279,6 +279,12 @@
     .perks-list li { background: rgba(255,255,255,.06); border-left: 4px solid var(--member-green); padding: 12px 16px; font-size: .95rem; }
     .perks-list li strong { color: var(--member-green); }
 
+    .contact-section { position: relative; z-index: 1; padding: 48px 20px; background: #1a1a1a; text-align: center; border-top: 5px solid var(--yellow); border-bottom: 5px solid var(--yellow); }
+    .contact-heading { font-family: 'Bangers', cursive; font-size: clamp(1.6rem, 5vw, 2.4rem); letter-spacing: .06em; color: var(--yellow); text-shadow: 3px 3px 0 var(--red); margin-bottom: 14px; }
+    .contact-body { font-family: 'Fredoka One', cursive; font-size: 1rem; color: rgba(255,255,255,.75); margin-bottom: 22px; }
+    .contact-email-btn { font-family: 'Bangers', cursive; font-size: clamp(1.1rem, 3vw, 1.5rem); letter-spacing: .05em; background: var(--member-green); color: var(--ink); border: 4px solid var(--yellow); border-radius: 8px; padding: 14px 28px; text-decoration: none; display: inline-block; box-shadow: 6px 6px 0 var(--red); transition: transform .1s, box-shadow .1s; }
+    .contact-email-btn:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--red); }
+
     footer { position: relative; z-index: 1; background: #0a0a0a; border-top: 4px solid var(--yellow); padding: 32px 20px; text-align: center; }
     .footer-logo { width: 80px; margin-bottom: 12px; opacity: .7; }
     .footer-copy { font-size: .8rem; color: rgba(255,255,255,.4); margin-bottom: 12px; }
@@ -426,14 +432,14 @@
     <div style="background:#1a1a1a;border-top:5px solid #ffec00;border-bottom:5px solid #ffec00;padding:56px 24px;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;pointer-events:none;opacity:0.06;background-image:radial-gradient(circle,#ffec00 2px,transparent 2px);background-size:28px 28px;"></div>
       <div style="max-width:680px;margin:0 auto;position:relative;z-index:2;text-align:center;">
-        <div style="font-family:'Bangers',cursive;font-size:16px;letter-spacing:4px;color:#ff2d55;margin-bottom:12px;">📰 EXCLUSIVE TO FOUNDERS 📰</div>
+        <div style="font-family:'Bangers',cursive;font-size:16px;letter-spacing:4px;color:#ff2d55;margin-bottom:12px;">📰 EXCLUSIVE TO "CLEMMIES" 📰</div>
         <div style="border:5px solid #ffec00;border-radius:12px;overflow:hidden;box-shadow:8px 8px 0 #ff2d55;margin-bottom:32px;display:inline-block;width:100%;">
           <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Screenshot_20260408_191322_Samsung_Notes.jpg?v=1775693683" alt="The Adira Clementine Insider Newsletter" style="width:100%;height:auto;display:block;" />
         </div>
         <p style="font-family:'Fredoka One',cursive;font-size:18px;color:#e0d0ff;line-height:1.6;margin-bottom:32px;">
           Quarterly. Exclusive. Gloriously over-the-top. Your insider look at future storylines,
           Vista Comics secrets, first looks at upcoming episodes — and everything Adira we haven't
-          told anyone else. <span style="color:#ffec00;font-family:'Bangers',cursive;font-size:22px;letter-spacing:1px;">YOURS AS A FOUNDER.</span>
+          told anyone else. <span style="color:#ffec00;font-family:'Bangers',cursive;font-size:22px;letter-spacing:1px;">YOURS AS A "CLEMMIE."</span>
         </p>
         <div style="display:flex;flex-direction:column;gap:14px;align-items:stretch;">
           <a href="Spring%202026%20Insider.pdf" target="_blank"
@@ -443,6 +449,13 @@
             <span>🌸 SPRING 2026</span>
             <span style="font-size:18px;background:#ffec00;color:#1a1a1a;padding:6px 16px;border-radius:6px;border:2px solid #1a1a1a;">⬇ DOWNLOAD PDF</span>
           </a>
+          <a href="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Final_Summer_Insider_2026.pdf?v=1783557825" target="_blank"
+             style="font-family:'Bangers',cursive;font-size:26px;letter-spacing:2px;background:#ff2d55;color:#fff;border:4px solid #ffec00;padding:16px 28px;border-radius:10px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;box-shadow:6px 6px 0 #ffec00;"
+             onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='9px 9px 0 #ffec00';"
+             onmouseout="this.style.transform='';this.style.boxShadow='6px 6px 0 #ffec00';">
+            <span>☀️ SUMMER 2026</span>
+            <span style="font-size:18px;background:#ffec00;color:#1a1a1a;padding:6px 16px;border-radius:6px;border:2px solid #1a1a1a;">⬇ DOWNLOAD PDF</span>
+          </a>
         </div>
       </div>
     </div>
@@ -450,15 +463,21 @@
     <section class="thankyou-section">
       <img src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/Fan_Club_Logo_68198c72-f52a-4265-8832-2ea95472852d.jpg?v=1774483876" alt="Fan Club" style="width:120px;border-radius:50%;border:4px solid var(--yellow);box-shadow:6px 6px 0 var(--red);margin-bottom:24px;" />
       <h2 class="thankyou-heading">YOU MAKE THIS POSSIBLE!!!</h2>
-      <p class="thankyou-body">Every single month you subscribe, you keep Adira alive. You keep the chaos going. You keep the bonus pages coming. You are the reason this comic exists — and we will never forget that. Here's everything you get as a Founder member:</p>
+      <p class="thankyou-body">Every single month you subscribe, you keep Adira alive. You keep the chaos going. You keep the bonus pages coming. You are the reason this comic exists — and we will never forget that. Here's everything you get as a "Clemmie":</p>
       <ul class="perks-list">
         <li>📖 <strong>Director's Cut Episodes</strong> — exclusive panels + 3 bonus pages every month, nowhere else on earth</li>
         <li>🎥 <strong>Unprecedented Creator Access</strong> — private creator video conferences, you're in the room where it happens</li>
         <li>🌟 <strong>Your Name in the Credits</strong> — published, online, permanent</li>
         <li>📰 <strong>Quarterly Insider Newsletter</strong> — future storylines, first looks, Vista Comics secrets</li>
-        <li>🛍️ <strong>Exclusive Merch Discounts</strong> — Founders get priority on everything</li>
+        <li>🛍️ <strong>Exclusive Merch Discounts</strong> — "Clemmies" get priority on everything</li>
         <li>🔒 <strong>$5/month — locked forever</strong> — you got in before the price jumps to $12</li>
       </ul>
+    </section>
+
+    <section class="contact-section">
+      <h2 class="contact-heading">📬 CONTACT THE CREATIVE TEAM</h2>
+      <p class="contact-body">Questions, fan art, or just want to say hi? We'd love to hear from you!</p>
+      <a class="contact-email-btn" href="mailto:vistacomics@gmail.com">✉️ vistacomics@gmail.com</a>
     </section>
 
     <footer>
