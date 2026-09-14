@@ -451,7 +451,8 @@
 
       text-align: center;
 
-      padding: 60px 20px 50px;
+      /* Keep the logo + PRESENTS compact so the gallery follows immediately. */
+      padding: 28px 20px 24px;
 
       background: #111;
 
@@ -569,7 +570,7 @@
     ========================================================= */
 
     .gallery-section {
-      padding: 75px 20px 90px;
+      padding: 32px 20px 90px;
 
       background: #161616;
 
@@ -949,6 +950,22 @@
       margin-bottom: 30px;
     }
 
+    /* Beehiiv embed wrapper.
+       The form itself is controlled by Beehiiv; this keeps its outer
+       container responsive on phones and prevents page-level overflow. */
+    .beehiiv-form-wrap {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+      overflow: visible;
+    }
+
+    .beehiiv-form-wrap iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      border: 0 !important;
+    }
+
 
     .email-button {
       display: inline-block;
@@ -1024,8 +1041,8 @@
     @media (max-width: 650px) {
 
       .hero {
-        min-height: calc(100vh - 45px);
-        padding: 55px 18px 60px;
+        min-height: 0;
+        padding: 22px 18px 20px;
       }
 
 
@@ -1053,6 +1070,10 @@
       .newsletter-button {
         padding: 15px;
         font-size: 1.2rem;
+      }
+
+      .beehiiv-form-wrap {
+        max-width: 100%;
       }
 
 
@@ -1492,7 +1513,9 @@
         </p>
 
 
-        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="788118a8-f1f4-4d19-92e8-9ef78cd7deef"></script>
+        <div class="beehiiv-form-wrap">
+          <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="788118a8-f1f4-4d19-92e8-9ef78cd7deef"></script>
+        </div>
 
       </div>
 
