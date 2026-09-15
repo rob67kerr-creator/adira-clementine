@@ -693,14 +693,24 @@
       display: flex;
       align-items: flex-start;
       justify-content: center;
+      position: relative;
     }
 
 
+    /*
+       Beehiiv supplies the form as an iframe. The form needs more vertical
+       room than a 3:4 comic cover, so we render it at a wider internal size
+       and scale the complete form down. This keeps the ENTIRE form visible
+       while the outer card remains exactly cover-shaped.
+    */
     .gallery-signup-form iframe {
-      width: 100% !important;
-      height: 100% !important;
-      max-width: 100% !important;
+      width: 160% !important;
+      height: 160% !important;
+      max-width: none !important;
       border: 0 !important;
+      transform: scale(.625);
+      transform-origin: top center;
+      flex: 0 0 auto;
     }
 
 
