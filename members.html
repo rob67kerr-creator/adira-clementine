@@ -653,76 +653,60 @@
 
 
     /* =========================================================
-       GALLERY BEEHIIV SIGNUP CARD
-       Designed to occupy one cover-sized slot in the gallery.
+       SIGNUP CARD (matches episode-card sizing)
     ========================================================= */
-    .gallery-signup-card {
+
+    .signup-card {
+      display: block;
+
       background: #fff;
+
       border: 4px solid var(--yellow);
-      text-decoration: none;
-      color: #111;
+
       box-shadow: 7px 7px 0 var(--red);
-      overflow: hidden;
-      transition:
-        transform .18s ease,
-        box-shadow .18s ease;
     }
 
 
-    .gallery-signup-card:hover {
-      transform: translate(-4px,-4px) rotate(-1deg);
-      box-shadow: 12px 12px 0 var(--red);
-    }
-
-
-    .gallery-signup-body {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      overflow: hidden;
-      background: #fff;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
-
-    .gallery-signup-form {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
+    .signup-media {
       position: relative;
+
+      width: 100%;
+
+      aspect-ratio: 3 / 4;
+
+      overflow: hidden;
+
+      background: #fff;
     }
 
 
-    /*
-       Beehiiv supplies the form as an iframe. The form needs more vertical
-       room than a 3:4 comic cover, so we render it at a wider internal size
-       and scale the complete form down. This keeps the ENTIRE form visible
-       while the outer card remains exactly cover-shaped.
-    */
-    .gallery-signup-form iframe {
-      width: 160% !important;
-      height: 160% !important;
-      max-width: none !important;
+    .signup-media iframe {
+      position: absolute;
+      inset: 0;
+
+      width: 100% !important;
+      height: 100% !important;
+
       border: 0 !important;
-      transform: scale(.625);
-      transform-origin: top center;
-      flex: 0 0 auto;
     }
 
 
-    .gallery-signup-label {
+    .signup-label {
       background: var(--yellow);
+
       color: #111;
-      padding: 11px 6px;
+
+      padding: 14px 8px;
+
       text-align: center;
+
       font-family: 'Bangers', cursive;
-      font-size: 1.05rem;
-      letter-spacing: .05em;
-      line-height: 1.05;
+
+      font-size: 1.15rem;
+
+      letter-spacing: .06em;
+
+      line-height: 1.3;
     }
 
 
@@ -1135,15 +1119,10 @@
 
 
       .episode-label,
-      .coming-soon-label {
+      .coming-soon-label,
+      .signup-label {
         font-size: .95rem;
         padding: 11px 5px;
-      }
-
-
-      .gallery-signup-label {
-        font-size: .82rem;
-        padding: 9px 4px;
       }
 
 
@@ -1280,24 +1259,20 @@
 
 
 
-          <!-- FREE STICKER SIGNUP -->
+          <!-- FREE STICKERS SIGNUP -->
 
-          <div class="gallery-signup-card">
+          <div class="signup-card">
 
-            <div class="gallery-signup-body">
-
-              <div class="gallery-signup-form">
-                <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="788118a8-f1f4-4d19-92e8-9ef78cd7deef"></script>
-              </div>
-
+            <div class="signup-media">
+              <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="788118a8-f1f4-4d19-92e8-9ef78cd7deef"></script>
             </div>
 
-            <div class="gallery-signup-label">
-              GRAB YOUR FREE STICKERS THEN<br>
-              READ ON! 🎉
+            <div class="signup-label">
+              GRAB YOUR FREE STICKERS<br>THEN READ ON! 🎉
             </div>
 
           </div>
+
 
 
           <!-- EPISODE 3 -->
