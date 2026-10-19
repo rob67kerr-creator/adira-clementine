@@ -82,346 +82,6 @@
 
 
     /* =========================================================
-       (unused gate styles retained below in case you want
-       to re-enable a gate later — safe to delete)
-    ========================================================= */
-
-    #gate-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-
-      background: #111;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 1.5rem;
-
-      animation: gateFadeIn .4s ease both;
-    }
-
-
-    @keyframes gateFadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-
-    @keyframes gateSlideOut {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      to {
-        opacity: 0;
-        transform: translateY(-40px);
-      }
-    }
-
-
-    .gate-card {
-      background: #1a1a1a;
-
-      border: 5px solid var(--yellow);
-
-      border-radius: 12px;
-
-      box-shadow: 10px 10px 0 var(--red);
-
-      padding: 2.5rem 2rem;
-
-      width: 100%;
-      max-width: 460px;
-
-      text-align: center;
-    }
-
-
-    .gate-logo {
-      width: 90px;
-
-      border-radius: 50%;
-
-      border: 4px solid var(--yellow);
-
-      box-shadow: 4px 4px 0 var(--red);
-
-      margin-bottom: 1.25rem;
-    }
-
-
-    .gate-title {
-      font-family: 'Bangers', cursive;
-
-      font-size: clamp(1.8rem, 6vw, 2.6rem);
-
-      letter-spacing: 2px;
-
-      color: var(--yellow);
-
-      text-shadow: 3px 3px 0 var(--red);
-
-      line-height: 1;
-
-      margin-bottom: 8px;
-    }
-
-
-    .gate-sub {
-      font-family: 'Fredoka One', cursive;
-
-      font-size: .95rem;
-
-      color: rgba(255,255,255,.65);
-
-      margin-bottom: 1.75rem;
-
-      line-height: 1.5;
-    }
-
-
-    .gate-label {
-      font-family: 'Bangers', cursive;
-
-      font-size: .85rem;
-
-      letter-spacing: .18em;
-
-      color: rgba(255,255,255,.5);
-
-      text-align: left;
-
-      margin-bottom: .5rem;
-    }
-
-
-    #key-input {
-      width: 100%;
-
-      background: #0d0d0d;
-
-      border: 3px solid #444;
-
-      border-radius: 6px;
-
-      padding: .85rem 1rem;
-
-      font-family: 'Fredoka One', cursive;
-
-      font-size: .95rem;
-
-      color: var(--white);
-
-      outline: none;
-
-      transition: border-color .2s;
-
-      margin-bottom: .85rem;
-    }
-
-
-    #key-input::placeholder {
-      color: #555;
-    }
-
-
-    #key-input:focus {
-      border-color: var(--yellow);
-    }
-
-
-    #key-input.shake {
-      animation: shake .4s ease;
-      border-color: var(--red);
-    }
-
-
-    @keyframes shake {
-
-      0%, 100% {
-        transform: translateX(0);
-      }
-
-      25% {
-        transform: translateX(-8px);
-      }
-
-      75% {
-        transform: translateX(8px);
-      }
-
-    }
-
-
-    #verify-btn {
-      width: 100%;
-
-      background: var(--red);
-
-      color: var(--white);
-
-      border: 4px solid var(--yellow);
-
-      border-radius: 8px;
-
-      padding: .95rem 1rem;
-
-      font-family: 'Bangers', cursive;
-
-      font-size: 1.4rem;
-
-      letter-spacing: 2px;
-
-      cursor: pointer;
-
-      box-shadow: 6px 6px 0 var(--yellow);
-
-      transition:
-        transform .1s,
-        box-shadow .1s;
-    }
-
-
-    #verify-btn:hover {
-      transform: translate(-2px,-2px);
-      box-shadow: 8px 8px 0 var(--yellow);
-    }
-
-
-    #verify-btn:active {
-      transform: translate(1px,1px);
-      box-shadow: 3px 3px 0 var(--yellow);
-    }
-
-
-    #verify-btn:disabled {
-      opacity: .55;
-      cursor: not-allowed;
-    }
-
-
-    #error-msg {
-      font-family: 'Fredoka One', cursive;
-
-      font-size: .9rem;
-
-      color: var(--red);
-
-      margin-top: .85rem;
-
-      display: none;
-
-      line-height: 1.4;
-    }
-
-
-    .gate-help {
-      margin-top: 1.5rem;
-
-      padding-top: 1.25rem;
-
-      border-top: 3px dashed rgba(255,255,255,.12);
-
-      font-family: 'Fredoka One', cursive;
-
-      font-size: .82rem;
-
-      color: rgba(255,255,255,.45);
-
-      line-height: 1.6;
-    }
-
-
-    .gate-help a {
-      color: var(--yellow);
-      text-decoration: none;
-    }
-
-
-    .gate-help a:hover {
-      text-decoration: underline;
-    }
-
-
-    .spinner {
-      display: inline-block;
-
-      width: 14px;
-      height: 14px;
-
-      border: 2px solid rgba(255,255,255,.3);
-      border-top-color: var(--white);
-
-      border-radius: 50%;
-
-      animation: spin .7s linear infinite;
-
-      vertical-align: middle;
-
-      margin-right: 6px;
-    }
-
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-
-    /* =========================================================
-       SIGN OUT BAR
-    ========================================================= */
-
-    #signout-bar {
-      display: none;
-
-      position: sticky;
-      top: 0;
-
-      z-index: 1000;
-
-      background: #090909;
-
-      padding: 9px 20px;
-
-      text-align: right;
-
-      border-bottom: 3px solid var(--yellow);
-    }
-
-
-    #signout-bar button {
-      background: transparent;
-
-      border: 2px solid var(--yellow);
-
-      color: var(--yellow);
-
-      font-family: 'Bangers', cursive;
-
-      font-size: 13px;
-
-      letter-spacing: 1.5px;
-
-      padding: 5px 14px;
-
-      border-radius: 4px;
-
-      cursor: pointer;
-    }
-
-
-    #signout-bar button:hover {
-      background: var(--yellow);
-      color: #111;
-    }
-
-
-    /* =========================================================
        MAIN CONTENT
     ========================================================= */
 
@@ -497,81 +157,6 @@
       color: var(--yellow);
 
       margin-bottom: 0;
-    }
-
-
-    .hero-title-img {
-      width: min(620px, 92vw);
-
-      display: block;
-    }
-
-
-    .hero-scroll {
-      margin-top: 45px;
-
-      font-family: 'Bangers', cursive;
-
-      font-size: 1.1rem;
-
-      letter-spacing: .14em;
-
-      color: var(--red);
-
-      animation: bounce 2s infinite;
-    }
-
-
-    @keyframes bounce {
-
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(8px);
-      }
-
-    }
-
-
-    /* =========================================================
-       SECTION HEADINGS
-    ========================================================= */
-
-    .section-heading {
-      font-family: 'Bangers', cursive;
-
-      font-size: clamp(2.6rem, 7vw, 4.6rem);
-
-      letter-spacing: .06em;
-
-      color: var(--yellow);
-
-      text-shadow: 5px 5px 0 var(--red);
-
-      text-align: center;
-
-      line-height: 1;
-
-      margin-bottom: 18px;
-    }
-
-
-    .section-sub {
-      max-width: 680px;
-
-      margin: 0 auto 45px;
-
-      text-align: center;
-
-      font-family: 'Fredoka One', cursive;
-
-      font-size: 1rem;
-
-      line-height: 1.6;
-
-      color: rgba(255,255,255,.7);
     }
 
 
@@ -1156,10 +741,6 @@
 
     @media (max-width: 420px) {
 
-      .gate-card {
-        padding: 2rem 1.25rem;
-      }
-
       .newsletter-button {
         flex-direction: column;
         align-items: stretch;
@@ -1458,20 +1039,23 @@
 
 
 
-          <!-- EPISODE 11 -->
+          <!-- EPISODE 11 (NOW LIVE) -->
 
-          <div class="coming-soon-card">
+          <a
+            href="https://bookshelfbliss.com/blogs/comics/episode-11"
+            class="episode-card"
+          >
 
             <img
-              src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/IMG-20260406-WA0002_2.jpg?v=1780351829"
+              src="https://cdn.shopify.com/s/files/1/0769/3765/8589/files/cover11s.jpg?v=1788819594"
               alt="Episode 11"
             />
 
-            <div class="coming-soon-label">
-              EPISODE 11 — OCTOBER 🗓️
+            <div class="episode-label">
+              EPISODE 11 — READ NOW!
             </div>
 
-          </div>
+          </a>
 
 
 
@@ -1650,9 +1234,6 @@
 
 
   </div>
-
-
-
 
 </body>
 
