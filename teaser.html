@@ -87,6 +87,21 @@
       font-size:1rem; line-height:1.5; color:rgba(255,255,255,.78); max-width:420px;
     }
     .note strong { color:var(--yellow); }
+  
+    /* Laptop / desktop windows that are wide but not tall: put the headline beside the
+       video and shrink the video to fit, so the whole player is visible without scrolling. */
+    @media (min-width: 900px) and (max-height: 950px) {
+      .hero { display:flex; align-items:center; justify-content:center; gap:16px; padding:10px 20px; }
+      .hero img { width:64px; margin:0; }
+      .stage {
+        display:grid; grid-template-columns: minmax(0,420px) auto; grid-template-areas: "title panel" "note panel";
+        grid-template-rows: auto auto; align-content:center; justify-content:center;
+        column-gap:70px; row-gap:24px; padding:22px 24px; min-height:calc(100vh - 92px);
+      }
+      .stage h1 { grid-area:title; align-self:end; text-align:left; font-size:clamp(2.4rem,4.4vw,3.6rem); }
+      .stage .note { grid-area:note; align-self:start; text-align:left; }
+      .panel { grid-area:panel; width:clamp(200px, calc((100vh - 225px) * 9 / 16), 380px); }
+    }
   </style>
 </head>
 <body>
@@ -125,11 +140,13 @@
   var v = document.getElementById('teaser');
   var overlay = document.getElementById('play');
   var text = document.getElementById('play-text');
+
   overlay.addEventListener('click', function () {
     v.setAttribute('controls', '');
     overlay.classList.add('hidden');
     v.play();
   });
+
   v.addEventListener('ended', function () {
     text.textContent = 'WATCH AGAIN!';
     overlay.classList.remove('hidden');
